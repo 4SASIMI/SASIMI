@@ -1,108 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Profile</title>
-
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <title>Document</title>
 </head>
 
 <body>
 
-  <div id="profile">
-
-    <div id="image">
-      <img src="/image/logo.png">
-      <div id="imageBtn">
-        <input type="button" value="수정">
-        <input type="button" value="삭제">
-      </div>
-    </div>
-
-    <div id="intro">
-      <div class="boxs">
-        <h2>닉네임</h2>
-        <div>
-          <div>리기동</div>
-        </div>
-        <!-- <div class="editFormBtn">
-          <form>
-            <div class="textField">
-              <input type="text" name="name" class="textFieldInput" placeholder="닉네임">
-            </div>
-            <div class="buttonField">
-              <button type="button">변경하기</button>
-              <button type="button">취소</button>
-            </div>
-          </form>
-        </div> -->
-        <span>
-          <img src="/image/button.png">
-        </span>
-      </div>
-      <div class="boxs">
-        <h2>블로그</h2>
-        <!-- <div>
-          <div><a href="http://blog.naver.com/NBlogTop.naver?blogId=ki_dongg">블로그</a></div>
-        </div> -->
-        <div class="editFormBtn">
-          <form>
-            <div class="textField">
-              <input type="text" name="name" class="textFieldInput" placeholder="블로그">
-            </div>
-            <div class="buttonField">
-              <button type="button">변경하기</button>
-              <button type="button">취소</button>
-            </div>
-          </form>
-        </div>
-        <span>
-          <img src="/image/button.png">
-        </span>
-      </div><div class="boxs">
-        <h2>출생년도</h2>
-        <div>
-          <div>1996</div>
-        </div>
-        <span>
-          <img src="/image/button.png">
-        </span>
-      </div><div class="boxs">
-        <h2>성별</h2>
-        <!-- <div>
-          <div>남자</div>
-        </div> -->
-        <div class="editFormTgl">
-          <form>
-            <select name="gender" class="textFieldInput">
-              <option value="E">기타</option>
-              <option value="W">여성</option>
-              <option value="M">남성</option>
-            </select>
-            <div class="buttonField">
-              <button type="button">변경하기</button>
-              <button type="button">취소</button>
-            </div>
-          </form>
-        </div>
-        <span>
-          <img src="/image/button.png">
-        </span>
-      </div><div class="boxs">
-        <h2>자기소개</h2>
-        <div>
-          <div>안녕하세요 ···</div>
-        </div>
-        <span>
-          <img src="/image/button.png">
-        </span>
-      </div>
-    </div>
-
+  <div id="root">
+    <nav id="main-nav">
+      <a href="#" onclick="route(event)">Home</a>
+      <a href="#page1" onclick="route(event)">Page1</a>
+      <a href="#page2" onclick="route(event)">Page2</a>
+      <a href="#profile" onclick="route(event)">Profile</a>
+    </nav>
+    <div id="main-page"></div>
   </div>
 
+  <script src="js/main.js" type="module" />
 </body>
 </html>
