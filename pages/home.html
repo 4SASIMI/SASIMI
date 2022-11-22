@@ -2,9 +2,28 @@
     <h1>
         홈입니다
     </h1>
-    <!-- 로그인 전 -->
-    <div id="dropdownLogin">
-        <!-- <button onclick="goToProfile()">로그인</button> -->
-        <button onclick="logout()">로그아웃</button>
+
+    <div class="navbarUser">
+        <button type="button" class="navbarUserAccountTrriger" onclick="onToggle()">
+            🔪
+        </button>
+        <ul class="navbarUserAccountMenu">
+            <li><a class="userName" href="#blog">내 블로그</a></li>
+            <li><a class="userSetting" href="#profile">프로필 설정</a></li>
+            <li><a class="logoutBtn" href="#" onclick="logout()">로그아웃</a></li>
+        </ul>
     </div>
+    <!-- 로그인 전 -->
+    <!-- <div class="navbarUser">
+        <button class="navbarUserAccountTrriger">
+            <span class="emoji">🔪</span>
+        </button>
+        <div id="navbarUserAccountMenu">
+            <a class="userName" href="#blog">내 블로그</a>
+            <a class="userSetting" href="#profile">프로필 설정</a>
+            <div class="userLogout">
+                <button class="logout" onclick="logout()">로그아웃</button>
+            </div>
+        </div>   
+    </div> -->
 </div>

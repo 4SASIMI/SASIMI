@@ -96,8 +96,14 @@ export const handleAuth = (event) => {
     }
 };
 
-// 로그인, 회원가입 화면 토글링 기능
-// export const onToggle = () => {
+// 홈 화면 드롭다운 버튼 기능
+export function onToggle() {
+    const ulElement = document.querySelector(".navbarUserAccountMenu")
+
+    ulElement.classList.toggle("active");
+
+}
+
 //     const loginBtn = document.querySelector("#loginBtn");
 //     const loginOption = document.querySelector("#loginOption");
 //     // const loginLogoTitle = document.querySelector("#loginLogoTitle");
@@ -143,4 +149,5 @@ export const logout = () => {
             // An error happened.
             console.log("error:", error);
         });
+
 };
