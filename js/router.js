@@ -6,6 +6,7 @@ const routes = {
     404: "/pages/404.html",
     home: "/pages/home.html",
     "/": "/pages/login.html",
+    register: "/pages/register.html"
 
 };
 

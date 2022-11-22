@@ -1,5 +1,5 @@
-import { handleAuth, onToggle, logout } from "./pages/login.js";
-import { socialLogin } from "./pages/login.js";
+// import { handleAuth, onToggle, logout } from "./pages/login.js";
+import { handleAuth, logout, socialLogin } from "./pages/login.js";
 import { handleLocation, goToProfile } from "./router.js";
 import { authService } from "./firebase.js";
 
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         handleLocation();
         const hash = window.location.hash;
         if (user) {
-            // 로그인 상태이므로 항상 팬명록 화면으로 이동
+            // 로그인 상태이므로 항상 홈화면으로 이동
             if (hash === "") {
                 // 로그인 상태에서는 로그인 화면으로 되돌아갈 수 없게 설정
                 window.location.replace("#home");
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // type=module, 모듈객체는 지역적으로 밖에 사용 불가. 따라서 윈도우객체에 할당함으로써 전역적으로 사용 가능해짐
 // onclick, onchange, onsubmit 이벤트 핸들러 리스트
-window.onToggle = onToggle;
+// window.onToggle = onToggle;
 window.handleAuth = handleAuth;
 window.goToProfile = goToProfile;
 window.socialLogin = socialLogin;
