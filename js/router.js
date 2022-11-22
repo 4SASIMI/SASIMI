@@ -6,7 +6,7 @@ const routes = {
     404: "/pages/404.html",
     home: "/pages/home.html",
     "/": "/pages/login.html",
-
+    profile: "/pages/profile.html",
 };
 
 export const handleLocation = async () => {
@@ -36,13 +36,13 @@ export const handleLocation = async () => {
 
         getCommentList();
     }
-    if (path === "profile") {
-        // 프로필 관리 화면 일 때 현재 프로필 사진과 닉네임 할당
-        document.getElementById("profileView").src =
-            authService.currentUser.photoURL ?? "/assets/blankProfile.webp";
-        document.getElementById("profileNickname").placeholder =
-            authService.currentUser.displayName ?? "닉네임 없음";
-    }
+    // if (path === "profile") {
+    //     // 프로필 관리 화면 일 때 현재 프로필 사진과 닉네임 할당
+    //     document.getElementById("profileView").src =
+    //         authService.currentUser.photoURL ?? "/assets/blankProfile.webp";
+    //     document.getElementById("profileNickname").placeholder =
+    //         authService.currentUser.displayName ?? "닉네임 없음";
+    // }
 };
 
 export const goToProfile = () => {

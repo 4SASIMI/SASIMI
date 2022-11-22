@@ -1,4 +1,4 @@
-body {
+* {
   background: #eae7de;
 }
 
@@ -55,4 +55,35 @@ a {
 
   padding: 10px 0 10px 10px;
   margin-bottom: 10px;
+}
+
+.filebox > label {
+  display: inline-block;
+  padding: .5em .75em;
+  color: black;
+  font-size: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  border: 1px solid black;
+  border-bottom-color: black;
+  border-radius: .25em;
+}
+
+/* 파일 필드 숨기기 */
+.filebox input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+}
+
+#intro {
+  font-size: 1.5rem;
+  line-height: 150%;
 }
