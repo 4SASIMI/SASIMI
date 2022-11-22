@@ -4,17 +4,17 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 import { getStorage } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js";
 
-// 아래 데이터는 본인의 Firebase 프로젝트 설정에서 확인할 수 있습니다.
 const firebaseConfig = {
-  apiKey: "AIzaSyDKfOUw7pm2pjBTVI6-aECxQH5zYzxpIzQ",
-  authDomain: "test-54e00.firebaseapp.com",
-  projectId: "test-54e00",
-  storageBucket: "test-54e00.appspot.com",
-  messagingSenderId: "101690308670",
-  appId: "1:101690308670:web:cc96962508c752afa7f96f"
+    apiKey: "AIzaSyD3VC59GW4PThj9CGaFHAkWtzasilSMV5o",
+    authDomain: "sasimi-6c3b7.firebaseapp.com",
+    projectId: "sasimi-6c3b7",
+    storageBucket: "sasimi-6c3b7.appspot.com",
+    messagingSenderId: "600743418210",
+    appId: "1:600743418210:web:4389b2980bc764ae0ff43b",
+    measurementId: "G-R3Z13X97V4"
 };
 
-// Initialize Firebase
+
 export const app = initializeApp(firebaseConfig);
 export const dbService = getFirestore(app);
 export const authService = getAuth(app);
