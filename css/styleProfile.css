@@ -12,7 +12,7 @@ a {
   padding: 0 5% 0 5%;
 }
 
-#image {
+#profileImageForm {
   border: 1px solid #051619;
 
   padding: 1.5rem 2rem;
@@ -20,13 +20,17 @@ a {
   margin-bottom: 1.5rem;
 }
 
-#image > img {
+#profileImageForm > img {
   width: 250px;
   height: 250px;
 
   border: 1px solid #051619;
 
   margin-bottom: 1rem;
+}
+
+#profileBtn {
+  margin-top: 1rem;
 }
 
 .boxs {
@@ -57,7 +61,7 @@ a {
   margin-bottom: 10px;
 }
 
-.filebox > label {
+/* .filebox > label {
   display: inline-block;
   padding: .5em .75em;
   color: black;
@@ -71,7 +75,7 @@ a {
   border-radius: .25em;
 }
 
-/* 파일 필드 숨기기 */
+파일 필드 숨기기
 .filebox input[type="file"] {
   position: absolute;
   width: 1px;
@@ -81,9 +85,8 @@ a {
   overflow: hidden;
   clip:rect(0,0,0,0);
   border: 0;
-}
+} */
 
 #intro {
-  font-size: 1.5rem;
   line-height: 150%;
 }

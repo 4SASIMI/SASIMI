@@ -1,13 +1,12 @@
 <div id="profile">
 
-  <form id="image">
-    <img src="/assets/logo.png">
-      <!-- <input id="imgUpload" type="file" value="업로드"></br>  -->
-      <!-- <input type="button" value="수정"> -->
-      <!-- <input type="button" value="삭제"> -->
-    <div class="filebox">
-      <label for="ex_file">업로드</label>
-      <input type="file" id="ex_file"> 
+  <form onsubmit="changeProfile(event)" id="profileImageForm">
+    <img id="image" src="/assets/logo.png">
+    <div>
+      <input onchange="onFileChange(event)" id="imgUpload" type="file" value="업로드" accept="images/*">
+    </div>
+    <div>
+      <input id="profileBtn" type="submit" value="프로필 변경">
     </div>
   </form>
 
@@ -24,8 +23,8 @@
           </div>
           <div class="buttonField">
             <button type="button" onclick="changeName()">변경하기</button>
-            <button type="button" onclick="closeEditBoxName()">취소</button>
           </div>
+          <button type="button" onclick="closeEditBoxName()">취소</button>
         </form>
       </div>
       <span>
@@ -74,29 +73,6 @@
         <img onclick="openEditBoxBirth()" src="/assets/button.png">
       </span>
     </div>
-    
-    <!-- <div class="boxs">
-    <h2>성별</h2>
-      <div>
-        <div>남자</div>
-      </div>
-      <div class="editFormTgl">
-        <form>
-          <select name="gender" class="textFieldInput">
-            <option value="E">기타</option>
-            <option value="W">여성</option>
-            <option value="M">남성</option>
-          </select>
-          <div class="buttonField">
-            <button type="button">변경하기</button>
-            <button type="button">취소</button>
-          </div>
-        </form>
-      </div>
-      <span>
-        <img src="/assets/button.png">
-      </span>
-    </div> -->
     
     <div class="boxs">
       <h2>자기소개</h2>

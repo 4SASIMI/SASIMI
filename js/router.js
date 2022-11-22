@@ -26,16 +26,16 @@ export const handleLocation = async () => {
     document.getElementById("root").innerHTML = html;
 
     // 특정 화면 렌더링 되자마자 DOM 조작 처리
-    if (path === "fanLog") {
-        // 로그인한 회원의 프로필사진과 닉네임을 화면에 표시해줌.
-        document.getElementById("nickname").textContent =
-            authService.currentUser.displayName ?? "닉네임 없음";
+    // if (path === "fanLog") {
+    //     // 로그인한 회원의 프로필사진과 닉네임을 화면에 표시해줌.
+    //     document.getElementById("nickname").textContent =
+    //         authService.currentUser.displayName ?? "닉네임 없음";
 
-        document.getElementById("profileImg").src =
-            authService.currentUser.photoURL ?? "../assets/blankProfile.webp";
+    //     document.getElementById("profileImg").src =
+    //         authService.currentUser.photoURL ?? "../assets/blankProfile.webp";
 
-        getCommentList();
-    }
+    //     getCommentList();
+    // }
     // if (path === "profile") {
     //     // 프로필 관리 화면 일 때 현재 프로필 사진과 닉네임 할당
     //     document.getElementById("profileView").src =
