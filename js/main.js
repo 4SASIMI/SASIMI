@@ -3,11 +3,11 @@ import { socialLogin } from "./pages/login.js";
 import { handleLocation, goToProfile } from "./router.js";
 import { authService } from "./firebase.js";
 import { openEditBoxName, closeEditBoxName, openEditBoxBlog, 
-    closeEditBoxBlog, changeBlog, openEditBoxBirth, closeEditBoxBirth, 
-    changeBirth, openEditBoxText, closeEditBoxText, changeText, changeProfile, onFileChange} from "./pages/profile_img.js";
-import { saveName } from "./pages/profile_text.js";
+    closeEditBoxBlog, openEditBoxBirth, closeEditBoxBirth, 
+    openEditBoxText, closeEditBoxText, changeProfile, onFileChange} from "./pages/profile_img.js";
+import { saveName, saveBlog, saveBirth, saveText, getBirth } from "./pages/profile_text.js";
 
-//생략 : changeName
+//생략 : changeName, changeBlog, changeBirth, changeText
 
 // url 바뀌면 handleLocation 실행하여 화면 변경
 window.addEventListener("hashchange", handleLocation);
@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     authService.onAuthStateChanged((user) => {
         // Firebase 연결되면 화면 표시
         // handleLocation() : 화면을 띄우는 역할
+        console.log(user);
         handleLocation();
         const hash = window.location.hash;
         if (user) {
@@ -52,15 +53,19 @@ window.closeEditBoxName = closeEditBoxName;
 // window.changeName = changeName;
 window.openEditBoxBlog = openEditBoxBlog;
 window.closeEditBoxBlog = closeEditBoxBlog;
-window.changeBlog = changeBlog;
+// window.changeBlog = changeBlog;
 window.openEditBoxBirth = openEditBoxBirth;
 window.closeEditBoxBirth = closeEditBoxBirth;
-window.changeBirth = changeBirth;
+// window.changeBirth = changeBirth;
 window.openEditBoxText = openEditBoxText;
 window.closeEditBoxText = closeEditBoxText;
-window.changeText = changeText;
+// window.changeText = changeText;
 
 window.onFileChange = onFileChange;
 window.changeProfile = changeProfile;
 
 window.saveName = saveName;
+window.saveBlog = saveBlog;
+window.saveBirth = saveBirth;
+window.saveText = saveText;
+window.getBirth = getBirth;

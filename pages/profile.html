@@ -14,15 +14,16 @@
     <div class="boxs">
       <h2>이름</h2>
       <div id="name">
-        <div>리기동</div>
+        <div id="nameText">리기동</div>
       </div>
       <div id="editName" class="editFormBtn" style="display: none">
         <form>
           <div class="textField">
-            <input type="text" id="comment" name="name" class="textFieldInput" placeholder="닉네임">
+            <input type="text" id="nameComment" name="name" class="textFieldInput" placeholder="닉네임">
           </div>
           <div class="buttonField">
-            <button type="button" onclick="saveName(event)">변경하기</button>
+            <button type="button" id="saveNameButton" onclick="saveName(event)">변경하기</button>
+            <!-- <button type="button" id="editButton" style="display: none;" onclick="editName(event)">변경하기</button> -->
             <button type="button" onclick="closeEditBoxName()">취소</button>
           </div>
         </form>
@@ -40,10 +41,10 @@
       <div id="editBlog" class="editFormBtn" style="display: none">
         <form>
           <div class="textField">
-            <input type="text" name="blog" class="textFieldInput" placeholder="블로그">
+            <input type="text" id="blogComment" name="blog" class="textFieldInput" placeholder="블로그">
           </div>
           <div class="buttonField">
-            <button type="button" onclick="changeBlog()">변경하기</button>
+            <button type="button" id="saveBlogButton" onclick="saveBlog(event)">변경하기</button>
             <button type="button" onclick="closeEditBoxBlog()">취소</button>
           </div>
         </form>
@@ -56,15 +57,15 @@
     <div class="boxs">
       <h2>출생년도</h2>
       <div id="birth">
-        <div>1996</div>
+        <div id="birthText">1996</div>
       </div>
       <div id="editBirth" class="editFormBtn" style="display: none">
         <form>
           <div class="textField">
-            <input type="text" name="birth" class="textFieldInput" placeholder="출생년도">
+            <input type="text" id="birthComment" name="birth" class="textFieldInput" placeholder="출생년도">
           </div>
           <div class="buttonField">
-            <button type="button" onclick="changeBirth()">변경하기</button>
+            <button type="button" id="saveBlogButton" onclick="saveBirth(event)">변경하기</button>
             <button type="button" onclick="closeEditBoxBirth()">취소</button>
           </div>
         </form>
@@ -75,17 +76,17 @@
     </div>
     
     <div class="boxs">
-      <h2>자기소개</h2>
-      <div id="text">
-        <div>안녕하세요 ···</div>
+      <h2 id="h2">자기소개</h2>
+      <div>
+        <div id="text">안녕하세요 ···</div>
       </div>
       <div id="editText" class="editFormBtn" style="display: none">
         <form>
           <div class="textField">
-            <input type="textarea" name="intro" class="textFieldInput" placeholder="자기소개" style="width: 90%; height: 200px;">
+            <input type="textarea" id="textComment" name="intro" class="textFieldInput" placeholder="자기소개" style="width: 90%; height: 200px;">
           </div>
           <div class="buttonField">
-            <button type="button" onclick="changeText()">변경하기</button>
+            <button type="button" id="saveTextButton" onclick="saveText(event)">변경하기</button>
             <button type="button" onclick="closeEditBoxText()">취소</button>
           </div>
         </form>

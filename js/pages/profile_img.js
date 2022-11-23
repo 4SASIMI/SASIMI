@@ -98,24 +98,24 @@ export function closeEditBoxBlog() {
   editBlog.style.display='none';
 }
 
-export function changeBlog() {
-  let blog = document.getElementById('blog');
-  let editBlog = document.getElementById('editBlog');
+// export function changeBlog() {
+//   let blog = document.getElementById('blog');
+//   let editBlog = document.getElementById('editBlog');
 
-  // let blogVal = blog.childNodes[1].innerText;
-  let editBlogVal = editBlog.childNodes[1].childNodes[1].childNodes[1].value;
+//   // let blogVal = blog.childNodes[1].innerText;
+//   let editBlogVal = editBlog.childNodes[1].childNodes[1].childNodes[1].value;
 
-  console.log(blog.childNodes[1].childNodes[0].getAttribute('href'));
+//   console.log(blog.childNodes[1].childNodes[0].getAttribute('href'));
 
-  blog.childNodes[1].childNodes[0].removeAttribute('href');
-  console.log(blog.childNodes[1].childNodes[0].getAttribute('href'));
+//   blog.childNodes[1].childNodes[0].removeAttribute('href');
+//   console.log(blog.childNodes[1].childNodes[0].getAttribute('href'));
 
-  blog.childNodes[1].childNodes[0].setAttribute('href', editBlogVal);
-  console.log(blog.childNodes[1].childNodes[0].getAttribute('href'));
+//   blog.childNodes[1].childNodes[0].setAttribute('href', editBlogVal);
+//   console.log(blog.childNodes[1].childNodes[0].getAttribute('href'));
 
-  blog.style.display='block';
-  editBlog.style.display='none';
-}
+//   blog.style.display='block';
+//   editBlog.style.display='none';
+// }
 
 /////////////////////////////////////////////////////
 
@@ -135,17 +135,17 @@ export function closeEditBoxBirth() {
   editBirth.style.display='none';
 }
 
-export function changeBirth() {
-  let birth = document.getElementById('birth');
-  let editBirth = document.getElementById('editBirth');
+// export function changeBirth() {
+//   let birth = document.getElementById('birth');
+//   let editBirth = document.getElementById('editBirth');
 
-  let editBirthVal = editBirth.childNodes[1].childNodes[1].childNodes[1].value;
+//   let editBirthVal = editBirth.childNodes[1].childNodes[1].childNodes[1].value;
 
-  birth.childNodes[1].innerText = editBirthVal;
+//   birth.childNodes[1].innerText = editBirthVal;
   
-  birth.style.display='block';
-  editBirth.style.display='none';
-}
+//   birth.style.display='block';
+//   editBirth.style.display='none';
+// }
 
 /////////////////////////////////////////////////////
 
@@ -153,26 +153,29 @@ export function openEditBoxText() {
   let text = document.getElementById('text');
   let editText = document.getElementById('editText');
 
-  text.style.display='none';
+  // text.style.display='none';
+  text.parentElement.remove();
   editText.style.display='block';
 }
 
 export function closeEditBoxText() {
-  let text = document.getElementById('text');
+  // let text = document.getElementById('text');
+  let h2 = document.getElementById('h2');
   let editText = document.getElementById('editText');
 
-  text.style.display='block';
+  // text.style.display='block';
+  h2.insertAdjacentHTML('afterend', `<div> <div id="text">안녕하세요 ···</div></div>` )
   editText.style.display='none';
 }
 
-export function changeText() {
-  let text = document.getElementById('text');
-  let editText = document.getElementById('editText');
+// export function changeText() {
+//   let text = document.getElementById('text');
+//   let editText = document.getElementById('editText');
 
-  let editTextVal = editText.childNodes[1].childNodes[1].childNodes[1].value;
+//   let editTextVal = editText.childNodes[1].childNodes[1].childNodes[1].value;
 
-  text.childNodes[1].innerText = editTextVal;
+//   text.childNodes[1].innerText = editTextVal;
   
-  text.style.display='block';
-  editText.style.display='none';
-}
+//   text.style.display='block';
+//   editText.style.display='none';
+// }

@@ -1,4 +1,4 @@
-import { authService } from "./firebase.js";
+import { authService, dbService } from "./firebase.js";
 
 
 const routes = {
@@ -40,8 +40,10 @@ export const handleLocation = async () => {
         // 프로필 관리 화면 일 때 현재 프로필 사진과 닉네임 할당
         document.getElementById("image").src =
             authService.currentUser.photoURL ?? "/assets/blankProfile.webp";
-        // document.getElementById("profileNickname").placeholder =
-        //     authService.currentUser.displayName ?? "닉네임 없음";
+        document.getElementById("nameText").innerHTML =
+            authService.currentUser.displayName ?? "이름 없음";
+        // document.getElementById("birthText").innerHTML =
+        //     authService.currentUser.tenantId ?? "출생년도 없음";            
     }
 };
 
