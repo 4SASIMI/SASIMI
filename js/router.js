@@ -2,10 +2,10 @@ import { authService } from "./firebase.js";
 
 
 const routes = {
-
+    "/": "/pages/feed.html",  
+    newPost: "/pages/newPost.html",
     404: "/pages/404.html",
-    home: "/pages/home.html",
-    "/": "/pages/login.html",
+    login: "/pages/login.html",
     profile: "/pages/profile.html",
 };
 
