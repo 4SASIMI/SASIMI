@@ -1,39 +1,37 @@
-<section id="loginPage">
-    <form id="loginWrap">
-        <form onsubmit="handleAuth(event)">
-            <!-- <header class="login-head">
-                <a class="loginLogoTitle"><span class="ab-text">사시미</span></a>
-            </header>
-           
-            <div class="login-divider">칸 나누기</div> -->
-            <div class="loginSocial">
-                <button type="button" class="loginSocialGoogle btn">
-                    <span>
-                        <img src="/assest/logo-google.svg">
-                    </span>
-                    "구글로 시작하기"
-                </button>
-                <button type="button" class="loginSocialGithub btn">깃허브로 시작하기</button>
-            </div>
-
-            <div class="authInput">
-                <input type="email" id="email" class="textfield-input" placeholder="이메일" value>
-            </div>
-            <div class="authInput">
-                <input type="password" id="password" class="textfield-input" placeholder="비밀번호" value>
-            </div>
-            <section class="loginBtnSection">
-                <input type="submit" id="loginBtn" value="로그인" />
-                <p id="loginOption">
-                    <a class="loginOptionLink" href="#register">회원가입</a>
-                </p>
-                <!-- <p id="loginOption" onclick="onToggle()">회원가입하기</p> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="loginPage">
+        <div id="loginWrap">
+            <form onsubmit="handleAuth(event)">
+                <!-- <header class="login-head">
+                    <a class="loginLogoTitle"><span class="ab-text">사시미</span></a>
+                </header>
+                
+                <div class="login-divider">칸 나누기</div> -->
+                <div class="authInput">
+                    <input type="email" id="email" class="textfield-input" placeholder="이메일" value>
+                </div>
+                <div class="authInput">
+                    <input type="password" id="password" class="textfield-input" placeholder="비밀번호" value>
+                </div>
+                <section class="loginBtnSection">
+                    <input type="submit" id="loginBtn" value="로그인" />
+                    <p id="loginOption" onclick="onToggle()">회원가입하기</p>
+                </section>
+            </form>
+            <section class="socialLoginBtn">
+                <button name="goole" onclick="socialLogin(event)">구글로 가입하기</button>
+                <button name="github" onclick="socialLogin(event)">깃허브로 가입하기</button>
             </section>
-        </form>
-        <!-- <section class="socialLoginBtn">
-            <button name="google" onclick="socialLogin(event)">구글로 가입하기</button>
-            <button name="github" onclick="socialLogin(event)">깃허브로 가입하기</button>
-        </section> -->
-
-    </form>
-</section>
+        </div>  
+    </div>
+    
+</body>
+</html>
