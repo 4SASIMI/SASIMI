@@ -1,0 +1,47 @@
+.header {
+    height: 200px;
+    border-bottom: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    position: absolute;
+    font-size: 60px;
+    font-weight: 700;
+    text-decoration: none;
+    color: initial;
+}
+
+.rightBtn {
+    position: absolute;
+    right: 43px;
+    border: 1px solid;
+    display: flex;
+    text-align: center;
+}
+
+.btnIcon {
+    color: initial;
+    text-decoration: none;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#newPost {
+    border-right: 1px solid;
+}
+
+#newPost::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f044";
+}
+
+#dropDown::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f007";
+}

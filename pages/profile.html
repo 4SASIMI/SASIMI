@@ -1,137 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div id="profile">
 
-  <title>Profile</title>
+  <form id="image">
+    <img src="/assets/logo.png">
+      <!-- <input id="imgUpload" type="file" value="업로드"></br>  -->
+      <!-- <input type="button" value="수정"> -->
+      <!-- <input type="button" value="삭제"> -->
+    <div class="filebox">
+      <label for="ex_file">업로드</label>
+      <input type="file" id="ex_file"> 
+    </div>
+  </form>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-  <link href="/css/style.css" rel="stylesheet" type="text/css" />
-
-  <script type="text/javascript" src="/js/pges/profile.js"></script>
-</head>
-
-<body>
-
-  <div id="profile">
-
-    <form id="image">
-      <img src="/assets/logo.png">
-      <div id="imageBtn">
-        <input id="imgUpload" type="file" value="업로드"></br> 
-        <input type="button" value="수정">
-        <input type="button" value="삭제">
+  <div id="intro">
+    <div class="boxs">
+      <h2>닉네임</h2>
+      <div id="name">
+        <div>리기동</div>
       </div>
-    </form>
-
-    <div id="intro">
-      <div class="boxs" onclick="editForm()">
-        <h2>닉네임</h2>
-        <div id="name">
-          <div>리기동</div>
-        </div>
-        <div id="editname" class="editFormBtn">
-          <form>
-            <div class="textField">
-              <input type="text" name="name" class="textFieldInput" placeholder="닉네임">
-            </div>
-            <div class="buttonField">
-              <button type="button">변경하기</button>
-              <button type="button">취소</button>
-            </div>
-          </form>
-        </div>
-        <span>
-          <img src="/assets/button.png">
-        </span>
+      <div id="editName" class="editFormBtn" style="display: none">
+        <form>
+          <div class="textField">
+            <input type="text" name="name" class="textFieldInput" placeholder="닉네임">
+          </div>
+          <div class="buttonField">
+            <button type="button" onclick="changeName()">변경하기</button>
+            <button type="button" onclick="closeEditBoxName()">취소</button>
+          </div>
+        </form>
       </div>
-      <div class="boxs">
-        <h2>블로그</h2>
-        <!-- <div>
-          <div><a href="http://blog.naver.com/NBlogTop.naver?blogId=ki_dongg">블로그</a></div>
-        </div> -->
-        <div class="editFormBtn">
-          <form>
-            <div class="textField">
-              <input type="text" name="blog" class="textFieldInput" placeholder="블로그">
-            </div>
-            <div class="buttonField">
-              <button type="button">변경하기</button>
-              <button type="button">취소</button>
-            </div>
-          </form>
-        </div>
-        <span>
-          <img src="/assets/button.png">
-        </span>
-      </div><div class="boxs">
-        <h2>출생년도</h2>
-        <!-- <div>
-          <div>1996</div>
-        </div> -->
-        <div class="editFormBtn">
-          <form>
-            <div class="textField">
-              <input type="text" name="birth" class="textFieldInput" placeholder="출생년도">
-            </div>
-            <div class="buttonField">
-              <button type="button">변경하기</button>
-              <button type="button">취소</button>
-            </div>
-          </form>
-        </div>
-        <span>
-          <img src="/assets/button.png">
-        </span>
-      </div><div class="boxs">
-        <h2>성별</h2>
-        <!-- <div>
-          <div>남자</div>
-        </div> -->
-        <div class="editFormTgl">
-          <form>
-            <select name="gender" class="textFieldInput">
-              <option value="E">기타</option>
-              <option value="W">여성</option>
-              <option value="M">남성</option>
-            </select>
-            <div class="buttonField">
-              <button type="button">변경하기</button>
-              <button type="button">취소</button>
-            </div>
-          </form>
-        </div>
-        <span>
-          <img src="/assets/button.png">
-        </span>
-      </div><div class="boxs">
-        <h2>자기소개</h2>
-        <!-- <div>
-          <div>안녕하세요 ···</div>
-        </div> -->
-        <div class="editFormBtn">
-          <form>
-            <div class="textField">
-              <input type="textarea" name="intro" class="textFieldInput" placeholder="자기소개">
-            </div>
-            <div class="buttonField">
-              <button type="button">변경하기</button>
-              <button type="button">취소</button>
-            </div>
-          </form>
-        </div>
-        <span>
-          <img src="/assets/button.png">
-        </span>
-      </div>
+      <span>
+        <img onclick="openEditBoxName()" src="/assets/button.png">
+      </span>
     </div>
 
+    <div class="boxs">
+      <h2>블로그</h2>
+      <div id="blog">
+        <div><a href="http://blog.naver.com/NBlogTop.naver?blogId=ki_dongg">블로그</a></div>
+      </div>
+      <div id="editBlog" class="editFormBtn" style="display: none">
+        <form>
+          <div class="textField">
+            <input type="text" name="blog" class="textFieldInput" placeholder="블로그">
+          </div>
+          <div class="buttonField">
+            <button type="button" onclick="changeBlog()">변경하기</button>
+            <button type="button" onclick="closeEditBoxBlog()">취소</button>
+          </div>
+        </form>
+      </div>
+      <span>
+        <img onclick="openEditBoxBlog()" src="/assets/button.png">
+      </span>
+    </div>
+    
+    <div class="boxs">
+      <h2>출생년도</h2>
+      <div id="birth">
+        <div>1996</div>
+      </div>
+      <div id="editBirth" class="editFormBtn" style="display: none">
+        <form>
+          <div class="textField">
+            <input type="text" name="birth" class="textFieldInput" placeholder="출생년도">
+          </div>
+          <div class="buttonField">
+            <button type="button" onclick="changeBirth()">변경하기</button>
+            <button type="button" onclick="closeEditBoxBirth()">취소</button>
+          </div>
+        </form>
+      </div>
+      <span>
+        <img onclick="openEditBoxBirth()" src="/assets/button.png">
+      </span>
+    </div>
+    
+    <!-- <div class="boxs">
+    <h2>성별</h2>
+      <div>
+        <div>남자</div>
+      </div>
+      <div class="editFormTgl">
+        <form>
+          <select name="gender" class="textFieldInput">
+            <option value="E">기타</option>
+            <option value="W">여성</option>
+            <option value="M">남성</option>
+          </select>
+          <div class="buttonField">
+            <button type="button">변경하기</button>
+            <button type="button">취소</button>
+          </div>
+        </form>
+      </div>
+      <span>
+        <img src="/assets/button.png">
+      </span>
+    </div> -->
+    
+    <div class="boxs">
+      <h2>자기소개</h2>
+      <div id="text">
+        <div>안녕하세요 ···</div>
+      </div>
+      <div id="editText" class="editFormBtn" style="display: none">
+        <form>
+          <div class="textField">
+            <input type="textarea" name="intro" class="textFieldInput" placeholder="자기소개" style="width: 90%; height: 200px;">
+          </div>
+          <div class="buttonField">
+            <button type="button" onclick="changeText()">변경하기</button>
+            <button type="button" onclick="closeEditBoxText()">취소</button>
+          </div>
+        </form>
+      </div>
+      <span>
+        <img onclick="openEditBoxText()" src="/assets/button.png">
+      </span>
+    </div>
   </div>
+</div>
 
-</body>
-</html>

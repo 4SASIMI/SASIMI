@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 import { handleAuth, logout, socialLogin, onToggle } from "./pages/login.js";
+=======
+import { handleAuth, onToggle, logout, socialLogin } from "./pages/login.js";
+>>>>>>> origin/feature/feed
 import { handleLocation, goToProfile } from "./router.js";
 import { authService } from "./firebase.js";
+import { openEditBoxName, closeEditBoxName, changeName, openEditBoxBlog, 
+    closeEditBoxBlog, changeBlog, openEditBoxBirth, closeEditBoxBirth, 
+    changeBirth, openEditBoxText, closeEditBoxText, changeText} from "./pages/profile.js";
 
 
 // url 바뀌면 handleLocation 실행하여 화면 변경
@@ -11,20 +18,26 @@ document.addEventListener("DOMContentLoaded", function () {
     // Firebase 연결상태를 감시
     authService.onAuthStateChanged((user) => {
         // Firebase 연결되면 화면 표시
-        // handleLocation() : 화면을 띄우는 역할
         handleLocation();
         const hash = window.location.hash;
         if (user) {
+<<<<<<< HEAD
             // 로그인 상태이므로 항상 홈화면으로 이동
             if (hash === "") {
                 // 로그인 상태에서는 로그인 화면으로 되돌아갈 수 없게 설정
                 window.location.replace("#home");
+=======
+            console.log("로그인")
+            if (hash === "#login") {
+                window.location.replace("");
+>>>>>>> origin/feature/feed
             }
         } else {
+            console.log("로그아웃")
             // 로그아웃 상태이므로 로그인 화면으로 강제 이동
-            if (hash !== "") {
-                window.location.replace("");
-            }
+            // if (hash !== "") {
+            //     window.location.replace("");
+            // }
         }
     });
 });
