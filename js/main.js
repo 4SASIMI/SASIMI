@@ -1,4 +1,3 @@
-
 import { handleAuth, logout, socialLogin, onToggle } from "./pages/login.js";
 import { handleLocation, goToProfile } from "./router.js";
 import { authService } from "./firebase.js";
@@ -29,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("로그인")
             if (hash === "#login") {
                 window.location.replace("");
+
             }
         } else {
             console.log("로그아웃")
@@ -41,12 +41,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // type=module, 모듈객체는 지역적으로 밖에 사용 불가. 따라서 윈도우객체에 할당함으로써 전역적으로 사용 가능해짐
 // onclick, onchange, onsubmit 이벤트 핸들러 리스트
-window.onToggle = onToggle;
+
 window.handleAuth = handleAuth;
 window.goToProfile = goToProfile;
 window.socialLogin = socialLogin;
 window.logout = logout;
-
+window.onToggle = onToggle;
 // window.onFileChange = onFileChange;
 // window.changeProfile = changeProfile;
 // window.save_comment = save_comment;

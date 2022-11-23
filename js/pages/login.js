@@ -98,11 +98,22 @@ export const handleAuth = (event) => {
 
 // 홈 화면 드롭다운 버튼 기능
 export function onToggle() {
-    const ulElement = document.querySelector(".navbarUserAccountMenu")
+    const ulElementBeforeLogin = document.querySelector(".navbarBeforeLogin")
+    const ulElementAfterLogin = document.querySelector(".navbarUserAccountMenu")
+    // 사용자 상태 확인
+    authService.onAuthStateChanged((user) => {
 
-    ulElement.classList.toggle("active");
+        if (user) {
+            ulElementAfterLogin.classList.toggle("active");
+        }
+        else {
+            ulElementBeforeLogin.classList.toggle("active");
+        }
+    });
 
 }
+
+
 
 //     const loginBtn = document.querySelector("#loginBtn");
 //     const loginOption = document.querySelector("#loginOption");

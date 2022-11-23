@@ -15,10 +15,24 @@
 <body>
     <div class="header">
         <a href="#" onclick="route(event)" class=title>사시미</a>
-        <div class="rightBtn">
+        <!-- <div class="rightBtn"> -->
+        <!-- 로그인 후 노출 -->
+        <div class="navbarUser">
             <a href="#newPost" onclick="route(event)" id="newPost" class="btnIcon"></a>
-            <a href="#login" onclick="route(event)" id="dropDown" class="btnIcon"></a>
+            <button type="button" class="btnIcon" onclick="onToggle()" id="dropDown"></button>
+            <ul class="navbarUserAccountMenu">
+                <li><a class="userName" href="#blog">내 블로그</a></li>
+                <li><a class="userSetting" href="#profile">프로필 설정</a></li>
+                <li><a class="logoutBtn" href="#" onclick="logout()">로그아웃</a></li>
+            </ul>
+            <!-- 로그인 후 노출 -->
+            <!-- 로그인 전 노출 -->
+            <ul class="navbarBeforeLogin">
+                <li><a class="signIn" href="#login" onclick="route(event)">로그인</a></li>
+                <li><a class="join" href="#register" onclick="route(event)">회원가입</a></li>
+            </ul>
         </div>
+
     </div>
     <div id="root">
         <div id="mainFeed"></div>
@@ -27,3 +41,15 @@
 </body>
 
 </html>
+
+
+<!-- <div class="navbarUser">
+    <button type="button" class="navbarUserAccountTrriger" onclick="onToggle()">
+        🔪
+    </button>
+    <ul class="navbarUserAccountMenu">
+        <li><a class="userName" href="#blog">내 블로그</a></li>
+        <li><a class="userSetting" href="#profile">프로필 설정</a></li>
+        <li><a class="logoutBtn" href="#" onclick="logout()">로그아웃</a></li>
+    </ul>
+</div> -->
