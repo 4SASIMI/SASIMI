@@ -67,18 +67,18 @@ export function closeEditBoxName() {
   editName.style.display='none';
 }
 
-export function changeName() {
-  let name = document.getElementById('name');
-  let editName = document.getElementById('editName');
+// export function changeName() {
+//   let name = document.getElementById('name');
+//   let editName = document.getElementById('editName');
 
-  // let nameVal = name.childNodes[1].innerText;
-  let editNameVal = editName.childNodes[1].childNodes[1].childNodes[1].value;
+//   // let nameVal = name.childNodes[1].innerText;
+//   let editNameVal = editName.childNodes[1].childNodes[1].childNodes[1].value;
 
-  name.childNodes[1].innerText = editNameVal;
+//   name.childNodes[1].innerText = editNameVal;
   
-  name.style.display='block';
-  editName.style.display='none';
-}
+//   name.style.display='block';
+//   editName.style.display='none';
+// }
 
 /////////////////////////////////////////////////////
 
@@ -105,11 +105,13 @@ export function changeBlog() {
   // let blogVal = blog.childNodes[1].innerText;
   let editBlogVal = editBlog.childNodes[1].childNodes[1].childNodes[1].value;
 
-  console.log(blog.childNodes[1].childNodes[0].href);
+  console.log(blog.childNodes[1].childNodes[0].getAttribute('href'));
 
-  blog.childNodes[1].childNodes[0].href = editBlogVal;
+  blog.childNodes[1].childNodes[0].removeAttribute('href');
+  console.log(blog.childNodes[1].childNodes[0].getAttribute('href'));
 
-  console.log(blog.childNodes[1].childNodes[0].href);
+  blog.childNodes[1].childNodes[0].setAttribute('href', editBlogVal);
+  console.log(blog.childNodes[1].childNodes[0].getAttribute('href'));
 
   blog.style.display='block';
   editBlog.style.display='none';

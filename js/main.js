@@ -2,9 +2,12 @@ import { handleAuth, onToggle, logout } from "./pages/login.js";
 import { socialLogin } from "./pages/login.js";
 import { handleLocation, goToProfile } from "./router.js";
 import { authService } from "./firebase.js";
-import { openEditBoxName, closeEditBoxName, changeName, openEditBoxBlog, 
+import { openEditBoxName, closeEditBoxName, openEditBoxBlog, 
     closeEditBoxBlog, changeBlog, openEditBoxBirth, closeEditBoxBirth, 
-    changeBirth, openEditBoxText, closeEditBoxText, changeText, changeProfile, onFileChange} from "./pages/profile.js";
+    changeBirth, openEditBoxText, closeEditBoxText, changeText, changeProfile, onFileChange} from "./pages/profile_img.js";
+import { saveName } from "./pages/profile_text.js";
+
+//생략 : changeName
 
 // url 바뀌면 handleLocation 실행하여 화면 변경
 window.addEventListener("hashchange", handleLocation);
@@ -46,7 +49,7 @@ window.logout = logout;
 //////////////////프로필////////////////////
 window.openEditBoxName = openEditBoxName;
 window.closeEditBoxName = closeEditBoxName;
-window.changeName = changeName;
+// window.changeName = changeName;
 window.openEditBoxBlog = openEditBoxBlog;
 window.closeEditBoxBlog = closeEditBoxBlog;
 window.changeBlog = changeBlog;
@@ -59,3 +62,5 @@ window.changeText = changeText;
 
 window.onFileChange = onFileChange;
 window.changeProfile = changeProfile;
+
+window.saveName = saveName;

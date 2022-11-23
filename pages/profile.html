@@ -12,19 +12,19 @@
 
   <div id="intro">
     <div class="boxs">
-      <h2>닉네임</h2>
+      <h2>이름</h2>
       <div id="name">
         <div>리기동</div>
       </div>
       <div id="editName" class="editFormBtn" style="display: none">
         <form>
           <div class="textField">
-            <input type="text" name="name" class="textFieldInput" placeholder="닉네임">
+            <input type="text" id="comment" name="name" class="textFieldInput" placeholder="닉네임">
           </div>
           <div class="buttonField">
-            <button type="button" onclick="changeName()">변경하기</button>
+            <button type="button" onclick="saveName(event)">변경하기</button>
+            <button type="button" onclick="closeEditBoxName()">취소</button>
           </div>
-          <button type="button" onclick="closeEditBoxName()">취소</button>
         </form>
       </div>
       <span>
