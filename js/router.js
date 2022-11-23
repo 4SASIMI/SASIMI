@@ -2,18 +2,15 @@ import { authService } from "./firebase.js";
 
 
 const routes = {
-    "/": "/pages/feed.html",  
+    "/": "/pages/feed.html",
     newPost: "/pages/newPost.html",
     404: "/pages/404.html",
-<<<<<<< HEAD
     home: "/pages/home.html",
-    "/": "/pages/login.html",
-    register: "/pages/register.html"
-
-=======
+    // "/": "/pages/login.html",
+    register: "/pages/register.html",
     login: "/pages/login.html",
     profile: "/pages/profile.html",
->>>>>>> origin/feature/feed
+
 };
 
 export const handleLocation = async () => {
