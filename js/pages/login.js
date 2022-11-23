@@ -96,38 +96,8 @@ export const handleAuth = (event) => {
     }
 };
 
-// 홈 화면 드롭다운 버튼 기능
-export function onToggle() {
-    const ulElementBeforeLogin = document.querySelector(".navbarBeforeLogin")
-    const ulElementAfterLogin = document.querySelector(".navbarUserAccountMenu")
-    // 사용자 상태 확인
-    authService.onAuthStateChanged((user) => {
-
-        if (user) {
-            ulElementAfterLogin.classList.toggle("active");
-        }
-        else {
-            ulElementBeforeLogin.classList.toggle("active");
-        }
-    });
-
-}
 
 
-
-//     const loginBtn = document.querySelector("#loginBtn");
-//     const loginOption = document.querySelector("#loginOption");
-//     // const loginLogoTitle = document.querySelector("#loginLogoTitle");
-//     if (loginBtn.value === "로그인") {
-//         loginBtn.value = "회원가입";
-//         loginOption.textContent = "로그인 화면으로";
-//         // loginLogoTitle.textContent = "회원가입 페이지";
-//     } else {
-//         loginBtn.value = "로그인";
-//         loginOption.textContent = "회원가입 화면으로";
-//         // loginLogoTitle.textContent = "로그인 페이지";
-//     }
-// };
 
 export const socialLogin = (event) => {
     const { name } = event.target;
@@ -149,12 +119,38 @@ export const socialLogin = (event) => {
         });
 };
 
+
+
+// 홈 화면 드롭다운 버튼 기능
+export function onToggle() {
+    let ulElementBeforeLogin = document.querySelector(".navbarBeforeLogin")
+    let ulElementAfterLogin = document.querySelector(".navbarUserAccountMenu")
+
+    // 사용자 상태 확인
+    authService.onAuthStateChanged((user) => {
+
+        if (user) {
+            ulElementAfterLogin.classList.toggle("active");
+        }
+        else {
+            ulElementBeforeLogin.classList.toggle("active");
+        }
+    });
+
+
+}
+
 export const logout = () => {
     signOut(authService)
         .then(() => {
             // Sign-out successful.
             localStorage.clear();
             console.log("로그아웃 성공");
+            // 이게 최선,,??
+            let ulElementBeforeLogin = document.querySelector(".navbarBeforeLogin")
+            let ulElementAfterLogin = document.querySelector(".navbarUserAccountMenu")
+            ulElementAfterLogin.classList.remove("active");
+            ulElementBeforeLogin.classList.remove("active");
         })
         .catch((error) => {
             // An error happened.
