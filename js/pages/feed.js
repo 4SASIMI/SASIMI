@@ -79,26 +79,26 @@ export const getPostList = async () => {
     });
 };
 
-export const updatePost = async (event) => {
-    event.preventDefault();
-    const newPost = event.target.parentNode.children[0].value;
-    const id = event.target.parentNode.id;
+// export const updatePost = async (event) => {
+//     event.preventDefault();
+//     const newPost = event.target.parentNode.children[0].value;
+//     const id = event.target.parentNode.id;
   
-    const parentNode = event.target.parentNode.parentNode;
-    const postText = parentNode.children[0];
-    postText.classList.remove("noDisplay");
-    const postInputP = parentNode.children[1];
-    postInputP.classList.remove("d-flex");
-    postInputP.classList.add("noDisplay");
+//     const parentNode = event.target.parentNode.parentNode;
+//     const postText = parentNode.children[0];
+//     postText.classList.remove("noDisplay");
+//     const postInputP = parentNode.children[1];
+//     postInputP.classList.remove("d-flex");
+//     postInputP.classList.add("noDisplay");
   
-    const postRef = doc(dbService, "posts", id);
-    try {
-      await updateDoc(postRef, { text: newPost });
-      getPostList();
-    } catch (error) {
-      alert(error);
-    }
-  };
+//     const postRef = doc(dbService, "posts", id);
+//     try {
+//       await updateDoc(postRef, { text: newPost });
+//       getPostList();
+//     } catch (error) {
+//       alert(error);
+//     }
+//   };
   
   
 export const deletePost = async (event) => {
