@@ -1,0 +1,39 @@
+<!-- 
+1. 프로필 이미지, 닉네임 불러오기 : 회원정보 필요
+2. 새글 데이터 저장하기 -> 파이어스토어 create 작업
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>새글작성</title>
+</head>
+<body>
+    <div>
+        <div class="mypost">
+            <div class="form-floating mb-3">
+                <img id="profileImg" width="50px" height="50px" src="/assets/blankProfile.webp" />
+                <span id="nickname">닉네임</span>
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="제목" id="post"
+                    style="height: 20px; width: 500px;"></textarea>
+                <label for="floatingTextarea2"></label>
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="내용" id="post"
+                    style="height: 400px; width: 500px;"></textarea>
+                <label for="floatingTextarea2"></label>
+            </div>
+    
+            <button onclick="savePost(event)" type="button" class="btn btn-dark">등록</button>
+        </div>
+        <div id="post-list">
+    
+        </div>
+    </div>
+</body>
+</html>
