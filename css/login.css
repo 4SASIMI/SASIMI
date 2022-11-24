@@ -1,21 +1,22 @@
-* {
-  font-family: "Noto Sans KR", sans-serif;
-}
-
-div {
+/* div {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
   vertical-align: baseline;
-}
+} */
 .loginPage,
 .registerPage {
+  box-sizing: border-box;
+  /* margin: 0;
+  padding: 0; */
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
   padding: 130px 100px;
   width: 100%;
   margin: auto;
-
   max-width: 700px;
 }
 /* #loginWrap,
@@ -24,6 +25,7 @@ div {
   padding: 0 32px;
 } */
 .loginTitle {
+  font-family: "Pretendard-Regular";
   color: black;
   font-size: 22px;
   font-weight: 500;
@@ -45,11 +47,12 @@ div {
 .loginBtnSection,
 .joinBtnSection {
   display: block;
-  width: 100%;
+  /* width: 100%; */
   margin: 30px 0;
   padding: 23px 10px;
   background-color: #2f4858;
   text-align: center;
+  cursor: pointer;
 }
 
 #loginBtn {
@@ -113,7 +116,7 @@ div {
 }
 .loginOptionText {
   display: inline-block;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.2em;
 }
 .loginOptionLink {
