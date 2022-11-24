@@ -1,25 +1,57 @@
-<div id="RegisterPage">
-    <div id="registerWrap">
-        <form onsubmit="handleAuth(event)">
-            <!-- <header class="login-head">
-                <a class="loginLogoTitle"><span class="ab-text">사시미</span></a>
-            </header>
-           
-            <div class="login-divider">칸 나누기</div> -->
-            <div class="authInput">
-                <input type="email" id="email" class="textfield-input" placeholder="이메일" value>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+
+    <title>사시미</title>
+</head>
+
+<body>
+    <div class="registerPage">
+        <div id="registerWrap">
+            <form onsubmit="handleAuth(event)">
+
+                <div class="loginTitle">이메일로 가입하기</div>
+                <div class="authInput">
+                    <input type="email" id="email" class="textfield-input" placeholder="이메일" value>
+                </div>
+                <div class="authInput">
+                    <input type="password" id="password" class="textfield-input" placeholder="비밀번호" value>
+                </div>
+
+                <div class="joinBtnSection">
+                    <input type="submit" id="loginBtn" value="회원가입" />
+                </div>
+
+            </form>
+            <!-- sns 로그인 -->
+            <div class="loginOthers">
+                <div class="loginTitle">SNS 계정으로 가입하기</div>
+
+                <ul class="loginOthers-list">
+                    <li class="loginOthers-item">
+                        <button type="button" name="google" class="loginSocial google" onclick="socialLogin(event)"></a>
+                    </li>
+                    <li class="loginOthers-item">
+                        <button type="button" name="github" class="loginSocial github"
+                            onclick="socialLogin(event)"></button>
+                    </li>
+                </ul>
             </div>
-            <div class="authInput">
-                <input type="password" id="password" class="textfield-input" placeholder="비밀번호" value>
-            </div>
-            <section class="loginBtnSection">
-                <input type="submit" id="loginBtn" value="회원가입" />
-            </section>
-        </form>
-        <section class="socialLoginBtn">
-            <button name="google" onclick="socialLogin(event)">구글로 가입하기</button>
-            <button name="github" onclick="socialLogin(event)">깃허브로 가입하기</button>
-        </section>
-        
-    </div>  
-</div>
+
+
+
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

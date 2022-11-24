@@ -34,9 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             console.log("로그아웃")
             postBtn.style.display = 'none';
-            // 로그아웃 상태이므로 로그인 화면으로 강제 이동
+            // // 로그아웃 상태이므로 로그인 화면으로 강제 이동
             // if (hash !== "") {
-            //     window.location.replace("");
+            //     window.location.replace("#login");
             // }
         }
     });

@@ -1,17 +1,75 @@
 * {
-  font-family: "Noto Sans";
+  font-family: "Noto Sans KR", sans-serif;
 }
 a {
   text-decoration: none;
   color: inherit;
 }
-
-#loginPage {
+div {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+.loginPage,
+.registerPage {
+  padding: 130px 100px;
   width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: auto;
+
+  max-width: 700px;
+}
+/* #loginWrap,
+#registerWrap {
+  max-width: 500px;
+  padding: 0 32px;
+} */
+.loginTitle {
+  color: black;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2em;
+  margin-bottom: 22px;
+}
+.textfield-input {
+  padding: 24px 30px;
+  display: block;
+  width: 100%;
+  height: 70px;
+  font-size: 16px;
+  line-height: normal;
+  box-sizing: border-box;
+  background-color: #fff;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.loginBtnSection,
+.joinBtnSection {
+  display: block;
+  width: 100%;
+  margin: 30px 0;
+  padding: 23px 10px;
+  background-color: #2f4858;
+  text-align: center;
+}
+
+#loginBtn {
+  background-color: #2f4858;
+  margin-top: 10px;
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4em;
+  margin: auto;
+  width: 100%;
+  border: 0px;
+  cursor: pointer;
+}
+#loginBtn:hover {
+  color: #f3944c;
 }
 .authInput {
   margin-bottom: 10px;
@@ -19,39 +77,53 @@ a {
 .authInput > input {
   width: 100%;
 }
-.socialLoginBtn {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-}
 
-#loginOption {
-  text-decoration: underline;
-  color: blue;
-  margin: 10px 0;
+.loginOthers {
+  margin-top: 22px;
+}
+.loginSocial.google {
+  background-image: url("/assest/img-google.png");
   cursor: pointer;
-  user-select: none;
 }
-
-.loginBtn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.loginSocial.github {
+  background-image: url("/assest/img-github.png");
+  cursor: pointer;
 }
-#loginWrap {
-  border: 1px solid black;
-  padding: 40px;
-  border-radius: 10px;
-  background-color: bisque;
-  min-width: 350px;
+.loginOthers-list {
+  margin-top: 22px;
 }
-.socialLoginBtn {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
+.loginOthers-item {
+  float: left;
+  padding-right: 30px;
+  position: relative;
+  overflow: hidden;
 }
-
-.loginLogoTitle {
+.loginSocial {
   display: block;
-  background-image: url(assest/logo.png);
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background-size: 80px 80px;
+}
+.loginOthers-list:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.loginOption {
+  margin-top: 20px;
+  line-height: 0;
+}
+.loginOptionText {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1.2em;
+}
+.loginOptionLink {
+  display: inline-block;
+  margin-left: 22px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2em;
+  text-decoration: underline;
 }

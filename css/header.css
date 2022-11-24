@@ -44,6 +44,7 @@ a {
 #newPost::before {
   font-family: "Font Awesome 5 Free";
   content: "\f044";
+  text-align: center;
 }
 
 #dropDown::before {
@@ -85,6 +86,6 @@ ul li a:hover {
   color: white;
 }
 
-.userLogout {
+.logoutBtn {
   color: red;
 }
