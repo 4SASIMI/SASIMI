@@ -9,7 +9,8 @@
     margin: 0 auto;
     display: grid;    
     grid-template-columns: repeat(4, 320px);
-    grid-template-rows: repeat(3, 320px);
+    grid-template-rows: repeat(1, 320px);
+    overflow: hidden;
     /* border: 1px solid;
     border-width: 0 0 0 1px; */
 }
@@ -67,11 +68,9 @@
     border: 1px solid;
     background: #eae7de;
     margin: 10px 0 0 -15px;
-    z-index: 1;
 }
 
 .cardDropdownContent a {
-    color: black;
     padding: 10px 10px 10px 15px;
     text-decoration: none;
     display: block;

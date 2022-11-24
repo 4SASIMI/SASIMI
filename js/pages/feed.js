@@ -9,11 +9,11 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 import { dbService, authService } from "../firebase.js";
 
-export function cardMenu() {
-    document.getElementById("cardDropdown").classList.toggle("show");
+export function cardMenu(idx) {
+  console.log(idx)
+    document.getElementById(`cardDropdown${idx}`).classList.toggle("show");
   }
   
-  // Close the dropdown menu if the user clicks outside of it
   window.onclick = function(event) {
     if (!event.target.matches('.cardDropdownBtn')) {
       var dropdowns = document.getElementsByClassName("cardDropdownContent");
@@ -35,9 +35,7 @@ export const getPostList = async () => {
         orderBy("createdAt", "desc")
     );
     const querySnapshot = await getDocs(q);
-    // console.log(querySnapshot)
     querySnapshot.forEach((doc) => {
-        // console.log("doc.data():", doc.data());
         const postObj = {
             id: doc.id,
             ...doc.data(),
@@ -47,17 +45,15 @@ export const getPostList = async () => {
     const postList = document.getElementById("feed");
     const currentUid = authService.currentUser.uid;
     postList.innerHTML = "";
-    pstObjList.forEach((pstObj) => {
+    pstObjList.forEach((pstObj,idx) => {
         const isOwner = currentUid === pstObj.creatorId;
-        const isProfileImg = pstObj.profileImg === null;
-        console.log(pstObj.title, isOwner, isProfileImg)
         const temp_html = `
-        <div class="card" >
+        <div class="${pstObj.id}">
             <div class="cardUserInfo">
-                <img class="cardProfile" src="${isProfileImg ? "../assets/blankProfile.webp" : pstObj.profileImg}"/>
+                <img class="cardProfile" src="${pstObj.profileImg === null ? "../assets/blankProfile.webp" : pstObj.profileImg}"/>
                 <div class="${isOwner ? "updateBtns" : "noDisplay"}">
-                    <button onclick="cardMenu()" class="cardDropdownBtn">●●●</button>
-                        <div id="cardDropdown" class="cardDropdownContent">
+                    <button onclick="cardMenu(${idx})" class="cardDropdownBtn">●●●</button>
+                        <div id="cardDropdown${idx}" class="cardDropdownContent">
                             <a onclick="onEditing(event)" class="editBtn btn btn-dark"></a>
                             <a name="${pstObj.id}" onclick="deletePost(event)" class="deleteBtn btn btn-dark"></a>
                         </div>
@@ -69,13 +65,22 @@ export const getPostList = async () => {
                 ${pstObj.title}
             </div>
             <div class="cardContent">${pstObj.text}</div>
-            <div class="cardDate">${new Date(pstObj.createdAt).toString().slice(0, 25)}</div>
+            <div class="cardDate">${new Date(pstObj.createdAt).toString().slice(4, 15)}</div>
         </div>
    `;
         const div = document.createElement("div");
         div.classList.add("mycard");
         div.innerHTML = temp_html;
         postList.appendChild(div);
+
+        if (pstObjList.length < 12){
+          document.getElementById("moreBtn").style.display = "none"
+        } else {
+          document.getElementById("moreBtn").style.display = "inline-block"
+          if (pstObjList.length > 12){
+            document.getElementById("feed:nth-chi")
+          }
+        }
     });
 };
 
@@ -115,3 +120,6 @@ export const deletePost = async (event) => {
     }
   };
   
+  export function moreBtn() {
+
+  }
