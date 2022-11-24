@@ -49,12 +49,17 @@ export const handleLocation = async () => {
     //     document.getElementById("profileNickname").placeholder =
     //         authService.currentUser.displayName ?? "닉네임 없음";
     // }
+    if (path == "post"){
+        console.log(localStorage.getItem('docID'))
+    }
 };
 
 export const goToProfile = () => {
     window.location.hash = "#profile";
 };
 
-export const goToPost = () =>{
-    window.location.hash = ""
-}
+export const goToPost = (id) => {
+    localStorage.clear()
+    localStorage.setItem('docID', id.id);
+    window.location.hash = "#post"
+  };

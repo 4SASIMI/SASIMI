@@ -24,13 +24,12 @@ export const showFeed = async () => {
       ...doc.data()
     };
     feedObjList.push(feedObj);
-    
   });
   const feedList = document.getElementById("feed");
   const currentUid = authService.currentUser.uid;
   feedList.innerHTML = "";
   feedObjList.forEach((feedObj) => {
-    const temp_html = `
+    const temp_html = `<div id="${feedObj.id}" class="card" onclick="goToPost(this)">
                 <img class="cardProfile" src="${feedObj.profileImg}"alt="profileImg" />
                 <div class="cardTitle">
                     <span class="tooltip">${feedObj.title}</span>
@@ -40,9 +39,9 @@ export const showFeed = async () => {
                 <div class="cardDate">${new Date(feedObj.createdAt)
                     .toString()
                     .slice(0, 25)}</div>
-           `;
+            </div>`;
     const div = document.createElement("div");
-    div.classList.add("card");
+    div.classList.add("myCard");
     div.innerHTML = temp_html;
     feedList.appendChild(div);
   });

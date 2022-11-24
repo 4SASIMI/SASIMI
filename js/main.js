@@ -1,6 +1,6 @@
 
 import { handleAuth, logout, socialLogin, onToggle } from "./pages/login.js";
-import { handleLocation, goToProfile } from "./router.js";
+import { handleLocation, goToProfile, goToPost } from "./router.js";
 import { authService } from "./firebase.js";
 import {
     openEditBoxName, closeEditBoxName, changeName, openEditBoxBlog,
@@ -49,6 +49,7 @@ window.socialLogin = socialLogin;
 window.logout = logout;
 window.showFeed = showFeed;
 window.savePost = savePost;
+window.goToPost = goToPost;
 // window.onFileChange = onFileChange;
 // window.changeProfile = changeProfile;
 // window.save_comment = save_comment;
