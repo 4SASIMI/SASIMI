@@ -1,53 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/reset.css" />
-    <script src="https://kit.fontawesome.com/419744c921.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/419744c921.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/post_style.css" />
+    <script
+      src="https://kit.fontawesome.com/419744c921.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/419744c921.js"
+      crossorigin="anonymous"
+    ></script>
     <title>사시미</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="header">
-        <a href="#" onclick="route(event)" class=title>사시미</a>
-        <!-- <div class="rightBtn"> -->
+      <a href="#" onclick="route(event)" class="title">사시미</a>
+      <!-- <div class="rightBtn"> -->
+      <!-- 로그인 후 노출 -->
+      <a href="#post" style="position: relative; top: 50px; right: 0">post</a>
+      <div class="navbarUser">
+        <a
+          href="#newPost"
+          onclick="route(event)"
+          id="newPost"
+          class="btnIcon"
+        ></a>
+        <button
+          type="button"
+          class="btnIcon"
+          onclick="onToggle()"
+          id="dropDown"
+        ></button>
+        <ul class="navbarUserAccountMenu">
+          <li><a class="userName" href="#blog">내 블로그</a></li>
+          <li><a class="userSetting" href="#profile">프로필 설정</a></li>
+          <li><a class="logoutBtn" href="#" onclick="logout()">로그아웃</a></li>
+        </ul>
         <!-- 로그인 후 노출 -->
-        <div class="navbarUser">
-
-            <a href="#newPost" onclick="route(event)" id="newPost" class="btnIcon"></a>
-            <button type="button" class="btnIcon" onclick="onToggle()" id="dropDown"></button>
-
-            <ul class="navbarUserAccountMenu">
-                <li><a class="userName" href="#blog">내 블로그</a></li>
-                <li><a class="userSetting" href="#profile">프로필 설정</a></li>
-                <li><a class="logoutBtn" href="#" onclick="logout()">로그아웃</a></li>
-            </ul>
-
-            <!-- 로그인 후 노출 -->
-            <!-- 로그인 전 노출 -->
-
-            <ul class="navbarBeforeLogin">
-                <li><a class="signIn" href="#login" onclick="route(event)">로그인</a></li>
-                <li><a class="join" href="#register" onclick="route(event)">회원가입</a></li>
-            </ul>
-
-
-        </div>
-
+        <!-- 로그인 전 노출 -->
+        <ul class="navbarBeforeLogin">
+          <li>
+            <a class="signIn" href="#login" onclick="route(event)">로그인</a>
+          </li>
+          <li>
+            <a class="join" href="#register" onclick="route(event)">회원가입</a>
+          </li>
+        </ul>
+      </div>
     </div>
     <div id="root">
-        <div id="mainFeed"></div>
-        <script src="js/main.js" type="module"></script>
+      <div id="mainFeed"></div>
+      <script src="js/main.js" type="module"></script>
     </div>
-</body>
-
+  </body>
 </html>
-
 
 <!-- <div class="navbarUser">
     <button type="button" class="navbarUserAccountTrriger" onclick="onToggle()">

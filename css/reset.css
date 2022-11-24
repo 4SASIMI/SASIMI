@@ -31,3 +31,7 @@ ul {
 button {
   border-width: 0px;
 }
+
+.noDisplay {
+  display: none;
+}
