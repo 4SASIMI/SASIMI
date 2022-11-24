@@ -1,7 +1,6 @@
 import { emailRegex, pwRegex } from "../util.js";
 import { authService } from "../firebase.js";
 import {
-    getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     GoogleAuthProvider,
@@ -9,9 +8,10 @@ import {
     GithubAuthProvider,
     signOut,
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-
+// import { getAuth, updatePassword } from "firebase/auth";
 // 로그인 성공 시 홈 화면으로 이동
 export const handleAuth = (event) => {
+    console.log('handleAuth: 작동');
     event.preventDefault();
     const email = document.getElementById("email");
     const emailVal = email.value;
@@ -57,9 +57,9 @@ export const handleAuth = (event) => {
     // }
 
     // 유효성 검사 통과 후 로그인 또는 회원가입 API 요청
-    const authBtnText = document.querySelectorAll("#loginBtn").value;
-
-    if (authBtnText === "로그인") {
+    // 로그인, 회원가입 버튼 아이디는 loginBtn입니당..
+    const loginBtnText = document.querySelector("#loginBtn").value;
+    if (loginBtnText === "로그인") {
         // 유효성검사 후 로그인 성공 시 홈 화면으로
 
         signInWithEmailAndPassword(authService, emailVal, pwVal)
@@ -79,7 +79,7 @@ export const handleAuth = (event) => {
                 }
             });
     }
-    else if (authBtnText === "회원가입") {
+    if (loginBtnText === "회원가입") {
         // 회원가입 버튼 클릭의 경우
         createUserWithEmailAndPassword(authService, emailVal, pwVal)
             .then((userCredential) => {
@@ -105,13 +105,13 @@ export const handleAuth = (event) => {
 export const socialLogin = (event) => {
     const { name } = event.target;
     let provider;
-    const auth = getAuth();
+
     if (name === "google") {
         provider = new GoogleAuthProvider();
     } else if (name === "github") {
         provider = new GithubAuthProvider();
     }
-    signInWithPopup(auth, provider)
+    signInWithPopup(authService, provider)
         .then((result) => {
             const user = result.user;
         })
@@ -155,6 +155,7 @@ export const logout = () => {
             let ulElementAfterLogin = document.querySelector(".navbarUserAccountMenu")
             ulElementAfterLogin.classList.remove("active");
             ulElementBeforeLogin.classList.remove("active");
+
         })
         .catch((error) => {
             // An error happened.

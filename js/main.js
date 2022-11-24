@@ -29,12 +29,13 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("로그인")
             postBtn.style.display = 'block';
             if (hash === "#login") {
-                window.location.replace("");
+                window.location.replace("#home");
             }
         } else {
             console.log("로그아웃")
             postBtn.style.display = 'none';
-            // // 로그아웃 상태이므로 로그인 화면으로 강제 이동
+            window.location.replace("#home");
+            // // 로그아웃 상태
             // if (hash !== "") {
             //     window.location.replace("#login");
             // }
