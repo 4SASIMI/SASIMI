@@ -94,15 +94,17 @@ export const getPostList = async () => {
       id: doc.id,
       ...doc.data(),
     };
-    console.log(postObj);
     postObjList.push(postObj);
   });
   const postList = document.getElementById('postList');
   const currentUid = authService.currentUser.uid;
-  postList.innerHTML = '';
+
   postObjList.forEach((postObj) => {
     const isOwner = currentUid === postObj.creatorId;
-    const temp_html = `<div class="postWrap">
+    const isPost = postObj.id === localStorage.getItem('docID');
+    const temp_html = `<div class="postWrap ${
+      isPost ? 'yesDisplay' : 'noDisplay'
+    }" id="${postObj.id}">
                         <div class="postTitle">
                           <h2>${postObj.title}</h2>
                         </div>
@@ -136,7 +138,7 @@ export const getPostList = async () => {
 
     const div = document.createElement('div');
     div.classList.add('myPost');
-    div.innerHTML = temp_html;
+    div.innerHTML = isPost ? temp_html : '';
     postList.appendChild(div);
   });
 };
