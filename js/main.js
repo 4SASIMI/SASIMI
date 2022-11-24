@@ -8,6 +8,7 @@ import {
     changeBirth, openEditBoxText, closeEditBoxText, changeText
 } from "./pages/profile.js";
 import {showFeed} from "./pages/feed.js";
+import { savePost } from './pages/newPost.js';
 
 // url 바뀌면 handleLocation 실행하여 화면 변경
 window.addEventListener("hashchange", handleLocation);
@@ -47,6 +48,7 @@ window.goToProfile = goToProfile;
 window.socialLogin = socialLogin;
 window.logout = logout;
 window.showFeed = showFeed;
+window.savePost = savePost;
 // window.onFileChange = onFileChange;
 // window.changeProfile = changeProfile;
 // window.save_comment = save_comment;

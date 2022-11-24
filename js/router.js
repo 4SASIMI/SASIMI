@@ -11,6 +11,7 @@ const routes = {
     register: "/pages/register.html",
     login: "/pages/login.html",
     profile: "/pages/profile.html",
+    post: "/pages/post.html"
 
 };
 
@@ -31,7 +32,7 @@ export const handleLocation = async () => {
     document.getElementById("root").innerHTML = html;
     // path가 /인 페이지(feed.html)에서 nickname이라는 id를 가진애가 없어서 오류발생, 주석처리 해놨어요.
     // 특정 화면 렌더링 되자마자 DOM 조작 처리
-    // if (path === "/") {
+     if (path === "/") {
     //     // 로그인한 회원의 프로필사진과 닉네임을 화면에 표시해줌.
     //     document.getElementById("nickname").textContent =
     //         authService.currentUser.displayName ?? "닉네임 없음";
@@ -40,7 +41,7 @@ export const handleLocation = async () => {
     //         authService.currentUser.photoURL ?? "../assets/blankProfile.webp";
 
          showFeed();
-    // }
+    }
     // if (path === "profile") {
     //     // 프로필 관리 화면 일 때 현재 프로필 사진과 닉네임 할당
     //     document.getElementById("profileView").src =
@@ -53,3 +54,7 @@ export const handleLocation = async () => {
 export const goToProfile = () => {
     window.location.hash = "#profile";
 };
+
+export const goToPost = () =>{
+    window.location.hash = ""
+}

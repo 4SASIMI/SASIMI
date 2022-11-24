@@ -10,6 +10,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 import { dbService, authService } from "../firebase.js";
 
+
 export const showFeed = async () => {
   let feedObjList = [];
   const q = query(
@@ -22,7 +23,6 @@ export const showFeed = async () => {
       id: doc.id,
       ...doc.data()
     };
-    console.log(feedObj);
     feedObjList.push(feedObj);
     
   });
@@ -30,7 +30,7 @@ export const showFeed = async () => {
   const currentUid = authService.currentUser.uid;
   feedList.innerHTML = "";
   feedObjList.forEach((feedObj) => {
-    const temp_html = `<div class="card">
+    const temp_html = `
                 <img class="cardProfile" src="${feedObj.profileImg}"alt="profileImg" />
                 <div class="cardTitle">
                     <span class="tooltip">${feedObj.title}</span>
@@ -40,9 +40,9 @@ export const showFeed = async () => {
                 <div class="cardDate">${new Date(feedObj.createdAt)
                     .toString()
                     .slice(0, 25)}</div>
-            </div>`;
+           `;
     const div = document.createElement("div");
-    div.classList.add("myCard");
+    div.classList.add("card");
     div.innerHTML = temp_html;
     feedList.appendChild(div);
   });
