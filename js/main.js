@@ -20,25 +20,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const hash = window.location.hash;
         const postBtn = document.getElementById("newPost");
         if (user) {
-            // <<<<<<< HEAD
-            //             // 로그인 상태이므로 항상 홈화면으로 이동
-            //             if (hash === "") {
-            //                 // 로그인 상태에서는 로그인 화면으로 되돌아갈 수 없게 설정
-            //                 window.location.replace("#home");
-            // =======
+
             console.log("로그인")
             postBtn.style.display = 'block';
             if (hash === "#login") {
-                window.location.replace("#home");
+                window.location.replace("");
             }
         } else {
             console.log("로그아웃")
             postBtn.style.display = 'none';
-            window.location.replace("#home");
-            // // 로그아웃 상태
-            // if (hash !== "") {
-            //     window.location.replace("#login");
-            // }
+
         }
     });
 });

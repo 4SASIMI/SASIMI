@@ -66,7 +66,7 @@ export const handleAuth = (event) => {
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
-                window.location.hash = "#home";
+                window.location.hash = "";
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -85,7 +85,7 @@ export const handleAuth = (event) => {
             .then((userCredential) => {
                 // Signed in
                 console.log("회원가입 성공!");
-                window.location.hash = "#home";
+                window.location.hash = "";
                 // const user = userCredential.user;
             })
             .catch((error) => {
