@@ -133,22 +133,3 @@ export const deleteFeed = async (event) => {
   
 
 // 내 게시글만 분류하기
-export const getMyfeedList = async() => {
-  let myfeedObjList = [];
-  const currentUid = authService.currentUser.uid;
-  const isOwner = currentUid === feedObj.creatorId;
-
-  const q = query(
-    collection(dbService, "posts"),
-    orderBy("creatorId", "desc")
-  );
-  const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((doc) => {
-    const myfeedObj = {
-      id: doc.id,
-      ...doc.data(),
-    };
-    myfeedObjList.push(myfeedObj);
-  });
-
-}

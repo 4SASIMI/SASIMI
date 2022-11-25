@@ -17,10 +17,17 @@
             <a href="#newPost" onclick="route(event)" id="newPost" class="btnIcon"></a>
             <a href="#login" onclick="route(event)" id="dropDown" class="btnIcon"></a>
         </div>
-    </div> 
+        <button onclick="mobileMenu()" class="mobileRightBtn"></button>
+            <div id="cardDropdown" class="cardDropdownContent">
+                <a href="#newPost" onclick="route(event)" id="newPost" class="btnIcon"></a>
+                <a href="#login" onclick="route(event)" id="dropDown" class="btnIcon"></a>
+            </div>
+        </button>
+        <script src="js/mobileHeaderDropdown.js" type="module"></script>
+    </div>
     <div id="root">
         <div id="mainFeed"></div>
         <script src="js/main.js" type="module"></script>
     </div>
 </body>
-</html>
+</html>  

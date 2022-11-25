@@ -74,7 +74,6 @@
   border-width: 0 1px 1px 0;
   padding: 20px;
   position: relative;
-  z-index: 2;
 }
 
 .mycard:nth-child(4n + 1) {
@@ -98,6 +97,7 @@
   display: flex;
 }
 
+/* 프로필 이미지 */
 .cardProfile {
   width: 50px;
   height: 50px;
@@ -247,4 +247,73 @@
   right: 20px;
   color: initial;
   font-size: 30px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .wrap {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin: 0 auto;
+  }
+  .slide {
+    display: none;
+  }
+  #feed {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .loadingSpinner {
+    top: 37vh;
+    left: 44%;
+  }
+
+  .loadingSpinner::after {
+    width: 30px;
+    height: 30px;
+    border: 5px solid;
+    border-top-color: #fff;
+  }
+
+  .mycard {
+    border-width: 0 1px 1px 1px;
+    width: 80vw;
+    height: 200px;
+    margin: 0 auto;
+  }
+  .mycard:last-child {
+    padding-bottom: 45px;
+    margin-bottom: 40px;
+  }
+  .cardProfile {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  .cardTitle {
+    margin-bottom: 10px;
+    height: auto;
+  }
+  .cardContent {
+    height: 70px;
+    -webkit-line-clamp: 3;
+    margin-bottom: 20px;
+  }
+
+  .fa-solid {
+    font-size: 20px;
+    right: 10px;
+    bottom: 25px;
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 13px;
+    background-color: rgb(235, 235, 235);
+  }
+
+  .loadmore {
+    display: none;
+  }
 }
