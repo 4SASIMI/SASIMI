@@ -1,5 +1,33 @@
-* {
+/* html {
   background: #eae7de;
+}
+
+.header,
+body {
+  background: #eae7de;
+} */
+
+#profile {
+  background: #eae7de;
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
+
+#root {
+  background: #eae7de;
+}
+/* 
+button {
+  border-width: 1px;
+} */
+
+/* 스타일이 중복으로 적용되어 변경했음 */
+/* button,
+input, */
+#nameComment,
+#blogComment,
+#birthComment,
+#textComment {
+  background-color: white;
 }
 
 a {
@@ -8,25 +36,32 @@ a {
 
 #profile {
   max-width: 1360px;
-  margin: 2rem auto 8rem auto;
+  margin: 0 auto 8rem auto;
   padding: 0 5% 0 5%;
 }
 
-#image {
+#profileImageForm {
   border: 1px solid #051619;
+  border-top: 0;
 
   padding: 1.5rem 2rem;
 
   margin-bottom: 1.5rem;
 }
 
-#image > img {
+#profileImageForm > img {
   width: 250px;
   height: 250px;
 
   border: 1px solid #051619;
 
   margin-bottom: 1rem;
+}
+
+#profileBtn {
+  margin-top: 1rem;
+
+  background-color: whitesmoke;
 }
 
 .boxs {
@@ -41,11 +76,11 @@ a {
 }
 
 .boxs > h2 {
-  flex-basis: 15%;
+  flex-basis: 20%;
 }
 
 .boxs > div {
-  flex-basis: 85%;
+  flex-basis: 80%;
 }
 
 .textFieldInput {
@@ -57,33 +92,11 @@ a {
   margin-bottom: 10px;
 }
 
-.filebox > label {
-  display: inline-block;
-  padding: .5em .75em;
-  color: black;
-  font-size: inherit;
-  line-height: normal;
-  vertical-align: middle;
-  background-color: #fdfdfd;
-  cursor: pointer;
-  border: 1px solid black;
-  border-bottom-color: black;
-  border-radius: .25em;
-}
-
-/* 파일 필드 숨기기 */
-.filebox input[type="file"] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip:rect(0,0,0,0);
-  border: 0;
-}
-
 #intro {
-  font-size: 1.5rem;
   line-height: 150%;
+}
+
+.buttonField > button {
+  margin-right: 5px;
+  padding: 5px;
 }

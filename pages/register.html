@@ -9,7 +9,7 @@
             <div class="authInput">
                 <input type="password" id="password" class="textfield-input" placeholder="비밀번호" value>
             </div>
-            <label for="loginBtn">
+            <label for="loginBtn" id="labelLoginBtn">
                 <div class="joinBtnSection">
                     <input type="submit" id="loginBtn" value="회원가입" />
                 </div>
@@ -17,21 +17,19 @@
 
 
         </form>
-        <!-- sns 로그인 -->
-        <div class="loginOthers">
-            <div class="loginTitle">SNS 계정으로 가입하기</div>
+    </div>
+    <!-- sns 로그인 -->
+    <div class="loginOthers">
+        <div class="loginTitle">SNS 계정으로 가입하기</div>
 
-            <ul class="loginOthers-list">
-                <li class="loginOthers-item">
-                    <button type="button" name="google" class="loginSocial google" onclick="socialLogin(event)"></a>
-                </li>
-                <li class="loginOthers-item">
-                    <button type="button" name="github" class="loginSocial github"
-                        onclick="socialLogin(event)"></button>
-                </li>
-            </ul>
-        </div>
-
+        <ul class="loginOthers-list">
+            <li class="loginOthers-item">
+                <button type="button" name="google" class="loginSocial google" onclick="socialLogin(event)"></a>
+            </li>
+            <li class="loginOthers-item">
+                <button type="button" name="github" class="loginSocial github" onclick="socialLogin(event)"></button>
+            </li>
+        </ul>
     </div>
 
 </div>

@@ -2,10 +2,11 @@ import { handleAuth, logout, socialLogin, onToggle } from "./pages/login.js";
 import { handleLocation, goToProfile } from "./router.js";
 import { authService } from "./firebase.js";
 import {
-    openEditBoxName, closeEditBoxName, changeName, openEditBoxBlog,
-    closeEditBoxBlog, changeBlog, openEditBoxBirth, closeEditBoxBirth,
-    changeBirth, openEditBoxText, closeEditBoxText, changeText
-} from "./pages/profile.js";
+    openEditBoxName, closeEditBoxName, openEditBoxBlog,
+    closeEditBoxBlog, openEditBoxBirth, closeEditBoxBirth,
+    openEditBoxText, closeEditBoxText, changeProfile, onFileChange
+} from "./pages/profile_img.js";
+import { saveName, saveBlog, saveBirth, saveText, getBirth, userBirth, getText, userText } from "./pages/profile_text.js";
 
 
 // url 바뀌면 handleLocation 실행하여 화면 변경
@@ -59,3 +60,24 @@ window.onToggle = onToggle;
 // window.update_comment = update_comment;
 // window.onEditing = onEditing;
 // window.delete_comment = delete_comment;
+//////////////////기동////////////////////
+window.openEditBoxName = openEditBoxName;
+window.closeEditBoxName = closeEditBoxName;
+window.openEditBoxBlog = openEditBoxBlog;
+window.closeEditBoxBlog = closeEditBoxBlog;
+window.openEditBoxBirth = openEditBoxBirth;
+window.closeEditBoxBirth = closeEditBoxBirth;
+window.openEditBoxText = openEditBoxText;
+window.closeEditBoxText = closeEditBoxText;
+
+window.onFileChange = onFileChange;
+window.changeProfile = changeProfile;
+
+window.saveName = saveName;
+window.saveBlog = saveBlog;
+window.saveBirth = saveBirth;
+window.saveText = saveText;
+window.getBirth = getBirth;
+window.userBirth = userBirth;
+window.getText = getText;
+window.userText = userText;

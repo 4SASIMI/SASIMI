@@ -1,0 +1,138 @@
+import {
+  addDoc,
+  collection,
+  orderBy,
+  query,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+import { dbService, authService } from "../firebase.js";
+import { updateProfile } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+
+
+export const saveName = async (event) => {
+  event.preventDefault();
+  const newName = document.getElementById("nameComment").value;
+  await updateProfile(authService.currentUser, {
+    displayName: newName ? newName : null,
+  })
+    .then(() => {
+      alert("프로필 수정 완료");
+      window.location.reload();
+      // window.location.hash = "#";
+    })
+    .catch((error) => {
+      alert("프로필 수정 실패");
+      console.log("error:", error);
+    });
+};
+
+export const saveBlog = async (event) => {
+  event.preventDefault();
+  let saveButton = document.getElementById('saveBlogButton');
+  // console.log(saveButton);
+  const comment = document.getElementById("blogComment");
+  const { uid } = authService.currentUser;
+  try {
+    await addDoc(collection(dbService, "blogURL"), {
+      url: comment.value,
+      creatorId: uid
+    });
+    closeEditBoxName();
+    alert('작성 완료!');
+    window.location.reload();
+
+  } catch (error) {
+    alert(error);
+    console.log("error in addDoc:", error);
+  }
+};
+
+export const saveBirth = async (event) => {
+  event.preventDefault();
+  let saveButton = document.getElementById('saveBlogButton');
+  // console.log(saveButton);
+  const comment = document.getElementById("birthComment");
+  console.log(comment);
+  const { uid } = authService.currentUser;
+  try {
+    await addDoc(collection(dbService, "birth"), {
+      birth: comment.value,
+      creatorId: uid,
+      createdAt: new Date(),
+    });
+    closeEditBoxBirth();
+    alert('작성 완료!');
+    // window.location.reload();
+    getBirth();
+  } catch (error) {
+    alert(error);
+    console.log("error in addDoc:", error);
+  }
+};
+
+export const saveText = async (event) => {
+  event.preventDefault();
+  let saveButton = document.getElementById('saveTextButton');
+  // console.log(saveButton);
+  const comment = document.getElementById("textComment");
+  const { uid } = authService.currentUser;
+  try {
+    await addDoc(collection(dbService, "text"), {
+      text: comment.value,
+      creatorId: uid,
+      createdAt: new Date(),
+    });
+    closeEditBoxText();
+    alert('작성 완료!');
+    window.location.reload();
+    // getText();
+  } catch (error) {
+    alert(error);
+    console.log("error in addDoc:", error);
+  }
+};
+
+
+export let userBirth;
+export const getBirth = async () => {
+  let birthObjList = [];
+  const q = query(
+    collection(dbService, "birth"),
+    orderBy("createdAt", "desc"),
+    // where("creatorId", "==", authService.currentUser.uid),
+  );
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    const birthObj = {
+      id: doc.id,
+      ...doc.data(),
+    };
+    birthObjList.push(birthObj);
+  });
+  userBirth = birthObjList[0].birth;
+  document.getElementById("birthText").innerHTML = userBirth ?? "출생년도를 입력해주세요";
+}
+
+export let userText;
+export const getText = async () => {
+  let textObjList = [];
+  const q = query(
+    collection(dbService, "text"),
+    orderBy("createdAt", "desc"),
+    // where("creatorId", "==", authService.currentUser.uid),
+  );
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    // console.log(doc.id, " => ", doc.data());
+    const textObj = {
+      id: doc.id,
+      ...doc.data(),
+    };
+    // console.log(textObj);
+    textObjList.push(textObj);
+  });
+  // console.log(textObjList);
+  userText = textObjList[0].text;
+  // console.log(userText);
+  document.getElementById("introText").innerHTML = userText ?? "자기소개를 입력해주세요";
+}
