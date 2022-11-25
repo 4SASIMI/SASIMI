@@ -1,6 +1,5 @@
 import {
     doc,
-    updateDoc,
     deleteDoc,
     collection,
     orderBy,
@@ -9,6 +8,20 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 import { dbService, authService } from "../firebase.js";
 
+// 로딩스피너
+export function loadingSpinner() {
+  window.addEventListener("load", () => {
+    const loader = document.querySelector(".loadingSpinner");
+
+    loader.classList.add("loadingSpinnerHidden");
+
+    loader.addEventListener("transitionend", () => {
+      document.body.removeChild("loadingSpinner");
+    })
+  })
+}
+
+// 내 게시글에만 보이는 메뉴 버튼 드롭다운 기능
 export function cardMenu(idx) {
   console.log(idx)
     document.getElementById(`cardDropdown${idx}`).classList.toggle("show");
@@ -27,99 +40,102 @@ export function cardMenu(idx) {
     }
   }
 
-export const getPostList = async () => {
+// 피드 불러오기  
+export const getFeedList = async () => {
     console.log("겟포스트리스트 호출")
-    let pstObjList = [];
+    let feedObjList = [];
     const q = query(
         collection(dbService, "posts"),
         orderBy("createdAt", "desc")
     );
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-        const postObj = {
+        const feedObj = {
             id: doc.id,
             ...doc.data(),
         };
-        pstObjList.push(postObj);
+        feedObjList.push(feedObj);
     });
-    const postList = document.getElementById("feed");
+    const feedList = document.getElementById("feed");
     const currentUid = authService.currentUser.uid;
-    postList.innerHTML = "";
-    pstObjList.forEach((pstObj,idx) => {
-        const isOwner = currentUid === pstObj.creatorId;
+    feedList.innerHTML = "";
+    feedObjList.forEach((feedObj,idx) => {
+        const isOwner = currentUid === feedObj.creatorId;
         const temp_html = `
-        <div class="${pstObj.id}">
+        <div class="card">
             <div class="cardUserInfo">
-                <img class="cardProfile" src="${pstObj.profileImg === null ? "../assets/blankProfile.webp" : pstObj.profileImg}"/>
+                <img class="cardProfile" src="${feedObj.profileImg === null ? "../assets/blankProfile.webp" : feedObj.profileImg}"/>
                 <div class="${isOwner ? "updateBtns" : "noDisplay"}">
                     <button onclick="cardMenu(${idx})" class="cardDropdownBtn">●●●</button>
                         <div id="cardDropdown${idx}" class="cardDropdownContent">
                             <a onclick="onEditing(event)" class="editBtn btn btn-dark"></a>
-                            <a name="${pstObj.id}" onclick="deletePost(event)" class="deleteBtn btn btn-dark"></a>
+                            <a name="${feedObj.id}" onclick="deleteFeed(event)" class="deleteBtn btn btn-dark"></a>
                         </div>
                     </button>
                 </div>
             </div>
             <div class="cardTitle">
-                <span class="tooltip">${pstObj.title}</span>
-                ${pstObj.title}
+                <span class="tooltip">${feedObj.title}</span>
+                ${feedObj.title}
             </div>
-            <div class="cardContent">${pstObj.text}</div>
-            <div class="cardDate">${new Date(pstObj.createdAt).toString().slice(4, 15)}</div>
-        </div>
+            <div class="cardContent">${feedObj.text}</div>
+            <div class="cardDate">${new Date(feedObj.createdAt).toString().slice(4, 15)}</div>
+      </div>
    `;
         const div = document.createElement("div");
-        div.classList.add("mycard");
+        div.classList.add(`mycard`);
         div.innerHTML = temp_html;
-        postList.appendChild(div);
+        feedList.appendChild(div);
 
-        if (pstObjList.length < 12){
-          document.getElementById("moreBtn").style.display = "none"
+        // 더보기 버튼
+        const loadmore = document.querySelector(".loadmore");
+        const elementList = [...document.querySelectorAll(".feed .mycard")];
+        let currentItems = 12;
+
+        // 게시글 12개 이하일 때 더보기 감추기
+        if (currentItems >= elementList.length) {
+          loadmore.classList.add('loaded')
         } else {
-          document.getElementById("moreBtn").style.display = "inline-block"
-          if (pstObjList.length > 12){
-            document.getElementById("feed:nth-chi")
-          }
+          loadmore.classList.remove('loaded')
         }
+
+        console.log(currentItems, elementList.length)
+        
+        // 게시글 12개 초과시 더보기 보여주기
+        loadmore.addEventListener('click', (e) => {
+          e.target.classList.add('showLoader');
+
+          for (let i = currentItems; i < currentItems + 12; i++) {
+            e.target.classList.remove('showLoader');
+            if(elementList[i]) {
+              elementList[i].style.display = "flex";
+            }
+          }
+          currentItems += 12;
+          console.log(currentItems, elementList.length)
+
+          // 게시글 끝까지 로딩시 더보기 감추기  
+          if (currentItems >= elementList.length) {
+            e.target.classList.add('loaded')
+          }
+        }) 
+
+        
     });
 };
 
-// export const updatePost = async (event) => {
-//     event.preventDefault();
-//     const newPost = event.target.parentNode.children[0].value;
-//     const id = event.target.parentNode.id;
-  
-//     const parentNode = event.target.parentNode.parentNode;
-//     const postText = parentNode.children[0];
-//     postText.classList.remove("noDisplay");
-//     const postInputP = parentNode.children[1];
-//     postInputP.classList.remove("d-flex");
-//     postInputP.classList.add("noDisplay");
-  
-//     const postRef = doc(dbService, "posts", id);
-//     try {
-//       await updateDoc(postRef, { text: newPost });
-//       getPostList();
-//     } catch (error) {
-//       alert(error);
-//     }
-//   };
-  
-  
-export const deletePost = async (event) => {
+// 내 게시글 삭제하기
+export const deleteFeed = async (event) => {
     event.preventDefault();
     const id = event.target.name;
     const ok = window.confirm("정말 삭제하시겠습니까?🥺");
     if (ok) {
       try {
         await deleteDoc(doc(dbService, "posts", id));
-        getPostList();
+        getFeedList();
       } catch (error) {
         alert(error);
       }
     }
   };
   
-  export function moreBtn() {
-
-  }

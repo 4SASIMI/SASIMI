@@ -1,8 +1,8 @@
 import { handleAuth, onToggle, logout, socialLogin } from "./pages/login.js";
 import { handleLocation, goToProfile } from "./router.js";
 import { authService } from "./firebase.js";
-import { cardMenu, getPostList, deletePost } from "./pages/feed.js"
-import { savePost } from "./pages/newPost.js"
+import { loadingSpinner,cardMenu, getFeedList, deleteFeed } from "./pages/feed.js";
+import { savePost } from "./pages/newPost.js";
 import { openEditBoxName, closeEditBoxName, changeName, openEditBoxBlog, 
     closeEditBoxBlog, changeBlog, openEditBoxBirth, closeEditBoxBirth, 
     changeBirth, openEditBoxText, closeEditBoxText, changeText} from "./pages/profile.js";
@@ -39,12 +39,27 @@ window.handleAuth = handleAuth;
 window.goToProfile = goToProfile;
 window.socialLogin = socialLogin;
 window.logout = logout;
-window.getPostList = getPostList;
+window.getFeedList = getFeedList;
 window.savePost = savePost;
-window.deletePost = deletePost;
+window.deleteFeed = deleteFeed;
 window.cardMenu = cardMenu;
-// window.onFileChange = onFileChange;
-// window.changeProfile = changeProfile;
+window.loadingSpinner = loadingSpinner;
+
+// 프로필
+window.openEditBoxName = openEditBoxName;
+window.closeEditBoxName = closeEditBoxName;
+window.changeName = changeName;
+window.openEditBoxBlog = openEditBoxBlog;
+window.closeEditBoxBlog = closeEditBoxBlog;
+window.changeBlog = changeBlog;
+window.openEditBoxBirth = openEditBoxBirth;
+window.closeEditBoxBirth = closeEditBoxBirth;
+window.changeBirth = changeBirth;
+window.openEditBoxText = openEditBoxText;
+window.closeEditBoxText = closeEditBoxText;
+window.changeText = changeText;
+window.onFileChange = onFileChange;
+window.changeProfile = changeProfile;
 // window.save_comment = save_comment;
 // window.update_comment = update_comment;
 // window.onEditing = onEditing;
