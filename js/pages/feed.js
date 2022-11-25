@@ -28,7 +28,7 @@ export const showFeed = async () => {
       feedObj.id
     }" class="card" onclick="goToPost(this)">
                 <img class="cardProfile" src="${
-                  feedObj.profileImg
+                  feedObj.profileImg ?? '/assets/blankProfile.webp'
                 }"alt="profileImg" />
                 <div class="cardTitle">
                     <span class="tooltip">${feedObj.title}</span>

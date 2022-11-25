@@ -1,5 +1,5 @@
 * {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 div {
@@ -79,11 +79,11 @@ div {
   margin-top: 22px;
 }
 .loginSocial.google {
-  background-image: url("/assest/img-google.png");
+  background-image: url('/assets/img-google.png');
   cursor: pointer;
 }
 .loginSocial.github {
-  background-image: url("/assest/img-github.png");
+  background-image: url('/assets/img-github.png');
   cursor: pointer;
 }
 .loginOthers-list {
@@ -103,7 +103,7 @@ div {
   background-size: 80px 80px;
 }
 .loginOthers-list:after {
-  content: "";
+  content: '';
   display: block;
   clear: both;
 }

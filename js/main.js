@@ -4,17 +4,39 @@ import { authService } from './firebase.js';
 import {
   openEditBoxName,
   closeEditBoxName,
-  changeName,
   openEditBoxBlog,
   closeEditBoxBlog,
-  changeBlog,
   openEditBoxBirth,
   closeEditBoxBirth,
-  changeBirth,
   openEditBoxText,
   closeEditBoxText,
-  changeText,
-} from './pages/profile.js';
+  changeProfile,
+  onFileChange,
+} from './pages/profile_img.js';
+import {
+  saveName,
+  saveBlog,
+  saveBirth,
+  saveText,
+  getBirth,
+  userBirth,
+  getText,
+  userText,
+} from './pages/profile_text.js';
+// import {
+//   openEditBoxName,
+//   closeEditBoxName,
+//   changeName,
+//   openEditBoxBlog,
+//   closeEditBoxBlog,
+//   changeBlog,
+//   openEditBoxBirth,
+//   closeEditBoxBirth,
+//   changeBirth,
+//   openEditBoxText,
+//   closeEditBoxText,
+//   changeText,
+// } from './pages/profile.js';
 import { showFeed } from './pages/feed.js';
 import {
   savePost,
@@ -22,6 +44,7 @@ import {
   onEditing,
   deletePost,
   getPostList,
+  getMyPost,
 } from './pages/newPost.js';
 
 // url 바뀌면 handleLocation 실행하여 화면 변경
@@ -68,3 +91,24 @@ window.updatePost = updatePost;
 window.onEditing = onEditing;
 window.deletePost = deletePost;
 window.getPostList = getPostList;
+window.getMyPost = getMyPost;
+window.openEditBoxName = openEditBoxName;
+window.closeEditBoxName = closeEditBoxName;
+window.openEditBoxBlog = openEditBoxBlog;
+window.closeEditBoxBlog = closeEditBoxBlog;
+window.openEditBoxBirth = openEditBoxBirth;
+window.closeEditBoxBirth = closeEditBoxBirth;
+window.openEditBoxText = openEditBoxText;
+window.closeEditBoxText = closeEditBoxText;
+
+window.onFileChange = onFileChange;
+window.changeProfile = changeProfile;
+
+window.saveName = saveName;
+window.saveBlog = saveBlog;
+window.saveBirth = saveBirth;
+window.saveText = saveText;
+window.getBirth = getBirth;
+window.userBirth = userBirth;
+window.getText = getText;
+window.userText = userText;

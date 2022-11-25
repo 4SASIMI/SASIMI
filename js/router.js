@@ -1,7 +1,28 @@
-import { authService } from './firebase.js';
+import { authService, dbService } from './firebase.js';
 import { showFeed } from './pages/feed.js';
-import { getPostList } from './pages/newPost.js';
-
+import { getMyPost, getPostList } from './pages/newPost.js';
+import {
+  openEditBoxName,
+  closeEditBoxName,
+  openEditBoxBlog,
+  closeEditBoxBlog,
+  openEditBoxBirth,
+  closeEditBoxBirth,
+  openEditBoxText,
+  closeEditBoxText,
+  changeProfile,
+  onFileChange,
+} from './pages/profile_img.js';
+import {
+  saveName,
+  saveBlog,
+  saveBirth,
+  saveText,
+  getBirth,
+  userBirth,
+  getText,
+  userText,
+} from './pages/profile_text.js';
 const routes = {
   '/': '/pages/feed.html',
   newPost: '/pages/newPost.html',
@@ -49,14 +70,30 @@ export const handleLocation = async () => {
   //         authService.currentUser.displayName ?? "닉네임 없음";
   // }
   if (path == 'post') {
-    getPostList();
-    console.log(localStorage.getItem('docID'));
+    if (!localStorage.getItem('docID')) {
+      getMyPost();
+    } else {
+      getPostList();
+    }
   }
   if (path == 'newPost') {
     if (!authService.currentUser) {
       alert('로그인해주세요');
       window.location.replace('#login');
     }
+    // else{
+    //   const deleteBtn = document.querySelector('.postDeleteBtn');
+    //   if(deleteBtn === '삭제')
+    // }
+  }
+  if (path === 'profile') {
+    // 프로필 관리 화면 일 때 현재 프로필 사진과 닉네임 할당
+    document.getElementById('image').src =
+      authService.currentUser.photoURL ?? '/assets/blankProfile.webp';
+    document.getElementById('nameText').innerHTML =
+      authService.currentUser.displayName ?? '이름을 입력해주세요';
+    getBirth();
+    getText();
   }
 };
 

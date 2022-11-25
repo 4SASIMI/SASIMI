@@ -1,35 +1,35 @@
 <div id="profile">
 
-  <form id="image">
-    <img src="/assets/logo.png">
-      <!-- <input id="imgUpload" type="file" value="업로드"></br>  -->
-      <!-- <input type="button" value="수정"> -->
-      <!-- <input type="button" value="삭제"> -->
-    <div class="filebox">
-      <label for="ex_file">업로드</label>
-      <input type="file" id="ex_file"> 
+  <form onsubmit="changeProfile(event)" id="profileImageForm">
+    <img id="image" src="/assets/logo.png">
+    <div>
+      <input onchange="onFileChange(event)" id="imgUpload" type="file" value="업로드" accept="images/*">
+    </div>
+    <div>
+      <input id="profileBtn" type="submit" value="프로필 변경">
     </div>
   </form>
 
   <div id="intro">
     <div class="boxs">
-      <h2>닉네임</h2>
+      <h2>이름</h2>
       <div id="name">
-        <div>리기동</div>
+        <div id="nameText">이름을 입력해주세요</div>
       </div>
       <div id="editName" class="editFormBtn" style="display: none">
         <form>
           <div class="textField">
-            <input type="text" name="name" class="textFieldInput" placeholder="닉네임">
+            <input type="text" id="nameComment" name="name" class="textFieldInput" placeholder="닉네임">
           </div>
           <div class="buttonField">
-            <button type="button" onclick="changeName()">변경하기</button>
+            <button type="button" id="saveNameButton" onclick="saveName(event)">변경하기</button>
+            <!-- <button type="button" id="editButton" style="display: none;" onclick="editName(event)">변경하기</button> -->
             <button type="button" onclick="closeEditBoxName()">취소</button>
           </div>
         </form>
       </div>
       <span>
-        <img onclick="openEditBoxName()" src="/assets/button.png">
+        <img onclick="openEditBoxName()" src="../assest/button.png">
       </span>
     </div>
 
@@ -41,81 +41,58 @@
       <div id="editBlog" class="editFormBtn" style="display: none">
         <form>
           <div class="textField">
-            <input type="text" name="blog" class="textFieldInput" placeholder="블로그">
+            <input type="text" id="blogComment" name="blog" class="textFieldInput" placeholder="블로그">
           </div>
           <div class="buttonField">
-            <button type="button" onclick="changeBlog()">변경하기</button>
+            <button type="button" id="saveBlogButton" onclick="saveBlog(event)">변경하기</button>
             <button type="button" onclick="closeEditBoxBlog()">취소</button>
           </div>
         </form>
       </div>
       <span>
-        <img onclick="openEditBoxBlog()" src="/assets/button.png">
+        <img onclick="openEditBoxBlog()" src="../assest/button.png">
       </span>
     </div>
     
     <div class="boxs">
       <h2>출생년도</h2>
       <div id="birth">
-        <div>1996</div>
+        <div id="birthText">출생연도를 입력해주세요</div>
       </div>
       <div id="editBirth" class="editFormBtn" style="display: none">
         <form>
           <div class="textField">
-            <input type="text" name="birth" class="textFieldInput" placeholder="출생년도">
+            <input type="text" id="birthComment" name="birth" class="textFieldInput" placeholder="출생년도">
           </div>
           <div class="buttonField">
-            <button type="button" onclick="changeBirth()">변경하기</button>
+            <button type="button" id="saveBlogButton" onclick="saveBirth(event)">변경하기</button>
             <button type="button" onclick="closeEditBoxBirth()">취소</button>
           </div>
         </form>
       </div>
       <span>
-        <img onclick="openEditBoxBirth()" src="/assets/button.png">
+        <img onclick="openEditBoxBirth()" src="../assest/button.png">
       </span>
     </div>
     
-    <!-- <div class="boxs">
-    <h2>성별</h2>
-      <div>
-        <div>남자</div>
-      </div>
-      <div class="editFormTgl">
-        <form>
-          <select name="gender" class="textFieldInput">
-            <option value="E">기타</option>
-            <option value="W">여성</option>
-            <option value="M">남성</option>
-          </select>
-          <div class="buttonField">
-            <button type="button">변경하기</button>
-            <button type="button">취소</button>
-          </div>
-        </form>
-      </div>
-      <span>
-        <img src="/assets/button.png">
-      </span>
-    </div> -->
-    
     <div class="boxs">
-      <h2>자기소개</h2>
-      <div id="text">
-        <div>안녕하세요 ···</div>
+      <h2 id="h2">자기소개</h2>
+      <div>
+        <div id="introText">자기소개를 입력해주세요 ···</div>
       </div>
       <div id="editText" class="editFormBtn" style="display: none">
         <form>
           <div class="textField">
-            <input type="textarea" name="intro" class="textFieldInput" placeholder="자기소개" style="width: 90%; height: 200px;">
+            <input type="textarea" id="textComment" name="intro" class="textFieldInput" placeholder="자기소개" style="width: 90%; height: 200px;">
           </div>
           <div class="buttonField">
-            <button type="button" onclick="changeText()">변경하기</button>
+            <button type="button" id="saveTextButton" onclick="saveText(event)">변경하기</button>
             <button type="button" onclick="closeEditBoxText()">취소</button>
           </div>
         </form>
       </div>
       <span>
-        <img onclick="openEditBoxText()" src="/assets/button.png">
+        <img onclick="openEditBoxText()" src="../assest/button.png">
       </span>
     </div>
   </div>
