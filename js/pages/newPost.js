@@ -9,6 +9,7 @@ import {
   getDocs,
 } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js';
 import { dbService, authService } from '../firebase.js';
+import { goToPost } from '../router.js';
 
 export const savePost = async (event) => {
   event.preventDefault();
@@ -24,8 +25,8 @@ export const savePost = async (event) => {
       profileImg: photoURL,
       nickname: displayName,
     });
+
     post.value = '';
-    getPostList();
   } catch (error) {
     alert(error);
     console.log('error in addDoc:', error);
@@ -75,10 +76,11 @@ export const deletePost = async (event) => {
   event.preventDefault();
   const id = event.target.name;
   const ok = window.confirm('해당 글을 정말 삭제하시겠습니까?');
+
   if (ok) {
     try {
       await deleteDoc(doc(dbService, 'posts', id));
-      getPostList();
+      window.location.replace('/');
     } catch (error) {
       alert(error);
     }
@@ -98,6 +100,8 @@ export const getPostList = async () => {
   });
   const postList = document.getElementById('postList');
   const currentUid = authService.currentUser.uid;
+
+  postList.innerHTML = '';
 
   postObjList.forEach((postObj) => {
     const isOwner = currentUid === postObj.creatorId;
@@ -138,7 +142,9 @@ export const getPostList = async () => {
 
     const div = document.createElement('div');
     div.classList.add('myPost');
-    div.innerHTML = isPost ? temp_html : '';
-    postList.appendChild(div);
+    div.innerHTML = temp_html;
+    if (isPost) {
+      postList.appendChild(div);
+    }
   });
 };

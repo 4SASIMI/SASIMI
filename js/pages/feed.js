@@ -22,7 +22,6 @@ export const showFeed = async () => {
     feedObjList.push(feedObj);
   });
   const feedList = document.getElementById('feed');
-  const currentUid = authService.currentUser.uid;
   feedList.innerHTML = '';
   feedObjList.forEach((feedObj) => {
     const temp_html = `<div id="${

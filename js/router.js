@@ -52,6 +52,12 @@ export const handleLocation = async () => {
     getPostList();
     console.log(localStorage.getItem('docID'));
   }
+  if (path == 'newPost') {
+    if (!authService.currentUser) {
+      alert('로그인해주세요');
+      window.location.replace('#login');
+    }
+  }
 };
 
 export const goToProfile = () => {

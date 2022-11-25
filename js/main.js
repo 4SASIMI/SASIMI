@@ -16,7 +16,13 @@ import {
   changeText,
 } from './pages/profile.js';
 import { showFeed } from './pages/feed.js';
-import { savePost } from './pages/newPost.js';
+import {
+  savePost,
+  updatePost,
+  onEditing,
+  deletePost,
+  getPostList,
+} from './pages/newPost.js';
 
 // url 바뀌면 handleLocation 실행하여 화면 변경
 window.addEventListener('hashchange', handleLocation);
@@ -56,11 +62,9 @@ window.goToProfile = goToProfile;
 window.socialLogin = socialLogin;
 window.logout = logout;
 window.showFeed = showFeed;
-window.savePost = savePost;
 window.goToPost = goToPost;
-// window.onFileChange = onFileChange;
-// window.changeProfile = changeProfile;
-// window.save_comment = save_comment;
-// window.update_comment = update_comment;
-// window.onEditing = onEditing;
-// window.delete_comment = delete_comment;
+window.savePost = savePost;
+window.updatePost = updatePost;
+window.onEditing = onEditing;
+window.deletePost = deletePost;
+window.getPostList = getPostList;
