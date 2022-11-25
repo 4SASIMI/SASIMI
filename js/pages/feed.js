@@ -49,6 +49,7 @@ export const getFeedList = async () => {
         };
         feedObjList.push(feedObj);
     });
+
     const feedList = document.getElementById("feed");
     const currentUid = authService.currentUser.uid;
     feedList.innerHTML = "";
@@ -57,7 +58,7 @@ export const getFeedList = async () => {
         const temp_html = `
         <div class="card">
             <div class="cardUserInfo">
-                <img class="cardProfile" onclick="goToProfile(this)" src="${feedObj.profileImg === null ? "../assets/blankProfile.webp" : feedObj.profileImg}"/>
+                <img class="cardProfile" title="${feedObj.nickname}" onclick="goToProfile(this)" src="${feedObj.profileImg === null ? "../assets/blankProfile.webp" : feedObj.profileImg}"/>
                 <div class="${isOwner ? "updateBtns" : "noDisplay"}">
                     <button onclick="cardMenu(${idx})" class="cardDropdownBtn">●●●</button>
                         <div id="cardDropdown${idx}" class="cardDropdownContent">
@@ -67,7 +68,7 @@ export const getFeedList = async () => {
                     </button>
                 </div>
             </div>
-            <div class="cardTitle">
+            <div class="cardTitle" title="${feedObj.title}">
                 <span class="tooltip">${feedObj.title}</span>
                 ${feedObj.title}
             </div>
@@ -130,3 +131,24 @@ export const deleteFeed = async (event) => {
     }
   };
   
+
+// 내 게시글만 분류하기
+export const getMyfeedList = async() => {
+  let myfeedObjList = [];
+  const currentUid = authService.currentUser.uid;
+  const isOwner = currentUid === feedObj.creatorId;
+
+  const q = query(
+    collection(dbService, "posts"),
+    orderBy("creatorId", "desc")
+  );
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    const myfeedObj = {
+      id: doc.id,
+      ...doc.data(),
+    };
+    myfeedObjList.push(myfeedObj);
+  });
+
+}
