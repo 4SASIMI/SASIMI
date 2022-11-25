@@ -69,6 +69,7 @@
   box-shadow: 0px 8px 16px 0px #00000033;
   overflow: hidden;
 }
+
 /* 드롭다운 버튼 클릭 시 보임 */
 .active {
   display: block;

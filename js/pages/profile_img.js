@@ -56,48 +56,48 @@ export function openEditBoxName() {
   let name = document.getElementById('name');
   let editName = document.getElementById('editName');
 
-  name.style.display='none';
-  editName.style.display='block';
+  name.style.display = 'none';
+  editName.style.display = 'block';
 }
 
 export function closeEditBoxName() {
   let name = document.getElementById('name');
   let editName = document.getElementById('editName');
 
-  name.style.display='block';
-  editName.style.display='none';
+  name.style.display = 'block';
+  editName.style.display = 'none';
 }
 
 export function openEditBoxBlog() {
   let blog = document.getElementById('blog');
   let editBlog = document.getElementById('editBlog');
 
-  blog.style.display='none';
-  editBlog.style.display='block';
+  blog.style.display = 'none';
+  editBlog.style.display = 'block';
 }
 
 export function closeEditBoxBlog() {
   let blog = document.getElementById('blog');
   let editBlog = document.getElementById('editBlog');
 
-  blog.style.display='block';
-  editBlog.style.display='none';
+  blog.style.display = 'block';
+  editBlog.style.display = 'none';
 }
 
 export function openEditBoxBirth() {
   let birth = document.getElementById('birth');
   let editBirth = document.getElementById('editBirth');
 
-  birth.style.display='none';
-  editBirth.style.display='block';
+  birth.style.display = 'none';
+  editBirth.style.display = 'block';
 }
 
 export function closeEditBoxBirth() {
   let birth = document.getElementById('birth');
   let editBirth = document.getElementById('editBirth');
 
-  birth.style.display='block';
-  editBirth.style.display='none';
+  birth.style.display = 'block';
+  editBirth.style.display = 'none';
 }
 
 export function openEditBoxText() {
@@ -106,7 +106,7 @@ export function openEditBoxText() {
 
   // text.style.display='none';
   text.parentElement.remove();
-  editText.style.display='block';
+  editText.style.display = 'block';
 }
 
 export function closeEditBoxText() {
@@ -115,6 +115,21 @@ export function closeEditBoxText() {
   let editText = document.getElementById('editText');
 
   // text.style.display='block';
-  h2.insertAdjacentHTML('afterend', `<div> <div id="text">안녕하세요 ···</div></div>` );
-  editText.style.display='none';
+  h2.insertAdjacentHTML('afterend', `<div> <div id="text">안녕하세요 ···</div></div>`);
+  editText.style.display = 'none';
+}
+
+export function openEditBoxLeave() {
+  let leave = document.getElementById('leave');
+  let editLeave = document.getElementById('editLeave');
+
+  leave.style.display = 'none';
+  editLeave.style.display = 'block';
+}
+export function closeEditBoxLeave() {
+  let leave = document.getElementById('leave');
+  let editLeave = document.getElementById('editLeave');
+
+  leave.style.display = 'block';
+  editLeave.style.display = 'none';
 }

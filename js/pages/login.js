@@ -66,6 +66,7 @@ export const handleAuth = (event) => {
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
+
                 window.location.hash = "";
             })
             .catch((error) => {

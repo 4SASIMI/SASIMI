@@ -4,10 +4,10 @@ import { authService } from "./firebase.js";
 import {
     openEditBoxName, closeEditBoxName, openEditBoxBlog,
     closeEditBoxBlog, openEditBoxBirth, closeEditBoxBirth,
-    openEditBoxText, closeEditBoxText, changeProfile, onFileChange
+    openEditBoxText, closeEditBoxText, changeProfile, onFileChange, openEditBoxLeave, closeEditBoxLeave
 } from "./pages/profile_img.js";
 import { saveName, saveBlog, saveBirth, saveText, getBirth, userBirth, getText, userText } from "./pages/profile_text.js";
-
+import { leave } from "./pages/deleteUser.js";
 
 // url 바뀌면 handleLocation 실행하여 화면 변경
 window.addEventListener("hashchange", handleLocation);
@@ -19,16 +19,31 @@ document.addEventListener("DOMContentLoaded", function () {
         // Firebase 연결되면 화면 표시
         handleLocation();
         const hash = window.location.hash;
+        let ulElementBeforeLogin = document.querySelector(".navbarBeforeLogin")
+        let ulElementAfterLogin = document.querySelector(".navbarUserAccountMenu")
+
+
         const postBtn = document.getElementById("newPost");
+        // 로그인 여부
         if (user) {
 
-            console.log("로그인")
+            // ulElementAfterLogin.classList.toggle("active");
+            // ulElementBeforeLogin.classList.remove("active");
+
+            // console.log('user-info: ', user_email);
+
             postBtn.style.display = 'block';
+
             if (hash === "#login") {
                 window.location.replace("");
             }
         } else {
             console.log("로그아웃")
+            // ulElementAfterLogin.classList.remove("active");
+
+
+            // ulElementBeforeLogin.classList.toggle("active");
+
             postBtn.style.display = 'none';
 
         }
@@ -54,6 +69,10 @@ window.goToProfile = goToProfile;
 window.socialLogin = socialLogin;
 window.logout = logout;
 window.onToggle = onToggle;
+// 탈퇴
+window.leave = leave;
+window.openEditBoxLeave = openEditBoxLeave;
+window.closeEditBoxLeave = closeEditBoxLeave;
 // window.onFileChange = onFileChange;
 // window.changeProfile = changeProfile;
 // window.save_comment = save_comment;

@@ -96,5 +96,25 @@
         <img onclick="openEditBoxText()" src="../assets/button.png">
       </span>
     </div>
+    <!-- 탈퇴칸 -->
+
+    <div class="boxs">
+      <h2>회원탈퇴</h2>
+      <div id="leave">
+        <div id="leaveComfirmText">사시미를 떠나실건가요?</div>
+      </div>
+      <div id="editLeave" class="editFormBtn" style="display: none">
+        <form>
+
+          <div class="buttonField">
+            <button type="button" id="leaveBtn" onclick="leave(event)">탈퇴하기</button>
+            <button type="button" onclick="closeEditBoxLeave()">취소</button>
+          </div>
+        </form>
+      </div>
+      <span>
+        <img onclick="openEditBoxLeave()" src="../assets/button.png">
+      </span>
+    </div>
   </div>
 </div>
