@@ -99,7 +99,7 @@ export const getPostList = async () => {
     postObjList.push(postObj);
   });
   const postList = document.getElementById('postList');
-  const currentUid = authService.currentUser.uid;
+  const currentUid = authService.currentUser?.uid;
 
   postList.innerHTML = '';
 
