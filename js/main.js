@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Firebase 연결상태를 감시
     authService.onAuthStateChanged((user) => {
         // Firebase 연결되면 화면 표시
-        console.log("파이어베이스연결")
         handleLocation();
         const hash = window.location.hash;
         if (user) {

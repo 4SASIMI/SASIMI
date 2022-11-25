@@ -1,12 +1,6 @@
-import {
-    doc,
-    deleteDoc,
-    collection,
-    orderBy,
-    query,
-    getDocs,
-} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+import { doc, deleteDoc, collection, orderBy, query, getDocs } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 import { dbService, authService } from "../firebase.js";
+import { goToProfile } from "../router.js"
 
 // 로딩스피너
 export function loadingSpinner() {
@@ -42,7 +36,6 @@ export function cardMenu(idx) {
 
 // 피드 불러오기  
 export const getFeedList = async () => {
-    console.log("겟포스트리스트 호출")
     let feedObjList = [];
     const q = query(
         collection(dbService, "posts"),
@@ -64,7 +57,7 @@ export const getFeedList = async () => {
         const temp_html = `
         <div class="card">
             <div class="cardUserInfo">
-                <img class="cardProfile" src="${feedObj.profileImg === null ? "../assets/blankProfile.webp" : feedObj.profileImg}"/>
+                <img class="cardProfile" onclick="goToProfile(this)" src="${feedObj.profileImg === null ? "../assets/blankProfile.webp" : feedObj.profileImg}"/>
                 <div class="${isOwner ? "updateBtns" : "noDisplay"}">
                     <button onclick="cardMenu(${idx})" class="cardDropdownBtn">●●●</button>
                         <div id="cardDropdown${idx}" class="cardDropdownContent">
@@ -99,7 +92,7 @@ export const getFeedList = async () => {
           loadmore.classList.remove('loaded')
         }
 
-        console.log(currentItems, elementList.length)
+        console.log("기준:", currentItems, "/", "피드 카드 갯수:", elementList.length)
         
         // 게시글 12개 초과시 더보기 보여주기
         loadmore.addEventListener('click', (e) => {
@@ -112,15 +105,13 @@ export const getFeedList = async () => {
             }
           }
           currentItems += 12;
-          console.log(currentItems, elementList.length)
+          console.log("더보기:", currentItems, "/", "피드 카드 갯수:", elementList.length)
 
           // 게시글 끝까지 로딩시 더보기 감추기  
           if (currentItems >= elementList.length) {
             e.target.classList.add('loaded')
           }
         }) 
-
-        
     });
 };
 
