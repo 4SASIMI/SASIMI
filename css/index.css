@@ -1,3 +1,4 @@
+/* 헤더 */
 .header {
   height: 200px;
   border-bottom: 1px solid;
@@ -48,6 +49,25 @@
 
 .mobileRightBtn {
   display: none;
+}
+
+/* 푸터 */
+.footer {
+  border-top: 1px solid;
+  margin: 50px 0;
+}
+
+.footerText {
+  padding: 50px 70px;
+}
+
+.footerTitle {
+  font-weight: 700;
+  margin-top: 13px;
+}
+
+.tmrwcp {
+  margin-top: 50px;
 }
 
 /* 반응형 */
@@ -119,5 +139,28 @@
   .deleteBtn::before {
     font-family: "Font Awesome 5 Free";
     content: "\f2ed";
+  }
+
+  .footer {
+    margin-bottom: 20px;
+  }
+  .footerText {
+    padding: 40px 30px 0px 30px;
+  }
+  .footer h1 {
+    font-size: 24px;
+  }
+  .footerTitle {
+    font-weight: 700;
+    margin-top: 15px;
+  }
+  .footerContent {
+    margin-top: 3px;
+  }
+  .tmrwcp {
+    text-align: center;
+    font-size: 11px;
+    color: gray;
+    margin-top: 30px;
   }
 }
