@@ -135,6 +135,16 @@
   top: 10px;
   right: 0;
 }
+.updateBtn {
+  float: right;
+}
+.newCmtInput {
+  background-color: transparent;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #767676;
+}
 
 #comment-list {
   width: 100%;
@@ -172,6 +182,7 @@ p.commentText {
 }
 
 footer.comment-footer {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -211,8 +222,9 @@ footer.comment-footer {
   border-bottom: 1px solid #e8e8e8;
 }
 .writePost {
-  background-color: transparent;
+  width: 100%;
   min-height: 400px;
+  background-color: transparent;
   border: 1px solid #767676;
   padding: 10px;
   font-size: 1rem;
@@ -224,7 +236,8 @@ footer.comment-footer {
 
 #writeTitle:focus-visible,
 .writePost:focus-visible,
-.writeComment:focus-visible {
+.writeComment:focus-visible,
+.newCmtInput {
   outline: none;
 }
 

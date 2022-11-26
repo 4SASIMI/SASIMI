@@ -48,7 +48,9 @@ export const onEditing = (event) => {
   const postBody = event.target.parentNode.parentNode.parentNode;
   const postText = postBody.children[1].children[0];
   const postInputP = postBody.children[1].children[1];
+  const udBtnGroup = event.target.parentNode;
 
+  udBtnGroup.classList.add('noDisplay');
   postText.classList.add('noDisplay');
   postInputP.classList.add('yesDisplay');
   postInputP.classList.remove('noDisplay');
@@ -94,21 +96,27 @@ export const deletePost = async (event) => {
 };
 
 export const getPostList = async () => {
-  const docID = localStorage.getItem('docID');
-  const docRef = doc(dbService, 'posts', docID);
-  const docSnap = await getDoc(docRef);
-  const postObj = {
-    ...docSnap.data(),
-  };
+  let postObjList = [];
+  const q = query(collection(dbService, 'posts'), orderBy('createdAt', 'desc'));
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    const postObj = {
+      id: doc.id,
+      ...doc.data(),
+    };
+    postObjList.push(postObj);
+  });
 
   const postList = document.getElementById('postList');
   const currentUid = authService.currentUser?.uid;
 
   postList.innerHTML = '';
-
-  const isOwner = currentUid === postObj.creatorId;
-
-  const temp_html = `<div class="postWrap">
+  postObjList.forEach((postObj) => {
+    const isOwner = currentUid === postObj.creatorId;
+    const isPost = postObj.id === localStorage.getItem('docID');
+    const temp_html = `<div class="postWrap ${
+      isPost ? 'yesDisplay' : 'noDisplay'
+    }" id="${postObj.id}">
                         <div class="postTitle">
                           <h2>${postObj.title}</h2>
                         </div>
@@ -117,7 +125,9 @@ export const getPostList = async () => {
                             ${postObj.text}
                           </p>
                           <p id="${postObj.id}" class="noDisplay">
-                                <textarea class="writePost" placeholder="제목" id="post"></textarea><button class="updateBtn" onclick="updatePost(event)">완료</button></p>
+                                <textarea class="writePost" placeholder="제목" id="post">${
+                                  postObj.text
+                                }</textarea><button class="updateBtn btn" onclick="updatePost(event)">완료</button></p>
                           <span class="postDate">${new Date(postObj.createdAt)
                             .toString()
                             .slice(0, 25)}</span>
@@ -140,11 +150,14 @@ export const getPostList = async () => {
                         </div>
                       </div>`;
 
-  const div = document.createElement('div');
-  div.classList.add('myPost');
-  div.innerHTML = temp_html;
+    const div = document.createElement('div');
+    div.classList.add('myPost');
+    div.innerHTML = temp_html;
 
-  postList.appendChild(div);
+    if (isPost) {
+      postList.appendChild(div);
+    }
+  });
 };
 
 export const getMyPost = async () => {
@@ -179,7 +192,9 @@ export const getMyPost = async () => {
                             ${postObj.text}
                           </p>
                           <p id="${postObj.id}" class="noDisplay">
-                                <textarea class="writePost" placeholder="제목" id="post"></textarea><button class="updateBtn" onclick="updatePost(event)">완료</button></p>
+                                <textarea class="writePost" placeholder="제목" id="post">${
+                                  postObj.text
+                                }</textarea><button class="updateBtn btn" onclick="updatePost(event)">완료</button></p>
                           <span class="postDate">${new Date(postObj.createdAt)
                             .toString()
                             .slice(0, 25)}</span>
@@ -257,9 +272,11 @@ export const commentEditing = (event) => {
   const cardBody = event.target.parentNode.parentNode;
   const commentText = cardBody.children[0].children[0];
   const commentInputP = cardBody.children[0].children[1];
+  const udBtnGroup = event.target.parentNode;
 
   commentText.classList.add('noDisplay');
-  commentInputP.classList.add('d-flex');
+  udBtnGroup.classList.add('noDisplay');
+  commentInputP.classList.add('yesDisplay');
   commentInputP.classList.remove('noDisplay');
   commentInputP.children[0].focus();
 };
@@ -273,7 +290,7 @@ export const update_comment = async (event) => {
   const commentText = parentNode.children[0];
   commentText.classList.remove('noDisplay');
   const commentInputP = parentNode.children[1];
-  commentInputP.classList.remove('d-flex');
+  commentInputP.classList.remove('yesDisplay');
   commentInputP.classList.add('noDisplay');
 
   const commentRef = doc(dbService, 'comments', id);
@@ -326,7 +343,9 @@ export const getCommentList = async () => {
                   <p class="commentText">${cmtObj.text}</p>
                   <p id="${
                     cmtObj.id
-                  }" class="noDisplay"><input class="newCmtInput" type="text" maxlength="30" /><button class="updateBtn" onclick="update_comment(event)">완료</button></p>
+                  }" class="noDisplay"><input class="newCmtInput" type="text" maxlength="30" value="${
+      cmtObj.text
+    }"/><button class="updateBtn btn" onclick="update_comment(event)">완료</button></p>
                   <footer class="comment-footer"><div><img class="cmtImg" width="50px" height="50px" src="${
                     cmtObj.profileImg ?? '/assets/blankProfile.webp'
                   }" alt="profileImg" /><span>${
