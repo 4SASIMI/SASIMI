@@ -18,12 +18,20 @@ ol,
 p,
 select,
 table,
-td, 
+td,
 textarea,
 th,
 ul {
-    margin: 0;
-    padding: 0;
-    color: #051619;
-    background: #eae7de;
-  }
+  margin: 0;
+  padding: 0;
+  color: #051619;
+  background: #eae7de;
+}
+
+button {
+  border-width: 0px;
+}
+
+.noDisplay {
+  display: none;
+}
