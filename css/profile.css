@@ -1,12 +1,3 @@
-/* html {
-  background: #eae7de;
-}
-
-.header,
-body {
-  background: #eae7de;
-} */
-
 #profile {
   background: #eae7de;
   font-family: "IBM Plex Sans KR", sans-serif;
@@ -15,14 +6,7 @@ body {
 #root {
   background: #eae7de;
 }
-/* 
-button {
-  border-width: 1px;
-} */
 
-/* 스타일이 중복으로 적용되어 변경했음 */
-/* button,
-input, */
 #nameComment,
 #blogComment,
 #birthComment,
@@ -54,6 +38,7 @@ a {
   height: 250px;
 
   border: 1px solid #051619;
+  border-radius: 5px;
 
   margin-bottom: 1rem;
 }
@@ -100,3 +85,18 @@ a {
   margin-right: 5px;
   padding: 5px;
 }
+
+#profileImageForm {
+  margin-top : 100px;
+  border: 1px solid #051619;
+}
+
+.buttonField > button {
+  border: 1px solid #051619;
+}
+
+@media (max-width: 768px) {
+  .textFieldInput{
+    width: 120px;
+  }
+  }

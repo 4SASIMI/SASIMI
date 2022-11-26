@@ -68,21 +68,21 @@ export function closeEditBoxName() {
   editName.style.display = 'none';
 }
 
-export function openEditBoxBlog() {
-  let blog = document.getElementById('blog');
-  let editBlog = document.getElementById('editBlog');
+// export function openEditBoxBlog() {
+//   let blog = document.getElementById('blog');
+//   let editBlog = document.getElementById('editBlog');
 
-  blog.style.display = 'none';
-  editBlog.style.display = 'block';
-}
+//   blog.style.display = 'none';
+//   editBlog.style.display = 'block';
+// }
 
-export function closeEditBoxBlog() {
-  let blog = document.getElementById('blog');
-  let editBlog = document.getElementById('editBlog');
+// export function closeEditBoxBlog() {
+//   let blog = document.getElementById('blog');
+//   let editBlog = document.getElementById('editBlog');
 
-  blog.style.display = 'block';
-  editBlog.style.display = 'none';
-}
+//   blog.style.display = 'block';
+//   editBlog.style.display = 'none';
+// }
 
 export function openEditBoxBirth() {
   let birth = document.getElementById('birth');

@@ -3,13 +3,13 @@ import { handleLocation, goToProfile } from "./router.js";
 import { authService } from "./firebase.js";
 import { loadingSpinner, cardMenu, getFeedList, deleteFeed } from "./pages/feed.js";
 import {
-    openEditBoxName, closeEditBoxName, openEditBoxBlog,
-    closeEditBoxBlog, openEditBoxBirth, closeEditBoxBirth,
+    openEditBoxName, closeEditBoxName,
+    openEditBoxBirth, closeEditBoxBirth,
     openEditBoxText, closeEditBoxText, changeProfile, onFileChange, openEditBoxLeave, closeEditBoxLeave
 } from "./pages/profile_img.js";
 // import { savePost } from "./pages/newPost.js"; 추가
 import { savePost } from "./pages/newPost.js";
-import { saveName, saveBlog, saveBirth, saveText, getBirth, userBirth, getText, userText } from "./pages/profile_text.js";
+import { saveName, saveBirth, saveText, getBirth, userBirth, getText, userText } from "./pages/profile_text.js";
 import { leave } from "./pages/deleteUser.js";
 
 // url 바뀌면 handleLocation 실행하여 화면 변경
@@ -86,8 +86,8 @@ window.loadingSpinner = loadingSpinner;
 //////////////////기동////////////////////
 window.openEditBoxName = openEditBoxName;
 window.closeEditBoxName = closeEditBoxName;
-window.openEditBoxBlog = openEditBoxBlog;
-window.closeEditBoxBlog = closeEditBoxBlog;
+// window.openEditBoxBlog = openEditBoxBlog;
+// window.closeEditBoxBlog = closeEditBoxBlog;
 window.openEditBoxBirth = openEditBoxBirth;
 window.closeEditBoxBirth = closeEditBoxBirth;
 window.openEditBoxText = openEditBoxText;
@@ -97,7 +97,7 @@ window.onFileChange = onFileChange;
 window.changeProfile = changeProfile;
 
 window.saveName = saveName;
-window.saveBlog = saveBlog;
+// window.saveBlog = saveBlog;
 window.saveBirth = saveBirth;
 window.saveText = saveText;
 window.getBirth = getBirth;
