@@ -1,7 +1,7 @@
 import { handleAuth, logout, socialLogin, onToggle } from "./pages/login.js";
 import { handleLocation, goToProfile } from "./router.js";
 import { authService } from "./firebase.js";
-import { loadingSpinner, cardMenu, getFeedList, deleteFeed } from "./pages/feed.js";
+import { loadingSpinner, mobileMenu, getFeedList, deleteFeed } from "./pages/feed.js";
 import {
     openEditBoxName, closeEditBoxName, openEditBoxBlog,
     closeEditBoxBlog, openEditBoxBirth, closeEditBoxBirth,
@@ -80,7 +80,7 @@ window.closeEditBoxLeave = closeEditBoxLeave;
 window.getFeedList = getFeedList;
 window.savePost = savePost;
 window.deleteFeed = deleteFeed;
-window.cardMenu = cardMenu;
+window.mobileMenu = mobileMenu;
 window.loadingSpinner = loadingSpinner;
 
 //////////////////기동////////////////////

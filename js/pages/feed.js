@@ -16,52 +16,52 @@ export function loadingSpinner() {
 }
 
 // 내 게시글에만 보이는 메뉴 버튼 드롭다운 기능
-export function cardMenu(idx) {
+export function mobileMenu(idx) {
   console.log(idx)
-    document.getElementById(`cardDropdown${idx}`).classList.toggle("show");
-  }
-  
-  window.onclick = function(event) {
-    if (!event.target.matches('.cardDropdownBtn')) {
-      var dropdowns = document.getElementsByClassName("cardDropdownContent");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
+  document.getElementById(`mobileDropdown${idx}`).classList.toggle("show");
+}
+
+window.onclick = function (event) {
+  if (!event.target.matches('.mobileDropdownBtn')) {
+    var dropdowns = document.getElementsByClassName("mobileDropdownContent");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
       }
     }
   }
+}
 
 // 피드 불러오기  
 export const getFeedList = async () => {
-    let feedObjList = [];
-    const q = query(
-        collection(dbService, "posts"),
-        orderBy("createdAt", "desc")
-    );
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-        const feedObj = {
-            id: doc.id,
-            ...doc.data(),
-        };
-        feedObjList.push(feedObj);
-    });
+  let feedObjList = [];
+  const q = query(
+    collection(dbService, "posts"),
+    orderBy("createdAt", "desc")
+  );
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    const feedObj = {
+      id: doc.id,
+      ...doc.data(),
+    };
+    feedObjList.push(feedObj);
+  });
 
-    const feedList = document.getElementById("feed");
-    const currentUid = authService.currentUser.uid;
-    feedList.innerHTML = "";
-    feedObjList.forEach((feedObj,idx) => {
-        const isOwner = currentUid === feedObj.creatorId;
-        const temp_html = `
+  const feedList = document.getElementById("feed");
+  const currentUid = authService.currentUser.uid;
+  feedList.innerHTML = "";
+  feedObjList.forEach((feedObj, idx) => {
+    const isOwner = currentUid === feedObj.creatorId;
+    const temp_html = `
         <div class="card">
             <div class="cardUserInfo">
                 <img class="cardProfile" title="${feedObj.nickname}" onclick="goToProfile(this)" src="${feedObj.profileImg === null ? "../assets/blankProfile.webp" : feedObj.profileImg}"/>
                 <div class="${isOwner ? "updateBtns" : "noDisplay"}">
-                    <button onclick="cardMenu(${idx})" class="cardDropdownBtn">●●●</button>
-                        <div id="cardDropdown${idx}" class="cardDropdownContent">
+                    <button onclick="mobileMenu(${idx})" class="mobileDropdownBtn">●●●</button>
+                        <div id="mobileDropdown${idx}" class="mobileDropdownContent">
                             <a onclick="onEditing(event)" class="editBtn btn btn-dark"></a>
                             <a name="${feedObj.id}" onclick="deleteFeed(event)" class="deleteBtn btn btn-dark"></a>
                         </div>
@@ -76,60 +76,60 @@ export const getFeedList = async () => {
             <div class="cardDate">${new Date(feedObj.createdAt).toString().slice(4, 15)}</div>
       </div>
    `;
-        const div = document.createElement("div");
-        div.classList.add(`mycard`);
-        div.innerHTML = temp_html;
-        feedList.appendChild(div);
+    const div = document.createElement("div");
+    div.classList.add(`mycard`);
+    div.innerHTML = temp_html;
+    feedList.appendChild(div);
 
-        // 더보기 버튼
-        const loadmore = document.querySelector(".loadmore");
-        const elementList = [...document.querySelectorAll(".feed .mycard")];
-        let currentItems = 12;
+    // 더보기 버튼
+    const loadmore = document.querySelector(".loadmore");
+    const elementList = [...document.querySelectorAll(".feed .mycard")];
+    let currentItems = 12;
 
-        // 게시글 12개 이하일 때 더보기 감추기
-        if (currentItems >= elementList.length) {
-          loadmore.classList.add('loaded')
-        } else {
-          loadmore.classList.remove('loaded')
+    // 게시글 12개 이하일 때 더보기 감추기
+    if (currentItems >= elementList.length) {
+      loadmore.classList.add('loaded')
+    } else {
+      loadmore.classList.remove('loaded')
+    }
+
+    console.log("기준:", currentItems, "/", "피드 카드 갯수:", elementList.length)
+
+    // 게시글 12개 초과시 더보기 보여주기
+    loadmore.addEventListener('click', (e) => {
+      e.target.classList.add('showLoader');
+
+      for (let i = currentItems; i < currentItems + 12; i++) {
+        e.target.classList.remove('showLoader');
+        if (elementList[i]) {
+          elementList[i].style.display = "flex";
         }
+      }
+      currentItems += 12;
+      console.log("더보기:", currentItems, "/", "피드 카드 갯수:", elementList.length)
 
-        console.log("기준:", currentItems, "/", "피드 카드 갯수:", elementList.length)
-        
-        // 게시글 12개 초과시 더보기 보여주기
-        loadmore.addEventListener('click', (e) => {
-          e.target.classList.add('showLoader');
-
-          for (let i = currentItems; i < currentItems + 12; i++) {
-            e.target.classList.remove('showLoader');
-            if(elementList[i]) {
-              elementList[i].style.display = "flex";
-            }
-          }
-          currentItems += 12;
-          console.log("더보기:", currentItems, "/", "피드 카드 갯수:", elementList.length)
-
-          // 게시글 끝까지 로딩시 더보기 감추기  
-          if (currentItems >= elementList.length) {
-            e.target.classList.add('loaded')
-          }
-        }) 
-    });
+      // 게시글 끝까지 로딩시 더보기 감추기  
+      if (currentItems >= elementList.length) {
+        e.target.classList.add('loaded')
+      }
+    })
+  });
 };
 
 // 내 게시글 삭제하기
 export const deleteFeed = async (event) => {
-    event.preventDefault();
-    const id = event.target.name;
-    const ok = window.confirm("정말 삭제하시겠습니까?🥺");
-    if (ok) {
-      try {
-        await deleteDoc(doc(dbService, "posts", id));
-        getFeedList();
-      } catch (error) {
-        alert(error);
-      }
+  event.preventDefault();
+  const id = event.target.name;
+  const ok = window.confirm("정말 삭제하시겠습니까?🥺");
+  if (ok) {
+    try {
+      await deleteDoc(doc(dbService, "posts", id));
+      getFeedList();
+    } catch (error) {
+      alert(error);
     }
-  };
-  
+  }
+};
+
 
 // 내 게시글만 분류하기

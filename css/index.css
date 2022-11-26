@@ -83,108 +83,6 @@
 .tmrwcp {
   margin-top: 50px;
 }
-/* 반응형- 시윤님 코드 */
-/* 반응형 */
-@media (max-width: 768px) {
-  .header {
-    width: 100%;
-    height: 70px;
-  }
-  .desc {
-    display: none;
-  }
-  .title {
-    font-size: 28px;
-    margin: 0;
-  }
-  /* rightBtn -> navberUser */
-  .navbarUser {
-    display: none;
-  }
-  .mobileRightBtn {
-    display: flex;
-    position: absolute;
-    right: 15px;
-    border: none;
-  }
-  .mobileRightBtn::before {
-    font-family: "Font Awesome 5 Free";
-    content: "\f007";
-    font-size: 20px;
-  }
-
-  .cardDropdownBtn {
-    border: none;
-    background: none;
-  }
-
-  .cardDropdownBtn:hover {
-    opacity: 0.7;
-  }
-
-  .cardDropdownContent {
-    display: none;
-    position: absolute;
-    border: 1px solid;
-    background: rgb(235, 235, 235);
-    margin: 10px 0 0 -15px;
-  }
-
-  .cardDropdownContent a {
-    padding: 10px 10px 10px 15px;
-    text-decoration: none;
-    display: block;
-  }
-
-  .show {
-    display: block;
-  }
-
-  .btn {
-    border: none;
-    font-size: 20px;
-    background: none;
-  }
-  .btn:hover {
-    opacity: 0.7;
-  }
-
-  .editBtn::before {
-    font-family: "Font Awesome 5 Free";
-    content: "\f044";
-    margin-right: 4px;
-  }
-
-  .deleteBtn::before {
-    font-family: "Font Awesome 5 Free";
-    content: "\f2ed";
-  }
-
-  .footer {
-    margin-bottom: 20px;
-  }
-  .footerText {
-    padding: 40px 30px 0px 30px;
-  }
-  .footer h1 {
-    font-size: 24px;
-  }
-  .footerTitle {
-    font-weight: 700;
-    margin-top: 15px;
-  }
-  .footerContent {
-    margin-top: 3px;
-  }
-  .tmrwcp {
-    text-align: center;
-    font-size: 11px;
-    color: gray;
-    margin-top: 30px;
-  }
-}
-/*  */
-
 /* 디폴트값: 숨기기 */
 .navbarUserAccountMenu,
 .navbarBeforeLogin {
@@ -229,3 +127,153 @@ ul li a:hover {
   font-family: "Pretendard-Regular";
   color: red;
 }
+
+/* 반응형- 시윤님 코드 */
+/* 반응형 */
+@media (max-width: 768px) {
+  .header {
+    width: 100%;
+    height: 70px;
+  }
+  .desc {
+    display: none;
+  }
+  .title {
+    font-size: 28px;
+    margin: 0;
+  }
+  /* rightBtn -> navberUser */
+  .navbarUser {
+    display: none;
+  }
+  .mobileButton {
+    display: flex;
+    position: absolute;
+    right: 25px;
+  }
+  .mobileRightBtn {
+    border: none;
+  }
+  .mobileRightBtn::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f007";
+    font-size: 20px;
+  }
+
+  .mobileDropdownBtn {
+    border: none;
+    background: none;
+  }
+
+  .mobileDropdownBtn:hover {
+    opacity: 0.7;
+  }
+
+  .mobileDropdownContent {
+    display: none;
+    position: absolute;
+    width: 50px;
+    border: 1px solid;
+    background: rgb(235, 235, 235);
+    margin: 35px 0 0 -18px;
+    z-index: 1;
+  }
+  .mobileDropdownContent a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+  .show {
+    display: block;
+  }
+  #newPost {
+    border: none;
+  }
+  .btn {
+    border: none;
+    font-size: 20px;
+    background: none;
+  }
+  .btn:hover {
+    opacity: 0.7;
+  }
+
+  .editBtn::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f044";
+    margin-right: 4px;
+  }
+
+  .deleteBtn::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f2ed";
+  }
+
+  .footer {
+    margin-bottom: 20px;
+  }
+  .footerText {
+    padding: 40px 30px 0px 30px;
+  }
+  .footer h1 {
+    font-size: 24px;
+  }
+  .footerTitle {
+    font-weight: 700;
+    margin-top: 15px;
+  }
+  .footerContent {
+    margin-top: 3px;
+  }
+  .tmrwcp {
+    text-align: center;
+    font-size: 11px;
+    color: gray;
+    margin-top: 30px;
+  }
+  /* 로그인 드롭다운 */
+  .navbarUserAccountMenu,
+  .navbarBeforeLogin {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 5px;
+    position: absolute;
+    top: 50px;
+    min-width: 150px;
+    right: 0;
+    background-color: #eae7de;
+    box-shadow: 0px 8px 16px 0px #00000033;
+    overflow: hidden;
+  }
+
+  /* 드롭다운 버튼 클릭 시 보임 */
+  .active {
+    display: block;
+  }
+
+  .userName,
+  .userSetting,
+  .logoutBtn,
+  .signIn,
+  .join {
+    text-decoration: none;
+    color: inherit;
+    font-family: "Pretendard-Regular";
+    display: block;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+  }
+
+  ul li a {
+    background-color: #eae7de;
+    color: white;
+  }
+
+  .logoutBtn {
+    font-family: "Pretendard-Regular";
+    color: red;
+  }
+}
+/*  */
