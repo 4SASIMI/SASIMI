@@ -45,6 +45,7 @@ import {
   deletePost,
   getPostList,
   getMyPost,
+  updateView,
 } from './pages/newPost.js';
 
 // url 바뀌면 handleLocation 실행하여 화면 변경
@@ -112,3 +113,4 @@ window.getBirth = getBirth;
 window.userBirth = userBirth;
 window.getText = getText;
 window.userText = userText;
+window.updateView = updateView;

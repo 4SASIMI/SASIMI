@@ -7,6 +7,7 @@ import {
   orderBy,
   query,
   getDocs,
+  getDoc,
   limit,
   where,
 } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js';
@@ -26,6 +27,7 @@ export const savePost = async (event) => {
       creatorId: uid,
       profileImg: photoURL,
       nickname: displayName,
+      totalView: 0,
     });
 
     localStorage.clear();
@@ -158,7 +160,6 @@ export const getMyPost = async () => {
   const q = query(
     collection(dbService, 'posts'),
     orderBy('createdAt', 'desc'),
-    where('creatorId', '==', authService.currentUser.uid),
     limit(1)
   );
   const querySnapshot = await getDocs(q);
@@ -212,4 +213,19 @@ export const getMyPost = async () => {
     div.innerHTML = temp_html;
     postList.appendChild(div);
   });
+};
+
+export const updateView = async () => {
+  const docID = localStorage.getItem('docID');
+  const docRef = doc(dbService, 'posts', docID);
+  const docSnap = await getDoc(docRef);
+  const forUpdate = {
+    ...docSnap.data(),
+  };
+  let curView = ++forUpdate.totalView;
+  try {
+    await updateDoc(docRef, { totalView: curView });
+  } catch (error) {
+    alert(error);
+  }
 };

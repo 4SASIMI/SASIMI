@@ -1,6 +1,6 @@
 import { authService, dbService } from './firebase.js';
 import { showFeed } from './pages/feed.js';
-import { getMyPost, getPostList } from './pages/newPost.js';
+import { getMyPost, getPostList, updateView } from './pages/newPost.js';
 import {
   openEditBoxName,
   closeEditBoxName,
@@ -73,6 +73,7 @@ export const handleLocation = async () => {
     if (!localStorage.getItem('docID')) {
       getMyPost();
     } else {
+      updateView();
       getPostList();
     }
   }

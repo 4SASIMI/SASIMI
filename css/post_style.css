@@ -171,12 +171,14 @@
   font-size: 1.5rem;
   border: none;
   border-bottom: 1px solid #e8e8e8;
+  background-color: transparent;
 }
 .writePost {
   min-height: 400px;
   border: 1px solid #767676;
   padding: 10px;
   font-size: 1rem;
+  background-color: transparent;
 }
 
 .postDesc:first-child {
