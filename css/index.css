@@ -29,6 +29,10 @@
   text-align: center;
 }
 
+.pcButton {
+  display: flex;
+}
+
 .btnIcon {
   color: initial;
   text-decoration: none;
@@ -64,7 +68,14 @@
 .mobileRightBtn {
   display: none;
 }
-/* */
+/* 시윤수정 */
+.cardDropdownContent {
+  display: none;
+}
+
+.mobileDropdownContent {
+  display: none;
+}
 
 /* 푸터 */
 .footer {
@@ -129,7 +140,6 @@ ul li a:hover {
 }
 
 /* 반응형- 시윤님 코드 */
-/* 반응형 */
 @media (max-width: 768px) {
   .header {
     width: 100%;
@@ -144,14 +154,14 @@ ul li a:hover {
   }
   /* rightBtn -> navberUser */
   .navbarUser {
+    display: block;
+  }
+  .pcButton {
     display: none;
   }
-  .mobileButton {
-    display: flex;
-    position: absolute;
-    right: 25px;
-  }
+  /* 시윤수정: 모바일 드롭다운 */
   .mobileRightBtn {
+    display: flex;
     border: none;
   }
   .mobileRightBtn::before {
@@ -174,11 +184,14 @@ ul li a:hover {
     position: absolute;
     width: 50px;
     border: 1px solid;
-    background: rgb(235, 235, 235);
-    margin: 35px 0 0 -18px;
+    background: #eae7de;
+    margin: 15px 0 0 -70px;
+    width: 120px;
     z-index: 1;
   }
+
   .mobileDropdownContent a {
+    padding: 5px 0;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -186,9 +199,16 @@ ul li a:hover {
   .show {
     display: block;
   }
+
   #newPost {
     border: none;
+    width: 120px;
+    margin: 0;
   }
+  #newPost::before {
+    content: "새글작성";
+  }
+
   .btn {
     border: none;
     font-size: 20px;
@@ -231,49 +251,53 @@ ul li a:hover {
     color: gray;
     margin-top: 30px;
   }
-  /* 로그인 드롭다운 */
-  .navbarUserAccountMenu,
-  .navbarBeforeLogin {
-    display: none;
-    list-style: none;
-    margin: 0;
-    padding: 5px;
-    position: absolute;
-    top: 50px;
-    min-width: 150px;
-    right: 0;
-    background-color: #eae7de;
-    box-shadow: 0px 8px 16px 0px #00000033;
-    overflow: hidden;
-  }
-
-  /* 드롭다운 버튼 클릭 시 보임 */
-  .active {
-    display: block;
-  }
-
-  .userName,
-  .userSetting,
-  .logoutBtn,
-  .signIn,
-  .join {
-    text-decoration: none;
-    color: inherit;
-    font-family: "Pretendard-Regular";
-    display: block;
-    padding: 10px;
-    box-sizing: border-box;
-    transition: all 0.3s ease-in-out;
-  }
-
-  ul li a {
-    background-color: #eae7de;
-    color: white;
-  }
-
-  .logoutBtn {
-    font-family: "Pretendard-Regular";
-    color: red;
-  }
 }
+/* 이부분 current change */
+
+/* 디폴트값: 숨기기 */
+.navbarUserAccountMenu,
+.navbarBeforeLogin {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+  position: absolute;
+  top: 50px;
+  min-width: 150px;
+  right: 0;
+  background-color: #eae7de;
+  box-shadow: 0px 8px 16px 0px #00000033;
+  overflow: hidden;
+  z-index: 1px;
+}
+
+/* 드롭다운 버튼 클릭 시 보임 */
+.active {
+  display: block;
+}
+
+.userName,
+.userSetting,
+.logoutBtn,
+.signIn,
+.join {
+  text-decoration: none;
+  color: inherit;
+  font-family: "Pretendard-Regular";
+  display: block;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+ul li a {
+  background-color: #eae7de;
+  color: white;
+}
+
+.logoutBtn {
+  font-family: "Pretendard-Regular";
+  color: red;
+}
+
 /*  */

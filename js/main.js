@@ -29,10 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const postBtn = document.getElementById("newPost");
         // 로그인 여부
         if (user) {
-
             // ulElementAfterLogin.classList.toggle("active");
             // ulElementBeforeLogin.classList.remove("active");
-
             // console.log('user-info: ', user_email);
 
             postBtn.style.display = 'block';
@@ -43,10 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             console.log("로그아웃")
             // ulElementAfterLogin.classList.remove("active");
-
-
             // ulElementBeforeLogin.classList.toggle("active");
-
+            // window.location.replace("/");
             postBtn.style.display = 'none';
 
         }
@@ -54,13 +50,17 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // 드롭다운 버튼 외부의 영역 클릭 시 사라지게
 window.addEventListener('mousedown', function (event) {
-    const dropdown1 = this.document.querySelector('.navbarUserAccountMenu');
+    // const dropdown1 = this.document.querySelector('.navbarUserAccountMenu');
     const dropdown2 = this.document.querySelector('.navbarBeforeLogin');
-    if (!dropdown1.contains(event.target)) {
-        dropdown1.classList.remove('active')
-    }
+    const mobileDropdown = this.document.querySelector('.mobileDropdownContent');
+    // if (!dropdown1.contains(event.target)) {
+    //     dropdown1.classList.remove('active')
+    // }
     if (!dropdown2.contains(event.target)) {
         dropdown2.classList.remove('active')
+    }
+    if (!mobileDropdown.contains(event.target)) {
+        mobileDropdown.classList.remove('active')
     }
 });
 

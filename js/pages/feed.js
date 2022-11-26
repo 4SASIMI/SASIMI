@@ -60,8 +60,13 @@ export const getFeedList = async () => {
             <div class="cardUserInfo">
                 <img class="cardProfile" title="${feedObj.nickname}" onclick="goToProfile(this)" src="${feedObj.profileImg === null ? "../assets/blankProfile.webp" : feedObj.profileImg}"/>
                 <div class="${isOwner ? "updateBtns" : "noDisplay"}">
+<<<<<<< HEAD
                     <button onclick="mobileMenu(${idx})" class="mobileDropdownBtn">●●●</button>
                         <div id="mobileDropdown${idx}" class="mobileDropdownContent">
+=======
+                    <button onclick="cardMenu(${idx})" class="cardDropdownBtn">•••</button>
+                        <div id="cardDropdown${idx}" class="cardDropdownContent">
+>>>>>>> 653fac786e42d612b94cf73c5bf2c7babe49f3b7
                             <a onclick="onEditing(event)" class="editBtn btn btn-dark"></a>
                             <a name="${feedObj.id}" onclick="deleteFeed(event)" class="deleteBtn btn btn-dark"></a>
                         </div>
