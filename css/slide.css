@@ -1,14 +1,15 @@
-.slide { 
+#slide { 
   width: 400px;
   height: 100%;
   position: relative;
   margin: 0 auto 30px auto;
   overflow: hidden;
   border-radius: 5px;
+
+  text-align: center;
 }
 
-.wrap > h1 {
-  text-align: center;
+#slide > h1 {
   margin-top: 10px;
   margin-bottom: 10px;
 
@@ -19,8 +20,14 @@
   border: 1px solid #051619;
 }
 
+.carousel-inner > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 @media (max-width: 768px) {
-  .slide {
+  #slide {
     display: none;
   }
 

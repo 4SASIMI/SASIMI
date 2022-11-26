@@ -12,6 +12,8 @@ import { savePost } from "./pages/newPost.js";
 import { saveName, saveBirth, saveText, getBirth, userBirth, getText, userText } from "./pages/profile_text.js";
 import { leave } from "./pages/deleteUser.js";
 
+// import { bestTitle1,bestText1 } from './pages/slide.js';
+
 // url 바뀌면 handleLocation 실행하여 화면 변경
 window.addEventListener("hashchange", handleLocation);
 
@@ -104,3 +106,6 @@ window.getBirth = getBirth;
 window.userBirth = userBirth;
 window.getText = getText;
 window.userText = userText;
+
+// window.bestTitle1 = bestTitle1;
+// window.bestText1 = bestText1;

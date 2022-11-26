@@ -18,7 +18,9 @@ export const saveName = async (event) => {
   })
     .then(() => {
       alert("프로필 수정 완료");
-      window.location.reload();
+      // window.location.reload();
+      closeEditBoxName();
+      document.getElementById("nameText").innerHTML = authService.currentUser.displayName ?? "이름을 입력해주세요";
       // window.location.hash = "#";
     })
     .catch((error) => {
@@ -26,6 +28,11 @@ export const saveName = async (event) => {
       console.log("error:", error);
     });
 };
+
+export const getName = async () => {
+  let userName = authService.currentUser.displayName;
+  document.getElementById("nameText").innerHTML = userName ?? "이름을 입력해주세요";
+}
 
 // export const saveBlog = async (event) => {
 //   event.preventDefault();
@@ -134,8 +141,8 @@ export const getText = async () => {
     // console.log(textObj);
     textObjList.push(textObj);
   });
-  console.log(textObjList);
+  // console.log(textObjList);
   userText = textObjList[0].text;
-  console.log(userText);
+  // console.log(userText);
   document.getElementById("introText").innerHTML = userText ?? "자기소개를 입력해주세요";
 }

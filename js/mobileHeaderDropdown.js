@@ -22,4 +22,4 @@ window.onclick = function (event) {
 
 
 window.mobileMenu = mobileMenu;
-window.onToggle = onToggle;
+// window.onToggle = onToggle;
