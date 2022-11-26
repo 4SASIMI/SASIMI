@@ -12,6 +12,7 @@
     <script src="https://kit.fontawesome.com/419744c921.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/419744c921.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <script src="js/mobileHeaderDropdown.js" type="module"></script>
     <title>사시미</title>
 </head>
 <body>
@@ -22,13 +23,14 @@
             <a href="#newPost" onclick="route(event)" id="newPost" class="btnIcon"></a>
             <a href="#login" onclick="route(event)" id="dropDown" class="btnIcon"></a>
         </div>
-        <button onclick="mobileMenu()" class="mobileRightBtn"></button>
-            <div id="cardDropdown" class="cardDropdownContent">
-                <a href="#newPost" onclick="route(event)" id="newPost" class="btnIcon"></a>
-                <a href="#login" onclick="route(event)" id="dropDown" class="btnIcon"></a>
-            </div>
-        </button>
-        <script src="js/mobileHeaderDropdown.js" type="module"></script>
+        <div class="mobileButton">
+            <button onclick="mobileMenu()" class="mobileRightBtn"></button>
+                <div id="mobileDropdown" class="mobileDropdownContent">
+                    <a href="#newPost" onclick="route(event)" id="newPost" class="btnIcon"></a>
+                    <a href="#login" onclick="route(event)" id="dropDown" class="btnIcon"></a>
+                </div>
+            </button>
+        </div>
     </div>
     <div id="root">
         <div id="mainFeed"></div>

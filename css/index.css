@@ -53,7 +53,7 @@
   content: "\f007";
 }
 
-.mobileRightBtn {
+.mobileButton {
   display: none;
 }
 
@@ -92,10 +92,13 @@
   .rightBtn {
     display: none;
   }
-  .mobileRightBtn {
+  /* 모바일 드롭다운 */
+  .mobileButton {
     display: flex;
     position: absolute;
-    right: 15px;
+    right: 25px;
+  }
+  .mobileRightBtn {
     border: none;
   }
   .mobileRightBtn::before {
@@ -104,31 +107,34 @@
     font-size: 20px;
   }
 
-  .cardDropdownBtn {
+  .mobileDropdownBtn {
     border: none;
     background: none;
   }
 
-  .cardDropdownBtn:hover {
+  .mobileDropdownBtn:hover {
     opacity: 0.7;
   }
 
-  .cardDropdownContent {
+  .mobileDropdownContent {
     display: none;
     position: absolute;
+    width: 50px;
     border: 1px solid;
     background: rgb(235, 235, 235);
-    margin: 10px 0 0 -15px;
+    margin: 35px 0 0 -18px;
+    z-index: 1;
   }
-
-  .cardDropdownContent a {
-    padding: 10px 10px 10px 15px;
+  .mobileDropdownContent a {
     text-decoration: none;
-    display: block;
+    display: flex;
+    align-items: center;
   }
-
   .show {
     display: block;
+  }
+  #newPost {
+    border: none;
   }
 
   .btn {

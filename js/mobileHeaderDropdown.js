@@ -1,12 +1,15 @@
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
 export function mobileMenu() {
-  console.log("모바일 메뉴")
-  document.getElementById("cardDropdown").classList.toggle("show");
+  console.log("드롭다운 열기")
+  document.getElementById("mobileDropdown").classList.toggle("show");
   }
   
+  // Close the dropdown menu if the user clicks outside of it
   window.onclick = function(event) {
-    console.log("이벤트 함수")
-    if (!event.target.matches('.cardDropdownBtn')) {
-      var dropdowns = document.getElementsByClassName("cardDropdownContent");
+    console.log("드롭다운 닫기")
+    if (!event.target.matches('.mobileDropdownBtn')) {
+      var dropdowns = document.getElementsByClassName("mobileDropdownContent");
       var i;
       for (i = 0; i < dropdowns.length; i++) {
         var openDropdown = dropdowns[i];
