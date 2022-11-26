@@ -4,7 +4,7 @@
 .postPageWrap,
 .writeWrap {
   width: 100%;
-  padding: 100px 10px;
+  padding: 100px 10px 50px;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -21,6 +21,10 @@
 }
 .myPost {
   width: 100%;
+}
+.postPageWrap {
+  margin-bottom: 50px;
+  border-bottom: 1px solid #767676;
 }
 .postWrap .postTitle {
   padding: 20px 10px;
@@ -63,35 +67,10 @@
   margin: 0 10px;
   cursor: pointer;
 }
-.myComment {
-  width: 100%;
-  padding: 30px 0;
-}
-
-.commentForm .commentInput {
-  width: 100%;
-  height: 100px;
-  padding: 15px;
-  margin-bottom: 15px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-  border: none;
-}
-.commentForm .commentInput:focus-visible {
-  border: 1px solid #e2e8f0;
-  outline: none;
-}
-.commentForm .commentSubmitBtn {
-  float: right;
-}
-.commentForm::after {
-  content: '';
-  display: block;
-  clear: right;
-}
 
 .btn {
-  background: #ffffff;
-  border: 1px solid transparent;
+  background: transparent;
+  border: 1px solid #767676;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   box-sizing: border-box;
@@ -110,39 +89,95 @@
 @media (hover: hover) {
   .btn:hover {
     box-shadow: none;
-    border: 1px solid #e2e8f0;
   }
 }
-
-.commentList {
+.writeComment {
   width: 100%;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border: 1px solid #767676;
+  padding: 10px;
+  font-size: 1rem;
+}
+.myComment::after {
+  display: block;
+  content: '';
+  clear: right;
+}
+.saveCommentBtn {
+  float: right;
 }
 
-.comment {
+.commentWrap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 100px;
+  padding: 0 10px;
+}
+.commentTitle {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+.myComment {
+  width: 100%;
+  padding: 30px 10px 80px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.commentCardBody {
   position: relative;
-  padding: 30px 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+}
+.updateBtns {
+  position: absolute;
+  top: 10px;
+  right: 0;
 }
 
-.comment .commentProfile {
+#comment-list {
   width: 100%;
+  max-width: 1200px;
+  padding: 10px;
+}
+.mycards {
+  border-bottom: 1px solid #cccccc;
+  padding: 30px 0 40px;
+}
+
+.commentProfile {
+  width: 100%;
+  margin-bottom: 20px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.comment .commentProfile img {
+.commentProfile img,
+.cmtImg {
   width: 50px;
   height: 50px;
   object-fit: cover;
   border-radius: 50%;
   margin-right: 15px;
 }
-.comment .commentDesc {
+.commentCard {
   width: 100%;
-  margin-top: 30px;
+}
+
+p.commentText {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+footer.comment-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.cmtAt {
+  font-size: 14px;
 }
 
 .changeBtnGroup {
@@ -153,6 +188,7 @@
 
 .writeBtn {
   align-self: flex-end;
+  margin-right: 10px;
 }
 
 .writeTitleWrap {
@@ -170,15 +206,15 @@
   padding: 20px 0px;
   font-size: 1.5rem;
   border: none;
-  border-bottom: 1px solid #e8e8e8;
   background-color: transparent;
+  border-bottom: 1px solid #e8e8e8;
 }
 .writePost {
+  background-color: transparent;
   min-height: 400px;
   border: 1px solid #767676;
   padding: 10px;
   font-size: 1rem;
-  background-color: transparent;
 }
 
 .postDesc:first-child {
@@ -186,7 +222,8 @@
 }
 
 #writeTitle:focus-visible,
-.writePost:focus-visible {
+.writePost:focus-visible,
+.writeComment:focus-visible {
   outline: none;
 }
 

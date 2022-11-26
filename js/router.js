@@ -1,6 +1,11 @@
 import { authService, dbService } from './firebase.js';
 import { showFeed } from './pages/feed.js';
-import { getMyPost, getPostList, updateView } from './pages/newPost.js';
+import {
+  getMyPost,
+  getPostList,
+  updateView,
+  getCommentList,
+} from './pages/newPost.js';
 import {
   openEditBoxName,
   closeEditBoxName,
@@ -70,11 +75,21 @@ export const handleLocation = async () => {
   //         authService.currentUser.displayName ?? "닉네임 없음";
   // }
   if (path == 'post') {
+    document.getElementById('nickname').textContent =
+      authService.currentUser?.displayName ?? '닉네임 없음';
+
+    document.getElementById('profileImg').src =
+      authService.currentUser?.photoURL ?? '../assets/blankProfile.webp';
     if (!localStorage.getItem('docID')) {
       getMyPost();
     } else {
       updateView();
       getPostList();
+      getCommentList();
+    }
+    if (!authService.currentUser) {
+      const writeComment = document.getElementById('myComment');
+      writeComment.classList.add('noDisplay');
     }
   }
   if (path == 'newPost') {

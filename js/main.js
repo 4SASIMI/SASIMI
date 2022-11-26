@@ -46,6 +46,10 @@ import {
   getPostList,
   getMyPost,
   updateView,
+  save_comment,
+  update_comment,
+  commentEditing,
+  delete_comment,
 } from './pages/newPost.js';
 
 // url 바뀌면 handleLocation 실행하여 화면 변경
@@ -93,6 +97,11 @@ window.onEditing = onEditing;
 window.deletePost = deletePost;
 window.getPostList = getPostList;
 window.getMyPost = getMyPost;
+window.save_comment = save_comment;
+window.update_comment = update_comment;
+window.commentEditing = commentEditing;
+window.delete_comment = delete_comment;
+
 window.openEditBoxName = openEditBoxName;
 window.closeEditBoxName = closeEditBoxName;
 window.openEditBoxBlog = openEditBoxBlog;
