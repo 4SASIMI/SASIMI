@@ -89,7 +89,10 @@ export const handleLocation = async () => {
     }
     if (!authService.currentUser) {
       const writeComment = document.getElementById('myComment');
+      const commentTitle = document.getElementById('commentTitle');
       writeComment.classList.add('noDisplay');
+      commentTitle.classList.remove('noDisplay');
+      commentTitle.classList.remove('yesDisplay');
     }
   }
   if (path == 'newPost') {
