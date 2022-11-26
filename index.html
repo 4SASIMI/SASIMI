@@ -29,7 +29,6 @@
 
     <!--  -->
     <script src="https://kit.fontawesome.com/419744c921.js" crossorigin="anonymous"></script>
-    <!-- <script type="text/javascript" src="../js/moreBtn.js"></script> -->
     <script src="https://kit.fontawesome.com/419744c921.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/419744c921.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico" />
@@ -40,41 +39,59 @@
 
 <body>
     <div class="header">
-        <!-- <a href="#" class=title>사시미</a> -->
-        <!-- <div class="rightBtn"> -->
         <!-- 로그인 후 노출 -->
         <!-- 시윤님 코드 추가 -->
         <p class="desc">트렌드 토픽을 쉽고 간단하게</p>
-        <a href="#" onclick="route(event)" class=title>SASIMI</a>
+        <a href="#" class=title>SASIMI</a>
         <div class="navbarUser">
-
-            <a href="#newPost" id="newPost" class="btnIcon"></a>
-            <button type="button" class="btnIcon" onclick="onToggle()" id="dropDown"></button>
-
-            <ul class="navbarUserAccountMenu">
-                <li><a class="userName" href="#blog">내 블로그</a></li>
-                <li><a class="userSetting" href="#profile">프로필 설정</a></li>
-                <li><a class="logoutBtn" href="#" onclick="logout()">로그아웃</a></li>
-            </ul>
-
+            <div class="pcButton">
+                <a href="#newPost" id="newPost" class="btnIcon"></a>
+                <button type="button" class="btnIcon" onclick="onToggle()" id="dropDown"></button>
+    
+                <ul class="navbarUserAccountMenu">
+                    <li><a class="userName" href="#blog">내 블로그</a></li>
+                    <li><a class="userSetting" href="#profile">프로필 설정</a></li>
+                    <li><a class="logoutBtn" href="#" onclick="logout()">로그아웃</a></li>
+                </ul>
+            </div>
+            <div class="mobileButton">
+                <button onclick="mobileMenu()" class="mobileRightBtn"></button>
+                    <div id="mobileDropdown" class="mobileDropdownContent">
+                        <a href="#newPost" onclick="route(event)" id="newPost" class="btnIcon"></a>
+                        <a class="userSetting" href="#profile">프로필 설정</a>
+                        <a class="userName" href="#blog">내 블로그</a>
+                        <a class="logoutBtn" href="#" onclick="logout()">로그아웃</a>
+                    </div>
+                </button>
+            </div>
             <!-- 로그인 후 노출 -->
+            
             <!-- 로그인 전 노출 -->
-            <!-- a태그 클릭하면 콘솔에 Uncaught ReferenceError: route is not defined
-    at HTMLAnchorElement.onclick 이란 오류가 생겨서 route(event) 삭제했음 -->
+
             <ul class="navbarBeforeLogin">
                 <li><a class="signIn" href="#login">로그인</a></li>
                 <li><a class="join" href="#register">회원가입</a></li>
             </ul>
+            <!-- <div class="mobileButton">
+                <button onclick="mobileMenu()" class="mobileRightBtn"></button>
+                    <div id="mobileDropdown" class="mobileDropdownContent">
+                        <a class="signIn" href="#login">로그인</a>
+                        <a class="join" href="#register">회원가입</a>
+                    </div>
+                </button>
+            </div> -->
         </div>
         <!-- 시윤님 모바일 버튼 -->
-        <button onclick="mobileMenu()" class="mobileRightBtn"></button>
-        <div id="cardDropdown" class="cardDropdownContent">
-            <a href="#newPost" onclick="route(event)" id="newPost" class="btnIcon"></a>
-            <!-- 이거 어케 하쥐 -->
-            <a href="#login" onclick="route(event)" id="dropDown" class="btnIcon"></a>
-        </div>
-        </button>
-        <script src="js/mobileHeaderDropdown.js" type="module"></script>
+        <!-- <div class="mobileButton">
+            <button onclick="mobileMenu()" class="mobileRightBtn"></button>
+                <div id="mobileDropdown" class="mobileDropdownContent">
+                    <a href="#newPost" onclick="route(event)" id="newPost" class="btnIcon"></a>
+                    <a class="userSetting" href="#profile">프로필 설정</a>
+                    <a class="userName" href="#blog">내 블로그</a>
+                    <a href="#login" onclick="route(event)" id="dropDown" class="btnIcon"></a>
+                </div>
+            </button>
+        </div> -->
     </div>
     <div id="root">
         <div id="mainFeed"></div>
@@ -82,7 +99,8 @@
     <script src="js/main.js" type="module"></script>
     <div class="footer">
         <div class="footerText">
-            <h1>사시미</h1>
+            <!-- 시윤수정: 바로 아래 h1 태그 한 줄만 수정-->
+            <h1 style="font-weight: 900;">사시미</h1> 
             <p class="footerTitle">4조만의 심플한 색깔을 반영한 이름</p>
             <p class="footerContent">자바스크립트를 전부 사시미 떠버리겠다는 당찬 포부도 함께 반영한 이름이었지만 떠진쪽은 언제나 자바스크립트가 아닌 저희였습니다.</p>
             <p class="footerTitle">수고해주신 분들</p>

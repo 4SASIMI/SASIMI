@@ -27,6 +27,7 @@ export const handleLocation = async () => {
     const route = routes[path] || routes[404];
     const html = await fetch(route).then((data) => data.text());
     document.getElementById("root").innerHTML = html;
+    console.log("path", path)
 
     // 특정 화면 렌더링 되자마자 DOM 조작 처리
     // 시윤님 코드 추가

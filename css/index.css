@@ -29,6 +29,10 @@
   text-align: center;
 }
 
+.pcButton {
+  display: flex;
+}
+
 .btnIcon {
   color: initial;
   text-decoration: none;
@@ -64,7 +68,14 @@
 .mobileRightBtn {
   display: none;
 }
-/* */
+/* 시윤수정 */
+.cardDropdownContent {
+  display: none;
+}
+
+.mobileDropdownContent {
+  display: none;
+}
 
 /* 푸터 */
 .footer {
@@ -83,8 +94,8 @@
 .tmrwcp {
   margin-top: 50px;
 }
+
 /* 반응형- 시윤님 코드 */
-/* 반응형 */
 @media (max-width: 768px) {
   .header {
     width: 100%;
@@ -99,12 +110,14 @@
   }
   /* rightBtn -> navberUser */
   .navbarUser {
+    display: block;
+  }
+  .pcButton {
     display: none;
   }
+  /* 시윤수정: 모바일 드롭다운 */
   .mobileRightBtn {
     display: flex;
-    position: absolute;
-    right: 15px;
     border: none;
   }
   .mobileRightBtn::before {
@@ -113,31 +126,42 @@
     font-size: 20px;
   }
 
-  .cardDropdownBtn {
+  .mobileDropdownBtn {
     border: none;
     background: none;
   }
 
-  .cardDropdownBtn:hover {
+  .mobileDropdownBtn:hover {
     opacity: 0.7;
   }
 
-  .cardDropdownContent {
+  .mobileDropdownContent {
     display: none;
     position: absolute;
     border: 1px solid;
-    background: rgb(235, 235, 235);
-    margin: 10px 0 0 -15px;
+    background: #eae7de;
+    margin: 15px 0 0 -70px;
+    width: 120px;
+    z-index: 1;
   }
 
-  .cardDropdownContent a {
-    padding: 10px 10px 10px 15px;
+  .mobileDropdownContent a {
+    padding: 5px 0;
     text-decoration: none;
     display: block;
   }
 
   .show {
     display: block;
+  }
+
+  #newPost {
+    border: none;
+    width: 120px;
+    margin: 0;
+  }
+  #newPost::before {
+    content: "새글작성";
   }
 
   .btn {
@@ -199,6 +223,7 @@
   background-color: #eae7de;
   box-shadow: 0px 8px 16px 0px #00000033;
   overflow: hidden;
+  z-index: 1px;
 }
 
 /* 드롭다운 버튼 클릭 시 보임 */
