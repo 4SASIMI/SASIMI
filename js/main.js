@@ -1,11 +1,14 @@
 import { handleAuth, logout, socialLogin, onToggle } from "./pages/login.js";
 import { handleLocation, goToProfile } from "./router.js";
 import { authService } from "./firebase.js";
+import { loadingSpinner, cardMenu, getFeedList, deleteFeed } from "./pages/feed.js";
 import {
     openEditBoxName, closeEditBoxName, openEditBoxBlog,
     closeEditBoxBlog, openEditBoxBirth, closeEditBoxBirth,
     openEditBoxText, closeEditBoxText, changeProfile, onFileChange, openEditBoxLeave, closeEditBoxLeave
 } from "./pages/profile_img.js";
+// import { savePost } from "./pages/newPost.js"; 추가
+import { savePost } from "./pages/newPost.js";
 import { saveName, saveBlog, saveBirth, saveText, getBirth, userBirth, getText, userText } from "./pages/profile_text.js";
 import { leave } from "./pages/deleteUser.js";
 
@@ -73,12 +76,13 @@ window.onToggle = onToggle;
 window.leave = leave;
 window.openEditBoxLeave = openEditBoxLeave;
 window.closeEditBoxLeave = closeEditBoxLeave;
-// window.onFileChange = onFileChange;
-// window.changeProfile = changeProfile;
-// window.save_comment = save_comment;
-// window.update_comment = update_comment;
-// window.onEditing = onEditing;
-// window.delete_comment = delete_comment;
+// 시윤님
+window.getFeedList = getFeedList;
+window.savePost = savePost;
+window.deleteFeed = deleteFeed;
+window.cardMenu = cardMenu;
+window.loadingSpinner = loadingSpinner;
+
 //////////////////기동////////////////////
 window.openEditBoxName = openEditBoxName;
 window.closeEditBoxName = closeEditBoxName;

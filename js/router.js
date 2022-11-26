@@ -1,5 +1,5 @@
 import { authService } from "./firebase.js";
-
+import { getFeedList } from "./pages/feed.js"
 
 const routes = {
     "/": "/pages/feed.html",
@@ -8,6 +8,7 @@ const routes = {
     register: "/pages/register.html",
     login: "/pages/login.html",
     profile: "/pages/profile.html",
+    post: "/pages/post.html",
 
 };
 
@@ -28,16 +29,13 @@ export const handleLocation = async () => {
     document.getElementById("root").innerHTML = html;
 
     // 특정 화면 렌더링 되자마자 DOM 조작 처리
-    // if (path === "fanLog") {
-    //     // 로그인한 회원의 프로필사진과 닉네임을 화면에 표시해줌.
-    //     document.getElementById("nickname").textContent =
-    //         authService.currentUser.displayName ?? "닉네임 없음";
+    // 시윤님 코드 추가
+    if (path === "/") {
+        document.getElementById("profileImg").src =
+            authService.currentUser.profileImg ?? "../assets/blankProfile.webp";
 
-    //     document.getElementById("profileImg").src =
-    //         authService.currentUser.photoURL ?? "../assets/blankProfile.webp";
-
-    //     getCommentList();
-    // }
+        getFeedList();
+    }
     if (path === "profile") {
         // 프로필 관리 화면 일 때 현재 프로필 사진과 닉네임 할당
         document.getElementById("image").src =

@@ -9,15 +9,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="css/styleProfile.css">
-    <link rel="stylesheet" href="../css/feed.css" />
-    <link rel="stylesheet" href="../css/login.css" />
-    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" type="text/css" href="css/styleProfile.css">
+    <link rel="stylesheet" href="./css/index.css" />
+
 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css" rel="stylesheet" />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css" rel="stylesheet" /> -->
     <!-- 기동 -->
-    <!-- <link rel="stylesheet" type="text/css" href="css/styleProfile.css"> -->
+
 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
         rel="stylesheet">
@@ -30,16 +29,23 @@
 
     <!--  -->
     <script src="https://kit.fontawesome.com/419744c921.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../js/moreBtn.js"></script>
+    <!-- <script type="text/javascript" src="../js/moreBtn.js"></script> -->
     <script src="https://kit.fontawesome.com/419744c921.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/419744c921.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <script src="js/mobileHeaderDropdown.js" type="module"></script>
+
+    <title>사시미</title>
 </head>
 
 <body>
     <div class="header">
-        <a href="#" class=title>사시미</a>
+        <!-- <a href="#" class=title>사시미</a> -->
         <!-- <div class="rightBtn"> -->
         <!-- 로그인 후 노출 -->
+        <!-- 시윤님 코드 추가 -->
+        <p class="desc">트렌드 토픽을 쉽고 간단하게</p>
+        <a href="#" onclick="route(event)" class=title>SASIMI</a>
         <div class="navbarUser">
 
             <a href="#newPost" id="newPost" class="btnIcon"></a>
@@ -60,12 +66,30 @@
                 <li><a class="join" href="#register">회원가입</a></li>
             </ul>
         </div>
-
+        <!-- 시윤님 모바일 버튼 -->
+        <button onclick="mobileMenu()" class="mobileRightBtn"></button>
+        <div id="cardDropdown" class="cardDropdownContent">
+            <a href="#newPost" onclick="route(event)" id="newPost" class="btnIcon"></a>
+            <!-- 이거 어케 하쥐 -->
+            <a href="#login" onclick="route(event)" id="dropDown" class="btnIcon"></a>
+        </div>
+        </button>
+        <script src="js/mobileHeaderDropdown.js" type="module"></script>
     </div>
     <div id="root">
         <div id="mainFeed"></div>
     </div>
     <script src="js/main.js" type="module"></script>
+    <div class="footer">
+        <div class="footerText">
+            <h1>사시미</h1>
+            <p class="footerTitle">4조만의 심플한 색깔을 반영한 이름</p>
+            <p class="footerContent">자바스크립트를 전부 사시미 떠버리겠다는 당찬 포부도 함께 반영한 이름이었지만 떠진쪽은 언제나 자바스크립트가 아닌 저희였습니다.</p>
+            <p class="footerTitle">수고해주신 분들</p>
+            <p class="footerContent">변시윤 • 정진수 • 홍희진 • 김동한 • 이기동</p>
+            <p class="tmrwcp">트렌드 토픽을 쉽고 간단하게 SASIMI</p>
+        </div>
+    </div>
 </body>
 
 </html>
