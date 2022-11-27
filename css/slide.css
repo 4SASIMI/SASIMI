@@ -9,6 +9,7 @@
 
 .wrap > h1 {
   text-align: center;
+  margin-top: 10px;
   margin-bottom: 10px;
 
   font-family: "IBM Plex Sans KR", sans-serif;
@@ -17,6 +18,16 @@
 .carousel-inner {
   border: 1px solid #051619;
 }
+
+@media (max-width: 768px) {
+  .slide {
+    display: none;
+  }
+
+  .wrap > h1 {
+    display: none;
+  }
+  }
 
 /* .feed {
   border: 1px solid #051619;

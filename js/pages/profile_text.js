@@ -4,6 +4,7 @@ import {
   orderBy,
   query,
   getDocs,
+  where,
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 import { dbService, authService } from "../firebase.js";
 import { updateProfile } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
@@ -99,7 +100,7 @@ export const getBirth = async () => {
   const q = query(
     collection(dbService, "birth"),
     orderBy("createdAt", "desc"),
-    // where("creatorId", "==", authService.currentUser.uid),
+    where("creatorId", "==", authService.currentUser.uid),
   );
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
@@ -109,7 +110,9 @@ export const getBirth = async () => {
     };
     birthObjList.push(birthObj);
   });
+  // console.log(birthObjList);
   userBirth = birthObjList[0].birth;
+  // console.log(userBirth);
   document.getElementById("birthText").innerHTML = userBirth ?? "출생년도를 입력해주세요";
 }
 
@@ -119,7 +122,7 @@ export const getText = async () => {
   const q = query(
     collection(dbService, "text"),
     orderBy("createdAt", "desc"),
-    // where("creatorId", "==", authService.currentUser.uid),
+    where("creatorId", "==", authService.currentUser.uid),
   );
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
@@ -131,8 +134,8 @@ export const getText = async () => {
     // console.log(textObj);
     textObjList.push(textObj);
   });
-  // console.log(textObjList);
+  console.log(textObjList);
   userText = textObjList[0].text;
-  // console.log(userText);
+  console.log(userText);
   document.getElementById("introText").innerHTML = userText ?? "자기소개를 입력해주세요";
 }
