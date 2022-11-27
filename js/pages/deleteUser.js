@@ -9,18 +9,19 @@
 import {
   deleteUser,
   reauthenticateWithCredential,
-  EmailAuthProvider,
+  EmailAuthProvider
 } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js';
 import { authService } from '../firebase.js';
 
 export const leave = async (event) => {
   event.preventDefault();
   // const user = authService.currentUser;
-  if (window.confirm('정말 탈퇴하시겠습니까?')) {
+  if (window.confirm('정말 탈퇴하시겠습니까? 탈퇴 후에도 내가 쓴 게시물은 계속 남아있습니다.')) {
     // They clicked Yes
     console.log('user 탈퇴');
-    let userProvidedPassword = prompt('비밀번호를 다시 입력해주세요.');
 
+    // 인풋 태그 가져옴
+    let userProvidedPassword = document.getElementById('passwordText').value;
     const credential = EmailAuthProvider.credential(
       authService.currentUser.email,
       userProvidedPassword
@@ -34,10 +35,8 @@ export const leave = async (event) => {
     // Pass result.user here
     await deleteUser(result.user)
       .then(() => {
-        console.log('success in deleting');
+        console.log('유저 삭제 완료');
         localStorage.removeItem('user');
-
-        console.log('유저 삭제');
         window.location.replace('');
       })
       .catch((error) => {

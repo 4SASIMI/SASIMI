@@ -45,13 +45,12 @@
 
 #newPost {
   position: relative;
-  display: none;
   border-right: 1px solid;
 }
 
 #newPost::before {
-  font-family: 'Font Awesome 5 Free';
-  content: '\f044';
+  font-family: "Font Awesome 5 Free";
+  content: "\f044";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -61,8 +60,8 @@
 #dropDown::before {
   /* button으로 바꾸니까 가운데정렬이 풀려서 margin:auto를 줬어요 */
   margin: auto;
-  font-family: 'Font Awesome 5 Free';
-  content: '\f007';
+  font-family: "Font Awesome 5 Free";
+  content: "\f007";
 }
 /* 시윤님 코드 */
 .mobileRightBtn {
@@ -122,7 +121,7 @@
 .join {
   text-decoration: none;
   color: inherit;
-  font-family: 'Pretendard-Regular';
+  font-family: "Pretendard-Regular";
   display: block;
   padding: 10px;
   box-sizing: border-box;
@@ -138,7 +137,7 @@ ul li a:hover {
 }
 
 .logoutBtn {
-  font-family: 'Pretendard-Regular';
+  font-family: "Pretendard-Regular";
   color: red;
 }
 
@@ -157,7 +156,9 @@ ul li a:hover {
   }
   /* rightBtn -> navberUser */
   .navbarUser {
-    display: block;
+    position: absolute;
+    right: 5px;
+    border: none;
   }
 
   /* 시윤수정: 모바일 드롭다운 */
@@ -169,7 +170,7 @@ ul li a:hover {
     display: none;
   }
   #newPost::before {
-    content: '새글작성';
+    content: "새글작성";
   }
   .writeNewPost {
     display: block;
@@ -184,14 +185,14 @@ ul li a:hover {
   }
 
   .editBtn::before {
-    font-family: 'Font Awesome 5 Free';
-    content: '\f044';
+    font-family: "Font Awesome 5 Free";
+    content: "\f044";
     margin-right: 4px;
   }
 
   .deleteBtn::before {
-    font-family: 'Font Awesome 5 Free';
-    content: '\f2ed';
+    font-family: "Font Awesome 5 Free";
+    content: "\f2ed";
   }
 
   .footer {

@@ -84,11 +84,22 @@
       </div>
       <div id="editLeave" class="editFormBtn" style="display: none">
         <form>
+          <!--회원탈퇴 업글 -->
+          <!-- 비번 재입력 칸 넒이좀 늘릴수잇나..요.. -->
+          <div class="textField">
+            <input type="password" id="passwordText" name="passwordTypeAgain" class="textFieldInput"
+              placeholder="비밀번호 재입력이 필요합니다.">
 
+          </div>
           <div class="buttonField">
             <button type="button" id="leaveBtn" onclick="leave(event)">탈퇴하기</button>
             <button type="button" onclick="closeEditBoxLeave()">취소</button>
           </div>
+          <!-- 예전거 -->
+          <!-- <div class="buttonField">
+            <button type="button" id="leaveBtn" onclick="leave(event)">탈퇴하기</button>
+            <button type="button" onclick="closeEditBoxLeave()">취소</button>
+          </div> -->
         </form>
       </div>
       <span>

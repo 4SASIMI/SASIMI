@@ -67,14 +67,8 @@ export const getFeedList = async () => {
                 }" onclick="goToProfile(this)" src="${
       feedObj.profileImg ?? '../assets/blankProfile.webp'
     }"/>
-                <div class="${isOwner ? 'updateBtns' : 'noDisplay'}">
-                    <button onclick="cardMenu(${idx})" class="cardDropdownBtn">●●●</button>
-                        <div id="cardDropdown${idx}" class="cardDropdownContent">
-                            <a name="${
-                              feedObj.id
-                            }" onclick="deleteFeed(event)" class="deleteBtn btn btn-dark"></a>
-                        </div>
-                    </button>
+                <div class="${isOwner ? 'delete' : 'noDisplay'}">
+                    <a name="${feedObj.id}" onclick="deleteFeed(event)" class="deleteBtn">del</a>
                 </div>
             </div>
             <div class="cardTitle" title="${feedObj.title}">
@@ -142,16 +136,17 @@ export const getFeedList = async () => {
 // 내 게시글 삭제하기
 export const deleteFeed = async (event) => {
   event.preventDefault();
+  event.stopPropagation();
   const id = event.target.name;
   const ok = window.confirm('정말 삭제하시겠습니까?🥺');
   if (ok) {
     try {
       await deleteDoc(doc(dbService, 'posts', id));
       getFeedList();
+      console.log("피드에서 게시글 삭제 성공")
     } catch (error) {
       alert(error);
+      console.log("피드에서 게시글 삭제 실패")
     }
   }
 };
-
-// 내 게시글만 분류하기

@@ -1,6 +1,7 @@
 #slide {
-  width: 400px;
-  height: 100%;
+  width: 100%;
+  max-width: 1280px;
+  padding: 50px 0;
   position: relative;
   margin: 0 auto 30px auto;
   overflow: hidden;
@@ -13,7 +14,22 @@
   margin-top: 10px;
   margin-bottom: 10px;
 
-  font-family: 'IBM Plex Sans KR', sans-serif;
+  font-weight: 900;
+}
+
+.carousel-item {
+  height: 300px;
+  padding: 20px 60px;
+  opacity: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.carousel-item.active {
+  display: flex;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .carousel-inner {
@@ -24,6 +40,50 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.carousel-inner > div > h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.carousel-inner > div > h4 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+}
+/* 조회수 */
+.postView {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.postView::before {
+  display: inline-block;
+  content: '';
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  background-image: url('https://img.icons8.com/ios-glyphs/60/8c867b/visible--v1.png');
+  background-size: cover;
+}
+/* navi */
+.carousel-control-next {
+  right: -50px;
+}
+.carousel-control-prev {
+  left: -50px;
+}
+.carousel-control-prev-icon {
+  background-image: url('https://img.icons8.com/material-rounded/48/8c867b/chevron-left.png');
+}
+.carousel-control-next-icon {
+  background-image: url('https://img.icons8.com/material-rounded/48/8c867b/chevron-right.png');
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: var(--button-color);
 }
 
 @media (max-width: 768px) {
