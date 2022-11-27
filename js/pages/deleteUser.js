@@ -5,36 +5,72 @@
 // 'npm run snippets'.
 
 // [START auth_delete_user_modular]
-import { deleteUser } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-import { authService } from "../firebase.js";
-
+// import { handleAuth } from "./login.js";
+import {
+  deleteUser,
+  reauthenticateWithCredential,
+  EmailAuthProvider,
+} from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js';
+import { authService } from '../firebase.js';
 
 export const leave = async (event) => {
-    event.preventDefault();
-    const user = authService.currentUser;
-    if (window.confirm('정말 탈퇴하시겠습니까?')) {
-        console.log('user 탈퇴');
+  event.preventDefault();
+  // const user = authService.currentUser;
+  if (window.confirm('정말 탈퇴하시겠습니까?')) {
+    // They clicked Yes
+    console.log('user 탈퇴');
+    let userProvidedPassword = prompt('비밀번호를 다시 입력해주세요.');
 
-        // They clicked Yes
-        deleteUser(user).then(() => {
-            // User deleted.
+    const credential = EmailAuthProvider.credential(
+      authService.currentUser.email,
+      userProvidedPassword
+    );
 
-            console.log("유저 삭제");
-            window.location.replace("");
+    const result = await reauthenticateWithCredential(
+      authService.currentUser,
+      credential
+    );
 
+    // Pass result.user here
+    await deleteUser(result.user)
+      .then(() => {
+        console.log('success in deleting');
+        localStorage.removeItem('user');
 
-
-        }).catch((error) => {
-            const errorMessage = error.message;
-            console.log('error:', errorMessage);
-            // An error ocurred
-            // ...
-        });
-        // [END auth_delete_user_modular]
-    }
-    else {
-        // They clicked no
-        console.log("탈퇴 취소");
-    }
-
+        console.log('유저 삭제');
+        window.location.replace('');
+      })
+      .catch((error) => {
+        const errorMessage2 = error.message;
+        console.log('error:', errorMessage2);
+      });
+    // [END auth_delete_user_modular]
+  } else {
+    // They clicked no
+    console.log('탈퇴 취소');
+  }
 };
+
+// // Prompt the user to enter their email and password
+// // const userProvidedPassword = prompt('password: ');
+// // const auth = getAuth()
+// const credential = EmailAuthProvider.credential(
+//     authService.currentUser.email,
+//     userProvidedPassword
+// )
+// const result = await reauthenticateWithCredential(
+//     authService.currentUser,
+//     credential
+// )
+// // User successfully reauthenticated. New ID tokens should be valid.
+
+// reauthenticateWithCredential(user, credential).then(() => {
+//     // User re-authenticated.
+//     deleteUser(result.user).then(() => {
+//         // User deleted.
+
+// deleteUser(user).then(() => {
+//     // User deleted.
+
+//     console.log("유저 삭제");
+//     window.location.replace("");

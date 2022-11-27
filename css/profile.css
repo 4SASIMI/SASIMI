@@ -1,12 +1,3 @@
-#profile {
-  background: #eae7de;
-  font-family: "IBM Plex Sans KR", sans-serif;
-}
-
-#root {
-  background: #eae7de;
-}
-
 #nameComment,
 #blogComment,
 #birthComment,
@@ -46,7 +37,10 @@ a {
 #profileBtn {
   margin-top: 1rem;
 
-  background-color: whitesmoke;
+  background-color: var(--button-color);
+  color: var(--white-color);
+  border: none;
+  padding: 5px 10px;
 }
 
 .boxs {
@@ -81,22 +75,21 @@ a {
   line-height: 150%;
 }
 
-.buttonField > button {
-  margin-right: 5px;
-  padding: 5px;
-}
-
 #profileImageForm {
-  margin-top : 100px;
+  margin-top: 100px;
   border: 1px solid #051619;
 }
 
 .buttonField > button {
-  border: 1px solid #051619;
+  background-color: var(--button-color);
+  color: var(--white-color);
+
+  margin-right: 5px;
+  padding: 5px 10px;
 }
 
 @media (max-width: 768px) {
-  .textFieldInput{
+  .textFieldInput {
     width: 120px;
   }
-  }
+}

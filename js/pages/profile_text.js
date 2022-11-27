@@ -18,7 +18,9 @@ export const saveName = async (event) => {
   })
     .then(() => {
       alert("프로필 수정 완료");
-      window.location.reload();
+      // window.location.reload();
+      closeEditBoxName();
+      document.getElementById("nameText").innerHTML = authService.currentUser.displayName ?? "이름을 입력해주세요";
       // window.location.hash = "#";
     })
     .catch((error) => {
@@ -27,26 +29,10 @@ export const saveName = async (event) => {
     });
 };
 
-// export const saveBlog = async (event) => {
-//   event.preventDefault();
-//   let saveButton = document.getElementById('saveBlogButton');
-//   // console.log(saveButton);
-//   const comment = document.getElementById("blogComment");
-//   const { uid } = authService.currentUser;
-//   try {
-//     await addDoc(collection(dbService, "blogURL"), {
-//       url: comment.value,
-//       creatorId: uid
-//     });
-//     closeEditBoxName();
-//     alert('작성 완료!');
-//     window.location.reload();
-
-//   } catch (error) {
-//     alert(error);
-//     console.log("error in addDoc:", error);
-//   }
-// };
+export const getName = async () => {
+  let userName = authService.currentUser.displayName;
+  document.getElementById("nameText").innerHTML = userName ?? "이름을 입력해주세요";
+}
 
 export const saveBirth = async (event) => {
   event.preventDefault();
@@ -134,8 +120,8 @@ export const getText = async () => {
     // console.log(textObj);
     textObjList.push(textObj);
   });
-  console.log(textObjList);
+  // console.log(textObjList);
   userText = textObjList[0].text;
-  console.log(userText);
+  // console.log(userText);
   document.getElementById("introText").innerHTML = userText ?? "자기소개를 입력해주세요";
 }

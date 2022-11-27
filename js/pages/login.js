@@ -127,7 +127,7 @@ export const socialLogin = (event) => {
 
 
 // 홈 화면 드롭다운 버튼 기능
-export function onToggle() {
+export function Toggled() {
     let ulElementBeforeLogin = document.querySelector(".navbarBeforeLogin")
     let ulElementAfterLogin = document.querySelector(".navbarUserAccountMenu")
 
@@ -135,10 +135,25 @@ export function onToggle() {
     authService.onAuthStateChanged((user) => {
 
         if (user) {
-            ulElementAfterLogin.classList.toggle("active");
+
+            if (ulElementAfterLogin.classList.contains("active")) {
+
+                ulElementAfterLogin.classList.remove("active");
+                console.log('토글 드롭다운 실행- 로그인 후');
+            }
+            else {
+                ulElementAfterLogin.classList.add("active");
+            }
         }
         else {
-            ulElementBeforeLogin.classList.toggle("active");
+            if (ulElementBeforeLogin.classList.contains("active")) {
+
+                ulElementBeforeLogin.classList.remove("active");
+                console.log('토글 드롭다운 실행- 로그인 전');
+            }
+            else {
+                ulElementBeforeLogin.classList.add("active");
+            }
         }
     });
 

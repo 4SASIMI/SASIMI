@@ -15,7 +15,6 @@ export const changeProfile = async (event) => {
     `${authService.currentUser.uid}/${uuidv4()}`
   );
 
-  // const newNickname = document.getElementById("profileNickname").value;
   // 프로필 이미지 dataUrl을 Storage에 업로드 후 다운로드 링크를 받아서 photoURL에 저장.
   const imgDataUrl = localStorage.getItem("imgDataUrl");
   let downloadUrl;
@@ -24,7 +23,6 @@ export const changeProfile = async (event) => {
     downloadUrl = await getDownloadURL(response.ref);
   }
   await updateProfile(authService.currentUser, {
-    // displayName: newNickname ? newNickname : null,
     photoURL: downloadUrl ? downloadUrl : null,
   })
     .then(() => {
@@ -67,22 +65,6 @@ export function closeEditBoxName() {
   name.style.display = 'block';
   editName.style.display = 'none';
 }
-
-// export function openEditBoxBlog() {
-//   let blog = document.getElementById('blog');
-//   let editBlog = document.getElementById('editBlog');
-
-//   blog.style.display = 'none';
-//   editBlog.style.display = 'block';
-// }
-
-// export function closeEditBoxBlog() {
-//   let blog = document.getElementById('blog');
-//   let editBlog = document.getElementById('editBlog');
-
-//   blog.style.display = 'block';
-//   editBlog.style.display = 'none';
-// }
 
 export function openEditBoxBirth() {
   let birth = document.getElementById('birth');

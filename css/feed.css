@@ -2,12 +2,6 @@
   position: relative;
 }
 
-/* 슬라이드(임시) */
-.slide {
-  height: 320px;
-  border-bottom: 1px solid;
-}
-
 /* 피드 */
 #feed {
   position: relative;
@@ -44,7 +38,7 @@
 }
 
 .loadingSpinner::after {
-  content: "";
+  content: '';
   width: 50px;
   height: 50px;
   border: 10px solid;
@@ -74,6 +68,7 @@
   border-width: 0 1px 1px 0;
   padding: 20px;
   position: relative;
+  transition: 0.1s ease-in-out;
 }
 
 .mycard:nth-child(4n + 1) {
@@ -81,7 +76,7 @@
   /* background: lemonchiffon; */
 }
 .mycard:hover {
-  background: #fff;
+  background: var(--backgroun-hover-color);
 }
 
 .mycard:nth-child(12) ~ .mycard {
@@ -91,7 +86,7 @@
 
 .card {
   width: 100%;
-  background-color: inherit;
+  background-color: transparent;
   border: none;
 }
 
@@ -103,7 +98,6 @@
 .cardProfile {
   width: 50px;
   height: 50px;
-  border: 1px solid;
   border-radius: 100%;
   margin-bottom: 20px;
   cursor: pointer;
@@ -164,14 +158,14 @@
 }
 
 .editBtn::before {
-  font-family: "Font Awesome 5 Free";
-  content: "\f044";
+  font-family: 'Font Awesome 5 Free';
+  content: '\f044';
   margin-right: 4px;
 }
 
 .deleteBtn::before {
-  font-family: "Font Awesome 5 Free";
-  content: "\f2ed";
+  font-family: 'Font Awesome 5 Free';
+  content: '\f2ed';
 }
 
 /* 제목 */
@@ -234,15 +228,16 @@
 .loadmore {
   display: flex;
   padding: 15px 130px;
-  border: 1px solid;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: var(--button-color);
+  color: var(--white-color);
   font-size: 20px;
   font-weight: 500;
+  transition: 0.2s ease-in-out;
 }
 
 .loadmore:hover {
-  background: #ff6b00;
+  background: var(--button-hover);
 }
 
 .loaded {

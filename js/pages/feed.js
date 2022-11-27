@@ -1,29 +1,35 @@
-import { doc, deleteDoc, collection, orderBy, query, getDocs } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
-import { dbService, authService } from "../firebase.js";
-import { goToProfile } from "../router.js"
+import {
+  doc,
+  deleteDoc,
+  collection,
+  orderBy,
+  query,
+  getDocs,
+} from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js';
+import { dbService, authService } from '../firebase.js';
 
 // 로딩스피너
 export function loadingSpinner() {
-  window.addEventListener("load", () => {
-    const loader = document.querySelector(".loadingSpinner");
+  window.addEventListener('load', () => {
+    const loader = document.querySelector('.loadingSpinner');
 
-    loader.classList.add("loadingSpinnerHidden");
+    loader.classList.add('loadingSpinnerHidden');
 
-    loader.addEventListener("transitionend", () => {
-      document.body.removeChild("loadingSpinner");
-    })
-  })
+    loader.addEventListener('transitionend', () => {
+      document.body.removeChild('loadingSpinner');
+    });
+  });
 }
 
 // 내 게시글에만 보이는 메뉴 버튼 드롭다운 기능
-export function mobileMenu(idx) {
-  console.log(idx)
-  document.getElementById(`mobileDropdown${idx}`).classList.toggle("show");
+export function cardMenu(idx) {
+  console.log(idx);
+  document.getElementById(`cardDropdown${idx}`).classList.toggle('show');
 }
 
 window.onclick = function (event) {
-  if (!event.target.matches('.mobileDropdownBtn')) {
-    var dropdowns = document.getElementsByClassName("mobileDropdownContent");
+  if (!event.target.matches('.cardDropdownBtn')) {
+    var dropdowns = document.getElementsByClassName('cardDropdownContent');
     var i;
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
@@ -32,15 +38,12 @@ window.onclick = function (event) {
       }
     }
   }
-}
+};
 
-// 피드 불러오기  
+// 피드 불러오기
 export const getFeedList = async () => {
   let feedObjList = [];
-  const q = query(
-    collection(dbService, "posts"),
-    orderBy("createdAt", "desc")
-  );
+  const q = query(collection(dbService, 'posts'), orderBy('createdAt', 'desc'));
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     const feedObj = {
@@ -50,25 +53,26 @@ export const getFeedList = async () => {
     feedObjList.push(feedObj);
   });
 
-  const feedList = document.getElementById("feed");
-  const currentUid = authService.currentUser.uid;
-  feedList.innerHTML = "";
+  const feedList = document.getElementById('feed');
+  const currentUid = authService.currentUser?.uid;
+
+  feedList.innerHTML = '';
   feedObjList.forEach((feedObj, idx) => {
     const isOwner = currentUid === feedObj.creatorId;
     const temp_html = `
-        <div class="card">
+        <div class="card" onclick="goToPost(this)">
             <div class="cardUserInfo">
-                <img class="cardProfile" title="${feedObj.nickname}" onclick="goToProfile(this)" src="${feedObj.profileImg === null ? "../assets/blankProfile.webp" : feedObj.profileImg}"/>
-                <div class="${isOwner ? "updateBtns" : "noDisplay"}">
-<<<<<<< HEAD
-                    <button onclick="mobileMenu(${idx})" class="mobileDropdownBtn">●●●</button>
-                        <div id="mobileDropdown${idx}" class="mobileDropdownContent">
-=======
-                    <button onclick="cardMenu(${idx})" class="cardDropdownBtn">•••</button>
+                <img class="cardProfile" title="${
+                  feedObj.nickname
+                }" onclick="goToProfile(this)" src="${
+      feedObj.profileImg ?? '../assets/blankProfile.webp'
+    }"/>
+                <div class="${isOwner ? 'updateBtns' : 'noDisplay'}">
+                    <button onclick="cardMenu(${idx})" class="cardDropdownBtn">●●●</button>
                         <div id="cardDropdown${idx}" class="cardDropdownContent">
->>>>>>> 653fac786e42d612b94cf73c5bf2c7babe49f3b7
-                            <a onclick="onEditing(event)" class="editBtn btn btn-dark"></a>
-                            <a name="${feedObj.id}" onclick="deleteFeed(event)" class="deleteBtn btn btn-dark"></a>
+                            <a name="${
+                              feedObj.id
+                            }" onclick="deleteFeed(event)" class="deleteBtn btn btn-dark"></a>
                         </div>
                     </button>
                 </div>
@@ -78,27 +82,35 @@ export const getFeedList = async () => {
                 ${feedObj.title}
             </div>
             <div class="cardContent">${feedObj.text}</div>
-            <div class="cardDate">${new Date(feedObj.createdAt).toString().slice(4, 15)}</div>
+            <div class="cardDate">${new Date(feedObj.createdAt)
+              .toString()
+              .slice(4, 15)}</div>
       </div>
    `;
-    const div = document.createElement("div");
+    const div = document.createElement('div');
     div.classList.add(`mycard`);
     div.innerHTML = temp_html;
     feedList.appendChild(div);
 
     // 더보기 버튼
-    const loadmore = document.querySelector(".loadmore");
-    const elementList = [...document.querySelectorAll(".feed .mycard")];
+    const loadmore = document.querySelector('.loadmore');
+    const elementList = [...document.querySelectorAll('.feed .mycard')];
     let currentItems = 12;
 
     // 게시글 12개 이하일 때 더보기 감추기
     if (currentItems >= elementList.length) {
-      loadmore.classList.add('loaded')
+      loadmore.classList.add('loaded');
     } else {
-      loadmore.classList.remove('loaded')
+      loadmore.classList.remove('loaded');
     }
 
-    console.log("기준:", currentItems, "/", "피드 카드 갯수:", elementList.length)
+    // console.log(
+    //   '기준:',
+    //   currentItems,
+    //   '/',
+    //   '피드 카드 갯수:',
+    //   elementList.length
+    // );
 
     // 게시글 12개 초과시 더보기 보여주기
     loadmore.addEventListener('click', (e) => {
@@ -107,17 +119,23 @@ export const getFeedList = async () => {
       for (let i = currentItems; i < currentItems + 12; i++) {
         e.target.classList.remove('showLoader');
         if (elementList[i]) {
-          elementList[i].style.display = "flex";
+          elementList[i].style.display = 'flex';
         }
       }
       currentItems += 12;
-      console.log("더보기:", currentItems, "/", "피드 카드 갯수:", elementList.length)
+      // console.log(
+      //   '더보기:',
+      //   currentItems,
+      //   '/',
+      //   '피드 카드 갯수:',
+      //   elementList.length
+      // );
 
-      // 게시글 끝까지 로딩시 더보기 감추기  
+      // 게시글 끝까지 로딩시 더보기 감추기
       if (currentItems >= elementList.length) {
-        e.target.classList.add('loaded')
+        e.target.classList.add('loaded');
       }
-    })
+    });
   });
 };
 
@@ -125,16 +143,15 @@ export const getFeedList = async () => {
 export const deleteFeed = async (event) => {
   event.preventDefault();
   const id = event.target.name;
-  const ok = window.confirm("정말 삭제하시겠습니까?🥺");
+  const ok = window.confirm('정말 삭제하시겠습니까?🥺');
   if (ok) {
     try {
-      await deleteDoc(doc(dbService, "posts", id));
+      await deleteDoc(doc(dbService, 'posts', id));
       getFeedList();
     } catch (error) {
       alert(error);
     }
   }
 };
-
 
 // 내 게시글만 분류하기
