@@ -1,4 +1,4 @@
-#slide { 
+#slide {
   width: 400px;
   height: 100%;
   position: relative;
@@ -13,7 +13,7 @@
   margin-top: 10px;
   margin-bottom: 10px;
 
-  font-family: "IBM Plex Sans KR", sans-serif;
+  font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
 .carousel-inner {
@@ -34,8 +34,8 @@
   .wrap > h1 {
     display: none;
   }
-  }
+}
 
-/* .feed {
+.feed {
   border: 1px solid #051619;
-} */
+}

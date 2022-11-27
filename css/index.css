@@ -50,8 +50,8 @@
 }
 
 #newPost::before {
-  font-family: "Font Awesome 5 Free";
-  content: "\f044";
+  font-family: 'Font Awesome 5 Free';
+  content: '\f044';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -61,8 +61,8 @@
 #dropDown::before {
   /* button으로 바꾸니까 가운데정렬이 풀려서 margin:auto를 줬어요 */
   margin: auto;
-  font-family: "Font Awesome 5 Free";
-  content: "\f007";
+  font-family: 'Font Awesome 5 Free';
+  content: '\f007';
 }
 /* 시윤님 코드 */
 .mobileRightBtn {
@@ -70,10 +70,6 @@
 }
 /* 시윤수정 */
 .cardDropdownContent {
-  display: none;
-}
-
-.mobileDropdownContent {
   display: none;
 }
 
@@ -118,6 +114,7 @@
   display: block;
 }
 
+.writeNewPost,
 .userName,
 .userSetting,
 .logoutBtn,
@@ -125,11 +122,14 @@
 .join {
   text-decoration: none;
   color: inherit;
-  font-family: "Pretendard-Regular";
+  font-family: 'Pretendard-Regular';
   display: block;
   padding: 10px;
   box-sizing: border-box;
   transition: all 0.3s ease-in-out;
+}
+.writeNewPost {
+  display: none;
 }
 
 ul li a:hover {
@@ -138,7 +138,7 @@ ul li a:hover {
 }
 
 .logoutBtn {
-  font-family: "Pretendard-Regular";
+  font-family: 'Pretendard-Regular';
   color: red;
 }
 
@@ -159,59 +159,21 @@ ul li a:hover {
   .navbarUser {
     display: block;
   }
-  .pcButton {
-    display: none;
-  }
+
   /* 시윤수정: 모바일 드롭다운 */
-  .mobileRightBtn {
-    display: flex;
-    border: none;
-    padding: 5px 10px;
-  }
-  .mobileRightBtn::before {
-    font-family: "Font Awesome 5 Free";
-    content: "\f007";
-    font-size: 20px;
-  }
-
-  .mobileDropdownBtn {
-    border: none;
-    background: none;
-  }
-
-  .mobileDropdownBtn:hover {
-    opacity: 0.7;
-  }
-
-  .mobileDropdownContent {
-    display: none;
-    position: absolute;
-    border: 1px solid;
-    background: #eae7de;
-    margin: 15px 0 0 -70px;
-    width: 120px;
-    z-index: 1;
-  }
-
-  .mobileDropdownContent a {
-    padding: 5px 0;
-    text-decoration: none;
-    display: block;
-  }
-
-  .show {
-    display: block;
-  }
 
   #newPost {
     border: none;
     width: 120px;
     margin: 0;
+    display: none;
   }
   #newPost::before {
-    content: "새글작성";
+    content: '새글작성';
   }
-
+  .writeNewPost {
+    display: block;
+  }
   .btn {
     border: none;
     font-size: 20px;
@@ -222,14 +184,14 @@ ul li a:hover {
   }
 
   .editBtn::before {
-    font-family: "Font Awesome 5 Free";
-    content: "\f044";
+    font-family: 'Font Awesome 5 Free';
+    content: '\f044';
     margin-right: 4px;
   }
 
   .deleteBtn::before {
-    font-family: "Font Awesome 5 Free";
-    content: "\f2ed";
+    font-family: 'Font Awesome 5 Free';
+    content: '\f2ed';
   }
 
   .footer {

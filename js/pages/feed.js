@@ -60,7 +60,7 @@ export const getFeedList = async () => {
   feedObjList.forEach((feedObj, idx) => {
     const isOwner = currentUid === feedObj.creatorId;
     const temp_html = `
-        <div class="card" onclick="goToPost(this)">
+        <div id="${feedObj.id}" class="card" onclick="goToPost(this)">
             <div class="cardUserInfo">
                 <img class="cardProfile" title="${
                   feedObj.nickname

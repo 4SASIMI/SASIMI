@@ -8,11 +8,27 @@ import {
   deleteFeed,
 } from './pages/feed.js';
 import {
-  openEditBoxName, closeEditBoxName, openEditBoxBirth, closeEditBoxBirth,
-  openEditBoxText, closeEditBoxText, changeProfile, onFileChange, openEditBoxLeave, closeEditBoxLeave
-} from "./pages/profile_img.js";
+  openEditBoxName,
+  closeEditBoxName,
+  openEditBoxBirth,
+  closeEditBoxBirth,
+  openEditBoxText,
+  closeEditBoxText,
+  changeProfile,
+  onFileChange,
+  openEditBoxLeave,
+  closeEditBoxLeave,
+} from './pages/profile_img.js';
 // import { savePost } from "./pages/newPost.js"; 추가
-import { saveName, saveBirth, saveText, getBirth, userBirth, getText, userText } from "./pages/profile_text.js";
+import {
+  saveName,
+  saveBirth,
+  saveText,
+  getBirth,
+  userBirth,
+  getText,
+  userText,
+} from './pages/profile_text.js';
 import { leave } from './pages/deleteUser.js';
 import {
   savePost,
@@ -48,8 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
       // ulElementBeforeLogin.classList.remove("active");
       // console.log('user-info: ', user_email);
 
-      postBtn.style.display = 'block';
-
       if (hash === '#login') {
         window.location.replace('');
       }
@@ -71,14 +85,11 @@ window.addEventListener('mouseup', function (event) {
     const dropdown1 = this.document.querySelector('.navbarUserAccountMenu');
     const dropdown2 = this.document.querySelector('.navbarBeforeLogin');
     dropdown1.classList.remove('active');
-    dropdown2.classList.remove('active')
+    dropdown2.classList.remove('active');
   }
   // if (!dropdown2.contains(event.target)) {
   //   dropdown2.classList.remove('active');
   // }
-  if (!mobileDropdown.contains(event.target)) {
-    mobileDropdown.classList.remove('active');
-  }
 });
 
 // type=module, 모듈객체는 지역적으로 밖에 사용 불가. 따라서 윈도우객체에 할당함으로써 전역적으로 사용 가능해짐

@@ -1,5 +1,6 @@
 import { authService } from './firebase.js';
 import { getFeedList } from './pages/feed.js';
+import { getSlide } from './pages/slide.js';
 import {
   getMyPost,
   getPostList,
@@ -42,17 +43,17 @@ export const handleLocation = async () => {
     document.getElementById('profileImg').src =
       authService.currentUser?.profileImg ?? '../assets/blankProfile.webp';
     // 기동 코드 추가
-    // getSlide();
+    getSlide();
     getFeedList();
   }
-  if (path === "profile") {
+  if (path === 'profile') {
     // 프로필 관리 화면 일 때 현재 프로필 사진과 닉네임 할당
-    document.getElementById("image").src =
-        authService.currentUser.photoURL ?? "/assets/blankProfile.webp";
+    document.getElementById('image').src =
+      authService.currentUser.photoURL ?? '/assets/blankProfile.webp';
     getName();
     getBirth();
     getText();
-}
+  }
   if (path == 'post') {
     document.getElementById('nickname').textContent =
       authService.currentUser?.displayName ?? '닉네임 없음';

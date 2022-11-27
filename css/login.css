@@ -134,30 +134,32 @@
 .loginOptionLink:hover {
   color: #f3944c;
 }
+
 /* 반응형-로그인/회원가입*/
 @media (max-width: 768px) {
   .loginPage,
   .registerPage {
+    position: relative;
+    top: 40px;
     box-sizing: border-box;
-    /* margin: 0;
-  padding: 0; */
+    margin: 0 auto;
+    padding: 0;
     border: 0;
     font-size: 100%;
     vertical-align: baseline;
     /* padding: 130px 100px; */
     width: 100%;
-    margin: auto;
   }
 
   #loginWrap,
   #registerWrap {
     width: 100%;
-    padding: 0 30px;
+    padding: 0 40px;
   }
   .loginTitle {
     font-family: "Pretendard-Regular";
     color: black;
-    font-size: 22px;
+    font-size: 5.238vw;
     font-weight: 500;
     line-height: 1.2em;
     margin-bottom: 22px;
@@ -166,8 +168,8 @@
     padding: 24px 30px;
     display: block;
     width: 100%;
-    height: 70px;
-    font-size: 16px;
+    height: 50px;
+    font-size: 14px;
     line-height: normal;
     box-sizing: border-box;
     background-color: #fff;
@@ -181,8 +183,8 @@
   .loginBtnSection,
   .joinBtnSection {
     display: block;
-    margin: 30px 0;
-    padding: 23px 10px;
+    /* margin: 30px 0; */
+    padding: 23px 20px;
     background-color: #2f4858;
     text-align: center;
     cursor: pointer;
@@ -202,9 +204,9 @@
     border: 0px;
     cursor: pointer;
   }
-  #loginBtn:hover {
+  /* #loginBtn:hover {
     color: #f3944c;
-  }
+  } */
   .authInput {
     margin-bottom: 10px;
   }
@@ -215,14 +217,16 @@
   .loginOthers {
     display: block;
     margin-top: 22px;
-    padding: 0 30px;
+    padding: 0 40px;
   }
   .loginSocial.google {
     background-image: url("/assets/img-google.png");
+    background-size: cover;
     cursor: pointer;
   }
   .loginSocial.github {
     background-image: url("/assets/img-github.png");
+    background-size: cover;
     cursor: pointer;
   }
   .loginOthers-list {
@@ -230,16 +234,15 @@
   }
   .loginOthers-item {
     float: left;
-    padding-right: 30px;
+    padding-right: 20px;
     position: relative;
     overflow: hidden;
   }
   .loginSocial {
     display: block;
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
-    background-size: 80px 80px;
   }
   .loginOthers-list:after {
     content: "";
@@ -247,28 +250,27 @@
     clear: both;
   }
   .loginOption {
-    position: relative;
-    left: 30px;
-    display: inline-block;
-    margin-top: 20px;
+    /* width: 100%; */
+    display: block;
+    padding-right: 30px;
     line-height: 0;
-    box-sizing: unset;
+    box-sizing: border-box;
   }
 
   .loginOptionText {
     /* display: inline-block; */
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.2em;
   }
   .loginOptionLink {
-    /* display: inline-block; */
-    margin-left: 10px;
-    font-size: 18px;
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
     /* font-weight: 500; */
     line-height: 1.2em;
     text-decoration: underline;
   }
-  .loginOptionLink:hover {
+  /* .loginOptionLink:hover {
     color: #f3944c;
-  }
+  } */
 }
