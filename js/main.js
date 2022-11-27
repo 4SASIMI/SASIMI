@@ -1,4 +1,5 @@
 import { handleAuth, logout, socialLogin, Toggled } from './pages/login.js';
+import { getBlogList } from './pages/blog.js';
 import { handleLocation, goToProfile, goToPost } from './router.js';
 import { authService } from './firebase.js';
 import {
@@ -142,3 +143,4 @@ window.save_comment = save_comment;
 window.update_comment = update_comment;
 window.commentEditing = commentEditing;
 window.delete_comment = delete_comment;
+window.getBlogList = getBlogList;

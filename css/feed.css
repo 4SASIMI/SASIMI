@@ -3,9 +3,11 @@
 }
 
 /* 피드 */
-#feed {
+/* 동한 myBlog 클래스 추가 */
+#feed,
+#myBlog {
   position: relative;
-  width: 1280px;
+  max-width: 1280px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 320px);
@@ -39,7 +41,7 @@
 }
 
 .loadingSpinner::after {
-  content: "";
+  content: '';
   width: 50px;
   height: 50px;
   border: 10px solid;
@@ -221,7 +223,9 @@
   .slide {
     display: none;
   }
-  #feed {
+  /* 동한 myBlog 클래스 추가 */
+  #feed,
+  #myBlog {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -250,7 +254,7 @@
     padding-bottom: 25px;
   }
   .deleteBtn::before {
-    content: "" !important;
+    content: '' !important;
   }
   .cardProfile {
     width: 40px;

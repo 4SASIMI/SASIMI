@@ -137,6 +137,7 @@
 @media hover {
   .btn:hover {
     background-color: var(--button-hover);
+    color: var(--white-color);
   }
 }
 

@@ -1,6 +1,5 @@
 .loginPage,
 .registerPage {
-  box-sizing: border-box;
   /* margin: 0;
   padding: 0; */
   border: 0;
@@ -18,7 +17,7 @@
   padding: 0 30px;
 }
 .loginTitle {
-  font-family: "Pretendard-Regular";
+  font-family: 'Pretendard-Regular';
   color: black;
   font-size: 22px;
   font-weight: 500;
@@ -32,7 +31,7 @@
   height: 70px;
   font-size: 16px;
   line-height: normal;
-  box-sizing: border-box;
+
   background-color: #fff;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -46,14 +45,15 @@
   display: block;
   margin: 30px 0;
   padding: 23px 10px;
-  background-color: #2f4858;
+  background-color: var(--button-color);
   text-align: center;
   cursor: pointer;
   width: 100%;
+  transition: 0.2s ease-in-out;
 }
 
 #loginBtn {
-  background-color: #2f4858;
+  background-color: transparent;
   margin-top: 10px;
   display: block;
   color: #fff;
@@ -65,14 +65,16 @@
   border: 0px;
   cursor: pointer;
 }
-#loginBtn:hover {
-  color: #f3944c;
-}
+
 .authInput {
   margin-bottom: 10px;
 }
 .authInput > input {
   width: 100%;
+  border: 2px solid var(--border-color);
+}
+.authInput > input:focus-visible {
+  outline: var(--button-hover);
 }
 
 .loginOthers {
@@ -81,11 +83,11 @@
   padding: 0 30px;
 }
 .loginSocial.google {
-  background-image: url("/assets/img-google.png");
+  background-image: url('/assets/img-google.png');
   cursor: pointer;
 }
 .loginSocial.github {
-  background-image: url("/assets/img-github.png");
+  background-image: url('/assets/img-github.png');
   cursor: pointer;
 }
 .loginOthers-list {
@@ -105,17 +107,15 @@
   background-size: 80px 80px;
 }
 .loginOthers-list:after {
-  content: "";
+  content: '';
   display: block;
   clear: both;
 }
 .loginOption {
-  position: relative;
-  left: 30px;
+  padding: 0 40px;
   display: inline-block;
   margin-top: 20px;
   line-height: 0;
-  box-sizing: unset;
 }
 
 .loginOptionText {
@@ -131,19 +131,13 @@
   line-height: 1.2em;
   text-decoration: underline;
 }
-.loginOptionLink:hover {
-  color: #f3944c;
-}
 
-/* 반응형-로그인/회원가입*/
+/* 諛섏쓳��-濡쒓렇��/�뚯썝媛���*/
 @media (max-width: 768px) {
   .loginPage,
   .registerPage {
-    position: relative;
-    top: 40px;
-    box-sizing: border-box;
     margin: 0 auto;
-    padding: 0;
+    padding: 40px 0 0;
     border: 0;
     font-size: 100%;
     vertical-align: baseline;
@@ -157,8 +151,7 @@
     padding: 0 40px;
   }
   .loginTitle {
-    font-family: "Pretendard-Regular";
-    color: black;
+    font-family: 'Pretendard-Regular';
     font-size: 5.238vw;
     font-weight: 500;
     line-height: 1.2em;
@@ -171,8 +164,7 @@
     height: 50px;
     font-size: 14px;
     line-height: normal;
-    box-sizing: border-box;
-    background-color: #fff;
+    background-color: var(--white-color);
     text-overflow: ellipsis;
     white-space: nowrap;
   }
@@ -182,20 +174,13 @@
   }
   .loginBtnSection,
   .joinBtnSection {
-    display: block;
-    /* margin: 30px 0; */
-    padding: 23px 20px;
-    background-color: #2f4858;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
+    padding: 15px 10px;
   }
 
   #loginBtn {
-    background-color: #2f4858;
     margin-top: 10px;
     display: block;
-    color: #fff;
+    color: var(--white-color);
     font-size: 18px;
     font-weight: 500;
     line-height: 1.4em;
@@ -204,9 +189,7 @@
     border: 0px;
     cursor: pointer;
   }
-  /* #loginBtn:hover {
-    color: #f3944c;
-  } */
+
   .authInput {
     margin-bottom: 10px;
   }
@@ -220,12 +203,12 @@
     padding: 0 40px;
   }
   .loginSocial.google {
-    background-image: url("/assets/img-google.png");
+    background-image: url('/assets/img-google.png');
     background-size: cover;
     cursor: pointer;
   }
   .loginSocial.github {
-    background-image: url("/assets/img-github.png");
+    background-image: url('/assets/img-github.png');
     background-size: cover;
     cursor: pointer;
   }
@@ -245,16 +228,15 @@
     border-radius: 100%;
   }
   .loginOthers-list:after {
-    content: "";
+    content: '';
     display: block;
     clear: both;
   }
   .loginOption {
-    /* width: 100%; */
+    width: 100%;
     display: block;
     padding-right: 30px;
     line-height: 0;
-    box-sizing: border-box;
   }
 
   .loginOptionText {
@@ -270,7 +252,11 @@
     line-height: 1.2em;
     text-decoration: underline;
   }
-  /* .loginOptionLink:hover {
-    color: #f3944c;
-  } */
+}
+
+@media (hover: hover) {
+  .loginBtnSection:hover,
+  .joinBtnSection:hover {
+    background-color: var(--button-hover);
+  }
 }

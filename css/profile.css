@@ -8,71 +8,91 @@
 a {
   text-decoration: none;
 }
-
 #profile {
-  max-width: 1360px;
-  margin: 0 auto 8rem auto;
-  padding: 0 5% 0 5%;
+  width: 900px;
+  height: auto;
+  margin: 70px auto;
+}
+.profileArea {
+  display: flex;
+  justify-content: center;
+  border: 1px solid;
+  padding: 30px 20px;
 }
 
 #profileImageForm {
-  border: 1px solid #051619;
-  border-top: 0;
-
-  padding: 1.5rem 2rem;
-
-  margin-bottom: 1.5rem;
+  width: 500px;
+  border: none !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 40px 0 0 !important;
 }
 
 #profileImageForm > img {
   width: 250px;
   height: 250px;
-
   border: 1px solid #051619;
   border-radius: 5px;
-
   margin-bottom: 1rem;
 }
 
-#profileBtn {
-  margin-top: 1rem;
+.uploadProfile {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
 
-  background-color: var(--button-color);
-  color: var(--white-color);
+#imgUpload {
+  width: 100%;
+}
+
+#profileBtn {
+  background-color: none;
+  color: #051619;
   border: none;
-  padding: 5px 10px;
+  margin-left: auto;
+}
+
+#intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .boxs {
-  border: 1px solid #051619;
-  margin-bottom: -1px;
-
-  padding: 0.5rem 2rem;
-
+  border-bottom: 1px solid #051619;
+  padding-bottom: 3px;
   display: flex;
-  flex-direction: row;
   align-items: center;
 }
 
 .boxs > h2 {
-  flex-basis: 20%;
+  width: 90px;
+  font-size: 20px;
 }
 
 .boxs > div {
   flex-basis: 80%;
 }
 
+#introText {
+  width: 98%;
+}
+
 .textFieldInput {
-  width: 20%;
-
+  width: 90%;
   font: inherit;
-
   padding: 10px 0 10px 10px;
   margin-bottom: 10px;
 }
 
-#intro {
-  line-height: 150%;
+#textComment {
+  width: 90% !important;
+  height: 200px;
+  word-break: break-all;
+  word-wrap: break-word;
 }
 
 #profileImageForm {
@@ -83,13 +103,28 @@ a {
 .buttonField > button {
   background-color: var(--button-color);
   color: var(--white-color);
-
   margin-right: 5px;
   padding: 5px 10px;
 }
 
 @media (max-width: 768px) {
+  #profile {
+    width: 414px;
+    margin: 0 auto;
+  }
+  .profileArea {
+    display: flex;
+    flex-direction: column;
+    border: none;
+  }
+  #profileImageForm {
+    justify-content: center;
+    width: 100%;
+  }
+  #introText {
+    width: 97%;
+  }
   .textFieldInput {
-    width: 120px;
+    width: 90%;
   }
 }

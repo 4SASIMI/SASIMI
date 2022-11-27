@@ -9,14 +9,18 @@
 import {
   deleteUser,
   reauthenticateWithCredential,
-  EmailAuthProvider
+  EmailAuthProvider,
 } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js';
 import { authService } from '../firebase.js';
 
 export const leave = async (event) => {
   event.preventDefault();
   // const user = authService.currentUser;
-  if (window.confirm('정말 탈퇴하시겠습니까? 탈퇴 후에도 내가 쓴 게시물은 계속 남아있습니다.')) {
+  if (
+    window.confirm(
+      '정말 탈퇴하시겠습니까? 탈퇴 후에도 내가 쓴 게시물은 계속 남아있습니다.'
+    )
+  ) {
     // They clicked Yes
     console.log('user 탈퇴');
 

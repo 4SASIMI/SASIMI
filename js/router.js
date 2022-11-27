@@ -1,6 +1,7 @@
 import { authService } from './firebase.js';
 import { getFeedList } from './pages/feed.js';
 import { getSlide } from './pages/slide.js';
+import { getBlogList } from './pages/blog.js';
 import {
   getMyPost,
   getPostList,
@@ -18,6 +19,7 @@ const routes = {
   login: '/pages/login.html',
   profile: '/pages/profile.html',
   post: '/pages/post.html',
+  blog: '/pages/blog.html',
 };
 
 export const handleLocation = async () => {
@@ -85,6 +87,9 @@ export const handleLocation = async () => {
     //   const deleteBtn = document.querySelector('.postDeleteBtn');
     //   if(deleteBtn === '삭제')
     // }
+  }
+  if (path == 'blog') {
+    getBlogList();
   }
 };
 

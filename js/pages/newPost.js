@@ -96,25 +96,18 @@ export const deletePost = async (event) => {
 };
 
 export const getPostList = async () => {
-  let postObjList = [];
-  const q = query(collection(dbService, 'posts'), orderBy('createdAt', 'desc'));
-  const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((doc) => {
-    const postObj = {
-      id: doc.id,
-      ...doc.data(),
-    };
-    postObjList.push(postObj);
-  });
-
+  const docID = localStorage.getItem('docID');
+  const docRef = doc(dbService, 'posts', docID);
+  const docSnap = await getDoc(docRef);
+  const postObj = {
+    id: docID,
+    ...docSnap.data(),
+  };
   const postList = document.getElementById('postList');
   const currentUid = authService.currentUser?.uid;
-
   postList.innerHTML = '';
-  postObjList.forEach((postObj) => {
-    const isOwner = currentUid === postObj.creatorId;
-    const isPost = postObj.id === localStorage.getItem('docID');
-    const temp_html = `<div class="postWrap" id="${postObj.id}">
+  const isOwner = currentUid === postObj.creatorId;
+  const temp_html = `<div class="postWrap" id="${postObj.id}">
                         <div class="postTitle">
                           <h2>${postObj.title}</h2>
                           <span class="postDate">${new Date(postObj.createdAt)
@@ -129,7 +122,6 @@ export const getPostList = async () => {
                                 <textarea class="writePost" placeholder="제목" id="post">${
                                   postObj.text
                                 }</textarea><button class="updateBtn btn" onclick="updatePost(event)">완료</button></p>
-                          
                         </div>
                         <div class="postProfile">
                           <img class="profileImg" width="50px" height="50px" src="${
@@ -148,15 +140,10 @@ export const getPostList = async () => {
                           </div>
                         </div>
                       </div>`;
-
-    const div = document.createElement('div');
-    div.classList.add('myPost');
-    div.innerHTML = temp_html;
-
-    if (isPost) {
-      postList.appendChild(div);
-    }
-  });
+  const div = document.createElement('div');
+  div.classList.add('myPost');
+  div.innerHTML = temp_html;
+  postList.appendChild(div);
 };
 
 export const getMyPost = async () => {

@@ -68,7 +68,9 @@ export const getFeedList = async () => {
       feedObj.profileImg ?? '../assets/blankProfile.webp'
     }"/>
                 <div class="${isOwner ? 'delete' : 'noDisplay'}">
-                    <a name="${feedObj.id}" onclick="deleteFeed(event)" class="deleteBtn">del</a>
+                    <a name="${
+                      feedObj.id
+                    }" onclick="deleteFeed(event)" class="deleteBtn">del</a>
                 </div>
             </div>
             <div class="cardTitle" title="${feedObj.title}">
@@ -143,10 +145,10 @@ export const deleteFeed = async (event) => {
     try {
       await deleteDoc(doc(dbService, 'posts', id));
       getFeedList();
-      console.log("피드에서 게시글 삭제 성공")
+      console.log('피드에서 게시글 삭제 성공');
     } catch (error) {
       alert(error);
-      console.log("피드에서 게시글 삭제 실패")
+      console.log('피드에서 게시글 삭제 실패');
     }
   }
 };
