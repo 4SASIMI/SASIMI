@@ -256,8 +256,8 @@ export const commentEditing = (event) => {
   udBtns.forEach((udBtn) => (udBtn.disabled = 'true'));
 
   const cardBody = event.target.parentNode.parentNode;
-  const commentText = cardBody.children[0].children[0];
-  const commentInputP = cardBody.children[0].children[1];
+  const commentText = cardBody.children[0];
+  const commentInputP = cardBody.children[1];
   const udBtnGroup = event.target.parentNode;
 
   commentText.classList.add('noDisplay');
@@ -307,7 +307,7 @@ export const getCommentList = async () => {
   const docID = localStorage.getItem('docID');
   const q = query(
     collection(dbService, 'comments'),
-    orderBy('createdAt', 'desc'),
+    orderBy('createdAt'),
     where('docID', '==', docID)
   );
   const querySnapshot = await getDocs(q);
@@ -339,13 +339,13 @@ export const getCommentList = async () => {
     }</span></div><div class="cmtAt">${new Date(cmtObj.createdAt)
       .toString()
       .slice(0, 25)}</div></footer>
+      <div class="${isOwner ? 'updateBtns' : 'noDisplay'}">
+           <button onclick="commentEditing(event)" class="editBtn btn btn-dark">수정</button>
+        <button name="${
+          cmtObj.id
+        }" onclick="delete_comment(event)" class="deleteBtn btn btn-dark">삭제</button>
+      </div>            
               </div>
-              <div class="${isOwner ? 'updateBtns' : 'noDisplay'}">
-                   <button onclick="commentEditing(event)" class="editBtn btn btn-dark">수정</button>
-                <button name="${
-                  cmtObj.id
-                }" onclick="delete_comment(event)" class="deleteBtn btn btn-dark">삭제</button>
-              </div>            
             </div>
      </div>`;
     const div = document.createElement('div');

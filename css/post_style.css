@@ -197,14 +197,7 @@
 .commentCardBody {
   position: relative;
 }
-.updateBtns {
-  position: absolute;
-  top: 10px;
-  right: 0;
-}
-.updateBtn {
-  float: right;
-}
+
 .newCmtInput {
   background-color: transparent;
   width: 100%;
@@ -242,7 +235,8 @@ footer.comment-footer {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .cmtAt {
@@ -260,4 +254,10 @@ footer.comment-footer {
 }
 .yesDisplay {
   display: block;
+}
+
+@media screen and (max-width: 480px) {
+  .updateBtns {
+    text-align: center;
+  }
 }
